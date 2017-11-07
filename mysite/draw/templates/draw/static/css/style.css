@@ -545,17 +545,17 @@ ul.social-circle li a i.break{
     margin: 0;
     padding: 10px;
     background-color: #eeeeee;
-    border: 1px solid #ddd;
+    border: 1px solid #b5b5b5;
     text-align: center;
 }
 .doe p{
     margin: 0;
-    padding:10px;
+    padding:11.8px;
     color: #2a292c;
     background-color: white;
     border: 1px;
     border-style: none solid solid;
-    border-color: #ddd;
+    border-color: #b5b5b5;
 }
 .doe input{
     width: 100%;
@@ -567,7 +567,7 @@ ul.social-circle li a i.break{
     background-color: #eeeeee;
     border: 1px;
     border-style: none solid solid;
-    border-color: #ddd;
+    border-color: #b5b5b5;
     font-size: 18px;
 }
 .doe input:hover{
