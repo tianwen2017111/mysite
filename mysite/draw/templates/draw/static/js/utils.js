@@ -1,6 +1,7 @@
 var important_nodes = [];
 var MAX_GROUP = 40;
-var svg_center = {x:480, y:320};
+var svg_center = {x:480, y:320};  /*绘图空间中心位置坐标*/
+/*IPv4地址的正则表达式*/
 var ip_ret = /^((?:(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d))))$/;
 var color = new Array();
 var IMP_C = [],
@@ -266,7 +267,7 @@ $(document).ready(function(){
     });
 });
 
-
+/*绘图程序*/
 function graph_show(django_data){
     $(document).ready(function(){
         clustering = django_data['clustering'];
@@ -310,16 +311,15 @@ function graph_show(django_data){
     });
 }
 
-
+/*设置核心节点，放进IMP_C数组中*/
 function set_IMP_C(imp_node, clustering, graph_nodes){
     var temp_IMP_C;
-//    console.log(imp_node);
     $.each(graph_nodes,function(idx,item){
         if(item.label == imp_node){
             temp_IMP_C = clustering[idx];
         }
     });
-//    console.log(temp_IMP_C);
+    console.log(temp_IMP_C);
     if(temp_IMP_C == undefined){
         alert("无此节点，请重新输入");
     }else{
@@ -359,7 +359,6 @@ $(document).ready(function(){
     });
 });
 
-//function data_manage(){
 $(document).ready(function(){
     var td_obj;
     $("#data_manage").click(function(){
@@ -392,7 +391,6 @@ $(document).ready(function(){
 
     });
 });
-//}
 
 //标准化图的格式
 function std_graph(Graph){
@@ -430,6 +428,7 @@ function std_graph(Graph){
     return graph;
 };
 
+//为原始图设置属性
 function parent_add_attr(G_parent, clustering, label){
     std_G_parent = std_graph(G_parent);
     clustering_arr = obj_to_arr(clustering);
@@ -450,6 +449,7 @@ function parent_add_attr(G_parent, clustering, label){
     return std_G_parent;
 }
 
+//提取每一组IP地址的相同段位
 function get_common_seg(G, clustering){
     var nodes_label = [];
     var choose_ip_seg = Number($(":radio[name='choose_ip_seg']:checked").val());
@@ -475,6 +475,7 @@ function plot_sub_graph(svg_id, sub_graph_id){
 //    test(sub_graph, clustering, svg_id)
 }
 
+//统计节点一共被划分成多少组
 function count_group_number(nodes){
     var nodes_group = new Array();
         group_number = 0;
@@ -510,6 +511,7 @@ function arrCheck(arr){
     return item_arr;
 }
 
+//将json对象转化为数组
 function obj_to_arr(obj){
     var arr = [];
     for(var key in obj){
@@ -538,21 +540,7 @@ function set_color(color_number){
     return color;
 }
 
-function create_table(table_info){
-    var tr = $(".nodes_tr");
-
-    $.each(table_info, function(index, item){
-        var tr = $("<tr></tr>");
-        tr.attr("align","center");
-        tr.appendTo($(".nodes_list"));
-        var td_index = $("<td>" + index + "</td>");
-        var td_ip = $("<td>" + item.label + "</td>");
-        td_index.appendTo(tr);
-        td_ip.appendTo(tr);
-    });
-}
-
-/*------交换json对象中的元素--------
+/*------交换json对象中的元素位置--------
 --------应用场景：交换核心节点和视图中心节点的类别，以将核心节点显示在图中央*/
 function swap(obj, item1, item2){
 
@@ -576,6 +564,7 @@ function swap(obj, item1, item2){
     return new_obj
 }
 
+/*交换数组中的两个元素位置*/
 function swap_arr(arr, item1, item2){
     var new_arr = $.extend(true, [], arr);
     var temp = new_arr[item1];
@@ -584,6 +573,7 @@ function swap_arr(arr, item1, item2){
     return new_arr;
 }
 
+/*计算图中每个节点的位置坐标*/
 function get_foci(m){
     var foci = [],
         m_sqrt = Math.ceil(Math.sqrt(m));
