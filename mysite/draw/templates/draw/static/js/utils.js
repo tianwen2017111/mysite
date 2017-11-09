@@ -200,6 +200,7 @@ $(document).ready(function(){
         }
     });
 
+    /*----------节点删减-----------*/
     $(".pop-body input.btn.submit").click(function(){
 
         var $this = $(this);
@@ -265,7 +266,18 @@ $(document).ready(function(){
             });
         }
     });
+
+    /*---------关闭或刷新页面时，对更改文件的保存--------*/
+
+
+
 });
+
+function checkLeave(){
+		event.returnValue = "是否保存更改？";
+		$.get('/draw/home/',{if_close:'CLOSE_PAGE'});
+		console.log("close");
+	}
 
 /*绘图程序*/
 function graph_show(django_data){
@@ -307,7 +319,6 @@ function graph_show(django_data){
             $("#svg_sub_graph").hide();
             $("#svg_sub_graph").text("");
         });
-    create_table(std_G.nodes);
     });
 }
 
