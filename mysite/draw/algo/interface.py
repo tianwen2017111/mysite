@@ -83,7 +83,7 @@ def checkIpInfo(request):
 
 
 #------------"查询节点"功能---------
-def check_node(G, node_label, hop):
+def search_node(G, node_label, hop):
     # import networkx as nx
     result = ''
     nbunch = dict()

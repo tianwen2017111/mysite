@@ -2,25 +2,28 @@ var width = 960, height = 640, shiftKey, ctrlKey;
 var xScale = d3.scale.linear().domain([0,width]).range([0,width]);
 var yScale = d3.scale.linear().domain([0,height]).range([0, height]);
 var foci = [];
-function swap_foci(foci, svg_center, IMP_C){
-    console.log(IMP_C);
-    if(IMP_C){
-        for(var i=0; i<IMP_C.length ;i++){
-            console.log("i:  " + i);
-            var skew = Math.floor((i+1)/2);
-            console.log("svg_center:  " + svg_center);
-            console.log("skew:  " + skew);
-            console.log("IMP_C[i]:  " + IMP_C[i]);
-            if(i % 2 == 0){
-                foci = swap_arr(foci, svg_center-skew, IMP_C[i]);
-            }
-            if(i % 2 == 1){
-                foci = swap_arr(foci, svg_center+skew, IMP_C[i]);
+$(document).ready(function(){
+    function swap_foci(foci, svg_center, IMP_C){
+        console.log("__func__ : swap_foci(), " + "important node list: " + IMP_C);
+        if(IMP_C){
+            for(var i=0; i<IMP_C.length ;i++){
+                console.log("i:  " + i);
+                var skew = Math.floor((i+1)/2);
+                console.log("svg_center:  " + svg_center);
+                console.log("skew:  " + skew);
+                console.log("IMP_C[i]:  " + IMP_C[i]);
+                if(i % 2 == 0){
+                    foci = swap_arr(foci, svg_center-skew, IMP_C[i]);
+                }
+                if(i % 2 == 1){
+                    foci = swap_arr(foci, svg_center+skew, IMP_C[i]);
+                }
             }
         }
+        return foci;
     }
-    return foci;
-}
+})
+
 //绘图函数
 function selectableForceDirectedGraph(Graph, svg_id) {
     graph = Graph;
@@ -144,8 +147,6 @@ function selectableForceDirectedGraph(Graph, svg_id) {
         return i % 2 == 0 ? "" : d.node.label
     }).style("fill", "#555").style("font-family", "Arial").style("font-size", 12);
 
-//    console.log(labelAnchorLinks);
-//    console.log(labelAnchors);
     var updateLink = function() {
         this.attr("x1", function(d) {return d.source.x;})
             .attr("y1", function(d) {return d.source.y;})
@@ -245,14 +246,14 @@ function selectableForceDirectedGraph(Graph, svg_id) {
     });
 
     function brushstart(d){
-    console.log("brushstart()");
+//    console.log("brushstart()");
     node.each(function(d) {
         d.previouslySelected = shiftKey && d.selected;
         });
 }
 
     function brush(d){
-        console.log("brush()");
+//        console.log("brush()");
         var extent = d3.event.target.extent();
             node.classed("selected", function(d) {
                 return d.selected = d.previouslySelected ^
@@ -262,13 +263,13 @@ function selectableForceDirectedGraph(Graph, svg_id) {
     }
 
     function brushend(){
-        console.log("brushed()");
+//        console.log("brushed()");
         d3.event.target.clear();
         d3.select(this).call(d3.event.target);
     }
 
     function zoomstart() {
-        console.log("zoomstart()");
+//        console.log("zoomstart()");
         node.each(function(d) {
             d.selected = false;
             d.previouslySelected = false;
@@ -277,13 +278,13 @@ function selectableForceDirectedGraph(Graph, svg_id) {
     }
 
     function redraw() {
-        console.log("redraw()");
+//        console.log("redraw()");
         vis.attr("transform",
                  "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")");
     }
 
     function dragstarted(d) {
-        console.log("dragstart()");
+//        console.log("dragstart()");
         d3.event.sourceEvent.stopPropagation();
         if (!d.selected && !shiftKey) {
             // if this node isn't selected, then we have to unselect every other node
@@ -297,7 +298,7 @@ function selectableForceDirectedGraph(Graph, svg_id) {
     }
 
     function dragged(d) {
-        console.log("dragged()");
+//        console.log("dragged()");
         node.filter(function(d) { return d.selected; })
         .each(function(d) {
             d.x += d3.event.dx;
@@ -312,7 +313,7 @@ function selectableForceDirectedGraph(Graph, svg_id) {
     }
 
     function dragended(d) {
-        console.log("dragended()");
+//        console.log("dragended()");
         node.filter(function(d) { return d.selected; })
         force.stop();
     }
@@ -344,7 +345,7 @@ function selectableForceDirectedGraph(Graph, svg_id) {
     }
 
     function keyup() {
-        console.log("keyup()");
+//        console.log("keyup()");
         shiftKey = d3.event.shiftKey || d3.event.metaKey;
         ctrlKey = d3.event.ctrlKey;
 
@@ -373,36 +374,7 @@ function multi_force(Graph, clustering, svg_id, special_nodes){
     var svg_center = Math.floor((Math.ceil(Math.sqrt(m)) * Math.ceil(Math.sqrt(m)))/2);
 
     foci = swap_foci(foci, svg_center, IMP_C);
-//    if(IMP_C){
-//        for(var i=0; i<IMP_C.length ;i++){
-//            var skew = Math.floor(i/2);
-//            if(i % 2 == 0){
-//                foci = swap_arr(foci, svg_center-skew, IMP_C[IMP_C.length-1]);
-//            }
-//            if(i % 2 == 1){
-//                foci = swap_arr(foci, svg_center+skew, IMP_C[IMP_C.length-1]);
-//            }
-//        }
-//    }
 
-/*
-    if(IMP_C.length > 0){
-        if(IMP_C.length == 1){
-            foci = swap_arr(foci, svg_center, IMP_C[0]);
-        }else{
-            var skew = Math.floor(IMP_C.length/2);
-            console.log("skew:  " + skew);
-            if(IMP_C.length % 2 == 0){
-                console.log("偶数");
-                foci = swap_arr(foci, svg_center-skew, IMP_C[IMP_C.length-1]);
-            }
-            if(IMP_C.length % 2 == 1){
-                console.log("奇数");
-                foci = swap_arr(foci, svg_center+skew, IMP_C[IMP_C.length-1]);
-            }
-        }
-    }
-*/
     var svg = d3.select("#".concat(svg_id)).attr("tabindex", 1)
         .on("keydown.brush", keydown)
         .on("keyup.brush", keyup)
@@ -726,28 +698,4 @@ function show_link_info(d){
         $("#weight").text("权重: " + d.weight);
     });
 }
-
-//function get_foci(m){
-//    var foci = [],
-//        m_sqrt = Math.ceil(Math.sqrt(m));
-//    var x_arr = [], y_arr = [];
-//
-//    var x_min = y_min = 100;
-//    var x_step = Math.ceil(svg_center.x / m_sqrt *2),
-//        y_step = Math.ceil(svg_center.y / m_sqrt *2);
-//    for(var i=0; i<m_sqrt; i++){
-//        x_arr.push(x_min);
-//        x_min += x_step;
-//        y_arr.push(y_min);
-//        y_min += y_step;
-//    }
-//
-//    for(var i=0; i<m_sqrt; i++){
-//        for(var j=0; j<m_sqrt; j++){
-//            tmp = {x: x_arr[j], y:y_arr[i]};
-//            foci.push(tmp);
-//        }
-//    }
-//    return foci;
-//}
 

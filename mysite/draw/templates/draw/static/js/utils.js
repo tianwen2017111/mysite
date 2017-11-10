@@ -6,12 +6,13 @@ var ip_ret = /^((?:(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(?:25[0-5]|2[
 var color = new Array();
 var IMP_C = [],
     IMP_node;
+var fileChanged = false;
 
 $(document).ready(function(){
 
     if(django_data == ""){
         $("#plot_graph_btn, #plot_hierarchic_btn, #settings_submit_btn, #search_submit_btn, #filter_submit_btn").click(function(){
-            console.log("graph errors");
+            console.log("No file errors!");
             alert("请先上传文件");
         });
     }
@@ -70,7 +71,8 @@ $(document).ready(function(){
             $("#sql_info").text("请先上传文件");
         }else{
             var request_data = {};
-            request_data['check_ip'] = $("#node_label").text().slice(3,this.length);
+            request_data['check_ip'] = $("#node_label").text().slice(5,this.length);
+            console.log("__Do__ : more_information   " + "IP: " + request_data['check_ip']);
             $.get('/draw/home/', request_data, function(data){
                 $("#sql_info").text(data["info"]);
             });//向后台发送数据
@@ -95,7 +97,7 @@ $(document).ready(function(){
         else if(ip_ret.test(search_input)){
             search_data['search_ip'] = search_input;
             search_data['hop'] = $("input[name='hop']").val();
-            console.log(search_data)
+            console.log("__Do__ : search_ip" + ", search : " +search_data['search_ip'] + ", hop : " + search_data['hop']);
 
             $.post('/draw/home/', search_data, function(data){
                 if(data['search_result'] == ''){
@@ -131,6 +133,7 @@ $(document).ready(function(){
             $prev_span.addClass("msg onError").text(errorMsg);
         }else if(filter_pattern.test(filter_input)){
             filter_request['filter_condition'] = filter_input;
+            console.log("__Do__ : filter nodes, filter_condition " + filter_input);
             $.post('/draw/home/', filter_request, function(data){
                 if(data['filter_result'] == ''){
                     alert('无匹配项， 请重新输入');
@@ -249,6 +252,7 @@ $(document).ready(function(){
                     alert(data['error']);
                 }
                 else{
+                    fileChanged = true;
                     $('.popover-mask').fadeOut(100);
                     $this.closest('.md-popover').slideUp(200);
                     var django_data = {
@@ -274,10 +278,14 @@ $(document).ready(function(){
 });
 
 function checkLeave(){
-		event.returnValue = "是否保存更改？";
-		$.get('/draw/home/',{if_close:'CLOSE_PAGE'});
-		console.log("close");
-	}
+    console.log("__func__: checkLeave()");
+
+    console.log("fileChanged: " + fileChanged);
+    if(fileChanged){
+        event.returnValue = "是否保存更改？";
+        $.get('/draw/home/',{if_close:'CLOSE_PAGE'});
+    }
+}
 
 /*绘图程序*/
 function graph_show(django_data){
@@ -370,38 +378,36 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
-    var td_obj;
-    $("#data_manage").click(function(){
-
-        $("tr").contextmenu(function(e){
-            var $this = $(this);
-            $this.addClass("tr_selected").addClass("selected").siblings().removeClass("selected").removeClass("tr_selected");
-
-            var $td_ip =$this.children('td:eq(1)');
-            $(".table_popover").show().css({
-                'top':e.pageY+'px',
-                'left':e.pageX+'px'
-            });
-            td_obj = $td_ip;
-            return false;
-        });
-
-        $(".table_popover .remove").click(function(){
-            $(".table_popover").hide();
-
-            var status = confirm('确定删除节点' + td_obj.text() + '吗？');
-            if(!status){
-                return false;
-            }
-            else{
-                td_obj.html("");
-            }
-        });//end click
-
-
-    });
-});
+//$(document).ready(function(){
+//    var td_obj;
+//    $("#data_manage").click(function(){
+//
+//        $("tr").contextmenu(function(e){
+//            var $this = $(this);
+//            $this.addClass("tr_selected").addClass("selected").siblings().removeClass("selected").removeClass("tr_selected");
+//
+//            var $td_ip =$this.children('td:eq(1)');
+//            $(".table_popover").show().css({
+//                'top':e.pageY+'px',
+//                'left':e.pageX+'px'
+//            });
+//            td_obj = $td_ip;
+//            return false;
+//        });
+//
+//        $(".table_popover .remove").click(function(){
+//            $(".table_popover").hide();
+//
+//            var status = confirm('确定删除节点' + td_obj.text() + '吗？');
+//            if(!status){
+//                return false;
+//            }
+//            else{
+//                td_obj.html("");
+//            }
+//        });//end click
+//    });
+//});
 
 //标准化图的格式
 function std_graph(Graph){

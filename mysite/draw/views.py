@@ -5,8 +5,8 @@ from django.http import HttpResponse
 import os, json
 from .forms import UploadFileForm
 from .models import UploadFile
-from mycode import graphUtils as gu
-from mycode.interface import *
+from algo import graphUtils as gu
+from algo.interface import *
 
 
 def home(request):
@@ -86,7 +86,7 @@ def home(request):
             # G = request.session['G']
             ip = request.POST['search_ip']
             hop = int(request.POST['hop'])
-            search_result = {"search_result": check_node(G, ip, hop)}
+            search_result = {"search_result": search_node(G, ip, hop)}
             return HttpResponse(json.dumps(search_result), content_type="application/json")
 
 
@@ -176,7 +176,7 @@ def manage_response(request):
             my_context = {"error": result['error']}
         elif 'G' in result.keys():
             new_G = result['G']
-            temp_fp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'mycode', 'temp.gml')
+            temp_fp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'algo', 'temp.gml')
             nx.write_gml(result['G'], temp_fp)
 
             request.session['file_path'] = temp_fp
