@@ -2,7 +2,7 @@ var width = 960, height = 640, shiftKey, ctrlKey;
 var xScale = d3.scale.linear().domain([0,width]).range([0,width]);
 var yScale = d3.scale.linear().domain([0,height]).range([0, height]);
 var foci = [];
-$(document).ready(function(){
+//$(document).ready(function(){
     function swap_foci(foci, svg_center, IMP_C){
         console.log("__func__ : swap_foci(), " + "important node list: " + IMP_C);
         if(IMP_C){
@@ -22,7 +22,7 @@ $(document).ready(function(){
         }
         return foci;
     }
-})
+
 
 //绘图函数
 function selectableForceDirectedGraph(Graph, svg_id) {
@@ -698,4 +698,4 @@ function show_link_info(d){
         $("#weight").text("权重: " + d.weight);
     });
 }
-
+//})
