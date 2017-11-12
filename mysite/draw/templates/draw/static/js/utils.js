@@ -494,6 +494,7 @@ function plot_sub_graph(svg_id, sub_graph_id){
 
 //统计节点一共被划分成多少组
 function count_group_number(nodes){
+//    console.log("__func__ : count_group_number()");
     var nodes_group = new Array();
         group_number = 0;
     for(var i=0; i<nodes.length; i++){
@@ -508,6 +509,7 @@ function count_group_number(nodes){
 
 //统计数组元素出现的次数
 function arrCheck(arr){
+//    console.log("__func__ : arrCheck()");
     var item = {};
     var item_arr = [];
     for(var i=0; i<arr.length; i++){
@@ -530,6 +532,7 @@ function arrCheck(arr){
 
 //将json对象转化为数组
 function obj_to_arr(obj){
+//    console.log("__func__ : obj_to_arr()");
     var arr = [];
     for(var key in obj){
         arr.push(obj[key]);
@@ -539,6 +542,7 @@ function obj_to_arr(obj){
 
 /*添加颜色*/
 function set_color(color_number){
+//    console.log("__func__ : set_color()");
     var color = [];
      if(color_number>MAX_GROUP){
         for(var i=0;i<MAX_GROUP; i++){
@@ -560,7 +564,7 @@ function set_color(color_number){
 /*------交换json对象中的元素位置--------
 --------应用场景：交换核心节点和视图中心节点的类别，以将核心节点显示在图中央*/
 function swap(obj, item1, item2){
-
+//    console.log("__func__ : swap()");
     var item1_id = [];
     var item2_id = [];
     var new_obj = $.extend(true, {}, obj)
@@ -583,6 +587,7 @@ function swap(obj, item1, item2){
 
 /*交换数组中的两个元素位置*/
 function swap_arr(arr, item1, item2){
+//    console.log("__func__ : swap_arr()");
     var new_arr = $.extend(true, [], arr);
     var temp = new_arr[item1];
     new_arr[item1] = new_arr[item2];
@@ -592,6 +597,7 @@ function swap_arr(arr, item1, item2){
 
 /*计算图中每个节点的位置坐标*/
 function get_foci(m){
+//    console.log("__func__ : get_foci()");
     var foci = [],
         m_sqrt = Math.ceil(Math.sqrt(m));
     var x_arr = [], y_arr = [];

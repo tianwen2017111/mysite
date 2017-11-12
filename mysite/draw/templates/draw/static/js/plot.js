@@ -4,7 +4,7 @@ var yScale = d3.scale.linear().domain([0,height]).range([0, height]);
 var foci = [];
 //$(document).ready(function(){
     function swap_foci(foci, svg_center, IMP_C){
-        console.log("__func__ : swap_foci(), " + "important node list: " + IMP_C);
+//        console.log("__func__ : swap_foci(), " + "important node list: " + IMP_C);
         if(IMP_C){
             for(var i=0; i<IMP_C.length ;i++){
                 console.log("i:  " + i);
