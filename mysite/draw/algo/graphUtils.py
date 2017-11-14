@@ -1,5 +1,7 @@
 # -*- coding:utf8-*-
-
+import networkx as nx
+import sys
+LOG_TAG = "graphUtils"
 
 def map_vtx_to_label(clustering):
     """将每个元素所在类别映射成其类别标签（相当于将聚类中心映射成类别标签）"""
@@ -71,6 +73,7 @@ def get_keys(d, value):
 
 def is_ip(ip):
     """判断是否为标准的ip地址表达式"""
+    # print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     try:
         import re
     except ImportError:
@@ -83,6 +86,8 @@ def is_ip(ip):
 
 
 def compute_weight(G, bunch1, bunch2):
+    # print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
+
     """
     计算图中bunch1和bunch2之间边的个数
     :param bunch1: list of nodes
@@ -100,14 +105,24 @@ def compute_weight(G, bunch1, bunch2):
 
 
 def find_node_id(G, ip):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     for id in G.nodes():
         node = G.node[id]
         if node['label'] == ip:
             return id
 
+def check_edge_exist(G, source, target):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
+    source_neighbors = [n for n in nx.all_neighbors(G, source)]
+    if target in source_neighbors:
+        return True
+    else:
+        return False
+
 
 
 
 if __name__ == '__main__':
-    G=import_graph(r'G:\study\2017\fifty_seven\ComplexNetwork\mysite\media\upload\ip_test.gml')
-    # check_node(G, '192.168.8.4')
+    G=import_graph(r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\data.gml')
+    check_edge_exist(G, 0, 55)
+    # find_node_id(G, '128.0.0.143')

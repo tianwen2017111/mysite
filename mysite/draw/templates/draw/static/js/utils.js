@@ -274,41 +274,17 @@ $(document).ready(function(){
 
     /*---------关闭或刷新页面时，对更改文件的保存--------*/
     window.onbeforeunload = function(e){
-        setTimeout(doSaveAs, 0);
-//        e = e || window.event;
-//        e.preventDefault = true;
-//        e.cancelBubble = true;
-//        e.returnValue = 'test';
+        console.log("__Do__: check leave")
+        if(fileChanged){
+            //        setTimeout(doSaveAs, 0);
+            return "文件已修改，是否保存更改"
+        }
     }
     $(".saveAs").click(function(){
         console.log("click saveAs");
-        saveTxt("fileupload.html");
+        window.open("/draw/file/download.gml");
     })
-
-
-
 });
-
-//function checkLeave(){
-//    console.log("__func__: checkLeave()");
-//    console.log("fileChanged: " + fileChanged);
-//    if(fileChanged){
-//        event.returnValue = "文件已修改，是否需要保存？";
-//        $.get('/draw/home/',{if_close:'CLOSE_PAGE'});
-//    }
-//}
-
-
-//    function saveTxt(fileURL)
-//    {
-//        var fileURL=window.open ("fileURL");
-//        fileURL.document.execCommand("SaveAs");
-//        fileURL.window.close();
-//        fileURL.close();
-//    }
-
-
-
 
 /*绘图程序*/
 function graph_show(django_data){

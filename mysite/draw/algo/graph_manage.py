@@ -1,5 +1,5 @@
 # coding: utf-8
-# import networkx as nx
+import networkx as nx
 from graphUtils import find_node_id
 
 
@@ -14,13 +14,19 @@ def del_node(G, ip):
 
 
 def del_edge(G, source_ip, target_ip):
+    print "__func__: del_edge"
     source_ip_id = find_node_id(G, source_ip)
     target_ip_id = find_node_id(G, target_ip)
+    print G.all_neighbors(source_ip_id)
     if source_ip_id is None:
         error = "%s 不存在，请检查输入" %source_ip
         return error
     elif target_ip_id is None:
         error = "%s 不存在，请检查输入" %target_ip
+        return error
+    elif target_ip_id not in G.all_neighbors(source_ip_id):
+        print "edge not in graph"
+        error = "边 %s - %s不存在，请检查输入" % target_ip %source_ip
         return error
     else:
         G.remove_edge(source_ip_id, target_ip_id)

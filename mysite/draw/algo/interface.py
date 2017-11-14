@@ -1,11 +1,14 @@
 #coding: utf-8
-import networkx as nx
+# import networkx as nx
 import copy
 from graphUtils import *
 from cluster_method import clustering_by_ip, clustering_by_modularity
+import sys
+LOG_TAG = "interface"
 
 #根据聚类结果重构图信息
 def get_hierarchic_graphs(G, clustering, with_neighbors):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     new_graph = nx.Graph()
     sub_graph_nodes = dict()
     sub_node_bunches = dict()
@@ -39,6 +42,7 @@ def get_hierarchic_graphs(G, clustering, with_neighbors):
 
 
 def find_community(G, algorithm, ip_seg=2, with_neighbors=True):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     # import cluster as clstr
     import json
     if "ip" in algorithm:
@@ -54,6 +58,7 @@ def find_community(G, algorithm, ip_seg=2, with_neighbors=True):
 
 #------------从数据库中查询ip信息---------------
 def checkIpInfo(request):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     ip = request.GET['ip']
 
     # t = ipInfo.objects.filter(ip=ip)
@@ -84,6 +89,7 @@ def checkIpInfo(request):
 
 #------------"查询节点"功能---------
 def search_node(G, node_label, hop):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     # import networkx as nx
     result = ''
     nbunch = dict()
@@ -117,6 +123,7 @@ def search_node(G, node_label, hop):
 
 #------------过滤节点--------------
 def myfilter(G, filter_condition):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     import re
     filter_pattern = filter_condition.replace('*','(25[0-5]|2[0-4]\d|[01]?\d\d?)').replace('.','\.')
     p = re.compile('%s'%filter_pattern)
@@ -134,6 +141,7 @@ def myfilter(G, filter_condition):
 
 #-----------删除节点---------------
 def del_node(G, ip):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     ip_id = find_node_id(G, ip)
     result = dict()
     if ip_id is None:
@@ -149,14 +157,20 @@ def del_node(G, ip):
 
 #------------删除边------------------
 def del_edge(G, source_ip, target_ip):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     result = dict()
     source_ip_id = find_node_id(G, source_ip)
     target_ip_id = find_node_id(G, target_ip)
+    print nx.all_neighbors(G,source_ip_id)
     if source_ip_id is None:
         error = u"%s 不存在，请检查输入" %source_ip
         result['error'] = error
     elif target_ip_id is None:
         error = u"%s 不存在，请检查输入" %target_ip
+        result['error'] = error
+    elif not check_edge_exist(G, source_ip_id, target_ip_id):
+        print "edge not in graph"
+        error = u"边不存在，请检查输入"
         result['error'] = error
     else:
         G.remove_edge(source_ip_id, target_ip_id)
@@ -166,6 +180,7 @@ def del_edge(G, source_ip, target_ip):
 
 #------------增加节点------------------
 def my_add_node(G, ip):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     result = dict()
     id_exist = find_node_id(G, ip)
     if id_exist is None:
@@ -177,6 +192,7 @@ def my_add_node(G, ip):
 
 
 def _my_add_node(G, ip):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     nodes_id = [i for i in G.nodes()]
     max_id = max(nodes_id)
     new_node_id = max_id + 1
@@ -188,6 +204,7 @@ def _my_add_node(G, ip):
 
 #------------增加边------------------
 def my_add_edge(G, source_ip, target_ip):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     result = dict()
     source_ip_id = find_node_id(G, source_ip)
     target_ip_id = find_node_id(G, target_ip)
@@ -214,11 +231,13 @@ def my_add_edge(G, source_ip, target_ip):
     return result
 
 if __name__ == '__main__':
-    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\mysite\media\upload\ip_test.gml'
+    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\data.gml'
     G = import_graph(file_path)
     temp_G = copy.deepcopy(G)
     # result = my_add_node(G,'192.168.8.9')
-    result = my_add_edge(G, '192.168.8.92', '192.166.6.5')
+    # result = my_add_edge(G, '192.168.8.92', '192.166.6.5')
+    # print result
+    result = del_edge(G, '128.0.0.143', '128.0.0.235')
     print result
     # result = del_node(temp_G, '192.168.7.2')
     # G_parent, G_sub_graphs, clustering = find_community(G=result['G'],
