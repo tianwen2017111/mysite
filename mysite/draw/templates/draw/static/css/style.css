@@ -448,7 +448,7 @@ iframe{
 /****************************created by tianwen********************************/
 /*@media (min-width: 1200px)*/
 .container {
-    width: 1400px;
+    width: 1450px;
 }
 /*--banner--*/
 .banner{
@@ -497,7 +497,7 @@ ul.wmuSliderPagination{
 }
 .dummy-text{
 	float:right;
-	width:28%;
+	width:30%;
 	padding-left: 15px;
 	/*padding-top: 0.5em;*/
 	font-size: 1.2em;

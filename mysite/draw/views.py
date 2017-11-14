@@ -31,6 +31,7 @@ def home(request):
         }
         return render(request, 'draw/home.html', context=context)
 
+
     if request.method == "POST":
         print "'request.POST': ", request.POST
         upload_file_form = UploadFileForm(request.POST, request.FILES)
@@ -255,6 +256,12 @@ def fileupload(request):
         upload_file_form = UploadFileForm()
     return render(request, 'draw/fileupload.html',
                   {"upload_file_form": upload_file_form})
+
+def download(request):
+    f=open('./draw/algo/temp.gml','r')
+    d=f.read()
+    f.close()
+    return HttpResponse(d, content_type="application/octet-stream")
 
 
 def test(request):

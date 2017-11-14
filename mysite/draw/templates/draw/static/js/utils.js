@@ -271,21 +271,44 @@ $(document).ready(function(){
         }
     });
 
+
     /*---------关闭或刷新页面时，对更改文件的保存--------*/
+    window.onbeforeunload = function(e){
+        setTimeout(doSaveAs, 0);
+//        e = e || window.event;
+//        e.preventDefault = true;
+//        e.cancelBubble = true;
+//        e.returnValue = 'test';
+    }
+    $(".saveAs").click(function(){
+        console.log("click saveAs");
+        saveTxt("fileupload.html");
+    })
 
 
 
 });
 
-function checkLeave(){
-    console.log("__func__: checkLeave()");
+//function checkLeave(){
+//    console.log("__func__: checkLeave()");
+//    console.log("fileChanged: " + fileChanged);
+//    if(fileChanged){
+//        event.returnValue = "文件已修改，是否需要保存？";
+//        $.get('/draw/home/',{if_close:'CLOSE_PAGE'});
+//    }
+//}
 
-    console.log("fileChanged: " + fileChanged);
-    if(fileChanged){
-        event.returnValue = "是否保存更改？";
-        $.get('/draw/home/',{if_close:'CLOSE_PAGE'});
+
+    function saveTxt(fileURL)
+    {
+        var fileURL=window.open ("fileURL");
+        fileURL.document.execCommand("SaveAs");
+        fileURL.window.close();
+        fileURL.close();
     }
-}
+
+
+
 
 /*绘图程序*/
 function graph_show(django_data){
@@ -377,37 +400,6 @@ $(document).ready(function(){
         }
     });
 });
-
-//$(document).ready(function(){
-//    var td_obj;
-//    $("#data_manage").click(function(){
-//
-//        $("tr").contextmenu(function(e){
-//            var $this = $(this);
-//            $this.addClass("tr_selected").addClass("selected").siblings().removeClass("selected").removeClass("tr_selected");
-//
-//            var $td_ip =$this.children('td:eq(1)');
-//            $(".table_popover").show().css({
-//                'top':e.pageY+'px',
-//                'left':e.pageX+'px'
-//            });
-//            td_obj = $td_ip;
-//            return false;
-//        });
-//
-//        $(".table_popover .remove").click(function(){
-//            $(".table_popover").hide();
-//
-//            var status = confirm('确定删除节点' + td_obj.text() + '吗？');
-//            if(!status){
-//                return false;
-//            }
-//            else{
-//                td_obj.html("");
-//            }
-//        });//end click
-//    });
-//});
 
 //标准化图的格式
 function std_graph(Graph){

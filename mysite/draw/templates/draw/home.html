@@ -11,8 +11,8 @@
 <script src="/static/js/utils.js"></script> 
 <script type="text/javascript" src="/static/js/plot.js"></script>
 </head>
-<body onbeforeunload="checkLeave()">
- <!--<body>-->
+<!--<body onbeforeunload="checkLeave()">-->
+ <body>
 	<div class="container">
 	<div class="header">
 		<div class="header-top">
@@ -80,6 +80,11 @@
 								<li class="btn manage add_edge md-trigger">增加边</li>
 								<li class="btn manage set_important_node md-trigger">设置核心节点</li>
 							</ul>
+						</li>
+						<li class="btn-group dropdown open">
+							<input type="button" class="btn dropdown-toggle saveAs" data-toggle="dropdown" value="保存" >
+							<!--<a href="/draw/test.html">保存文件</a>-->
+							<!--<iframe src="" name="show" style="width:0;height:0"></iframe>-->
 						</li>
 					</ul>
 				</div>

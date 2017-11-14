@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     url(r'^home/$', views.home, name='home'),
+    url(r'^file/download.gml$', views.download, name='download'),
     url(r'^test/$', views.test, name='test'),
     url(r'^fileupload/$', views.fileupload, name='fileupload'),
 ]
