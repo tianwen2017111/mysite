@@ -299,13 +299,13 @@ $(document).ready(function(){
 //}
 
 
-    function saveTxt(fileURL)
-    {
-        var fileURL=window.open ("fileURL");
-        fileURL.document.execCommand("SaveAs");
-        fileURL.window.close();
-        fileURL.close();
-    }
+//    function saveTxt(fileURL)
+//    {
+//        var fileURL=window.open ("fileURL");
+//        fileURL.document.execCommand("SaveAs");
+//        fileURL.window.close();
+//        fileURL.close();
+//    }
 
 
 
