@@ -39,59 +39,14 @@
       <file leaf-file-name="interface.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/draw/algo/interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
+            <state relative-caret-position="4696">
               <caret line="187" column="23" lean-forward="true" selection-start-line="187" selection-start-column="23" selection-end-line="187" selection-end-column="23" />
               <folding>
                 <element signature="e#39#50#0" expanded="true" />
                 <element signature="e#255#1608#0" expanded="false" />
                 <element signature="e#1680#2295#0" expanded="false" />
-                <element signature="e#3270#4350#0" expanded="false" />
                 <element signature="e#4424#4982#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graphUtils.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/draw/algo/graphUtils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
-              <folding>
-                <element signature="e#21#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graph_manage.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/draw/algo/graph_manage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="29" column="20" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="29" selection-end-column="20" />
-              <folding>
-                <element signature="e#16#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exception.py" pinned="false" current-in-tab="false">
-        <entry file="file://G:/Program Files/Python/Anaconda2/Lib/site-packages/Django-1.10.8-py2.7.egg/django/core/handlers/exception.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="40" column="12" lean-forward="true" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cluster_method.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/draw/algo/cluster_method.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="284" column="25" lean-forward="false" selection-start-line="284" selection-start-column="22" selection-end-line="284" selection-end-column="25" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -109,9 +64,15 @@
       <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8096">
-              <caret line="285" column="6" lean-forward="true" selection-start-line="285" selection-start-column="6" selection-end-line="285" selection-end-column="6" />
-              <folding />
+            <state relative-caret-position="781">
+              <caret line="281" column="6" lean-forward="true" selection-start-line="281" selection-start-column="6" selection-end-line="281" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#19520#0" expanded="false" />
+                <element signature="e#0#19520#0" expanded="false" />
+                <element signature="e#0#19520#0" expanded="false" />
+                <element signature="e#0#19520#0" expanded="false" />
+                <element signature="e#0#19520#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,21 +80,39 @@
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/draw/templates/draw/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="18" column="41" lean-forward="true" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+            <state relative-caret-position="384">
+              <caret line="152" column="18" lean-forward="false" selection-start-line="152" selection-start-column="18" selection-end-line="152" selection-end-column="18" />
               <folding>
+                <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#input#1;n#form#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1510659344974" expanded="false" signature="8050:8485" ph="..." />
-                <marker date="1510659344974" expanded="false" signature="8538:9064" ph="..." />
-                <marker date="1510659344974" expanded="false" signature="9117:9551" ph="..." />
-                <marker date="1510659344974" expanded="false" signature="9143:9206" ph="..." />
-                <marker date="1510659344974" expanded="false" signature="9231:9543" ph="..." />
-                <marker date="1510659344974" expanded="false" signature="9604:10130" ph="..." />
-                <marker date="1510659344974" expanded="false" signature="9630:9692" ph="..." />
-                <marker date="1510659344974" expanded="false" signature="10203:10640" ph="..." />
-                <marker date="1510659344974" expanded="false" signature="10668:10716" ph="..." />
+                <element signature="n#li#5;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#2;n#form#0;n#ul#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <marker date="1510712747929" expanded="false" signature="8410:8936" ph="..." />
+                <marker date="1510712747929" expanded="false" signature="8989:9423" ph="..." />
+                <marker date="1510712747929" expanded="false" signature="9015:9078" ph="..." />
+                <marker date="1510712747929" expanded="false" signature="9103:9415" ph="..." />
+                <marker date="1510712747929" expanded="false" signature="9476:10002" ph="..." />
+                <marker date="1510712747929" expanded="false" signature="9502:9564" ph="..." />
+                <marker date="1510712747929" expanded="false" signature="10075:10512" ph="..." />
+                <marker date="1510712747929" expanded="false" signature="10540:10588" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="535">
+              <caret line="586" column="16" lean-forward="true" selection-start-line="586" selection-start-column="16" selection-end-line="586" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -227,15 +206,15 @@
         <option value="E:/tt.py" />
         <option value="$USER_HOME$/Desktop/bishi.py" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/js/plot.js" />
-        <option value="$PROJECT_DIR$/draw/templates/draw/home.html" />
         <option value="$PROJECT_DIR$/draw/urls.py" />
         <option value="$PROJECT_DIR$/draw/views.py" />
-        <option value="$PROJECT_DIR$/draw/templates/draw/static/css/style.css" />
-        <option value="$PROJECT_DIR$/draw/templates/draw/static/js/utils.js" />
         <option value="$PROJECT_DIR$/draw/algo/cluster_method.py" />
         <option value="$PROJECT_DIR$/draw/algo/graph_manage.py" />
         <option value="$PROJECT_DIR$/draw/algo/interface.py" />
         <option value="$PROJECT_DIR$/draw/algo/graphUtils.py" />
+        <option value="$PROJECT_DIR$/draw/templates/draw/static/js/utils.js" />
+        <option value="$PROJECT_DIR$/draw/templates/draw/home.html" />
+        <option value="$PROJECT_DIR$/draw/templates/draw/static/css/style.css" />
       </list>
     </option>
   </component>
@@ -342,6 +321,62 @@
               <option name="myItemId" value="draw" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -391,7 +426,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.interface (1)">
+  <component name="RunManager" selected="Python.RunServer">
     <configuration default="false" name="views" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -701,12 +736,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1208" y="-410" width="1216" height="1896" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40283287" sideWeight="0.50666666" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35807365" sideWeight="0.49333334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35354108" sideWeight="0.49333334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -740,11 +774,11 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40283287" sideWeight="0.50666666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40736544" sideWeight="0.49333334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14730878" sideWeight="0.49333334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21333334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18166667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917848" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -900,50 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="128" column="1" lean-forward="false" selection-start-line="128" selection-start-column="1" selection-end-line="128" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="18" column="41" lean-forward="true" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#input#1;n#form#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1510659344974" expanded="false" signature="8050:8485" ph="..." />
-            <marker date="1510659344974" expanded="false" signature="8538:9064" ph="..." />
-            <marker date="1510659344974" expanded="false" signature="9117:9551" ph="..." />
-            <marker date="1510659344974" expanded="false" signature="9143:9206" ph="..." />
-            <marker date="1510659344974" expanded="false" signature="9231:9543" ph="..." />
-            <marker date="1510659344974" expanded="false" signature="9604:10130" ph="..." />
-            <marker date="1510659344974" expanded="false" signature="9630:9692" ph="..." />
-            <marker date="1510659344974" expanded="false" signature="10203:10640" ph="..." />
-            <marker date="1510659344974" expanded="false" signature="10668:10716" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8096">
-          <caret line="285" column="6" lean-forward="true" selection-start-line="285" selection-start-column="6" selection-end-line="285" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/draw/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/draw/algo/cluster_method.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -984,6 +974,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/draw/algo/graphUtils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+          <folding>
+            <element signature="e#21#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/draw/algo/graph_manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
@@ -996,25 +996,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/draw/algo/interface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
+        <state relative-caret-position="4696">
           <caret line="187" column="23" lean-forward="true" selection-start-line="187" selection-start-column="23" selection-end-line="187" selection-end-column="23" />
           <folding>
             <element signature="e#39#50#0" expanded="true" />
             <element signature="e#255#1608#0" expanded="false" />
             <element signature="e#1680#2295#0" expanded="false" />
-            <element signature="e#3270#4350#0" expanded="false" />
             <element signature="e#4424#4982#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/draw/algo/graphUtils.py">
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+        <state relative-caret-position="781">
+          <caret line="281" column="6" lean-forward="true" selection-start-line="281" selection-start-column="6" selection-end-line="281" selection-end-column="6" />
           <folding>
-            <element signature="e#21#42#0" expanded="true" />
+            <element signature="e#0#19520#0" expanded="false" />
+            <element signature="e#0#19520#0" expanded="false" />
+            <element signature="e#0#19520#0" expanded="false" />
+            <element signature="e#0#19520#0" expanded="false" />
+            <element signature="e#0#19520#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="152" column="18" lean-forward="false" selection-start-line="152" selection-start-column="18" selection-end-line="152" selection-end-column="18" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#1;n#form#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#5;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#2;n#form#0;n#ul#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1510712747929" expanded="false" signature="8410:8936" ph="..." />
+            <marker date="1510712747929" expanded="false" signature="8989:9423" ph="..." />
+            <marker date="1510712747929" expanded="false" signature="9015:9078" ph="..." />
+            <marker date="1510712747929" expanded="false" signature="9103:9415" ph="..." />
+            <marker date="1510712747929" expanded="false" signature="9476:10002" ph="..." />
+            <marker date="1510712747929" expanded="false" signature="9502:9564" ph="..." />
+            <marker date="1510712747929" expanded="false" signature="10075:10512" ph="..." />
+            <marker date="1510712747929" expanded="false" signature="10540:10588" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="586" column="16" lean-forward="true" selection-start-line="586" selection-start-column="16" selection-end-line="586" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>

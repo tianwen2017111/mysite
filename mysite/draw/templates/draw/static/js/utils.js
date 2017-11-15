@@ -98,7 +98,6 @@ $(document).ready(function(){
             search_data['search_ip'] = search_input;
             search_data['hop'] = $("input[name='hop']").val();
             console.log("__Do__ : search_ip" + ", search : " +search_data['search_ip'] + ", hop : " + search_data['hop']);
-
             $.post('/draw/home/', search_data, function(data){
                 if(data['search_result'] == ''){
                     alert('无此ip， 请重新输入');
@@ -150,7 +149,6 @@ $(document).ready(function(){
             });//向后台发送数据
         }
     });
-
 
     /*-------增删数据的弹框效果----------*/
     $('.md-trigger').click(function(){
@@ -271,7 +269,6 @@ $(document).ready(function(){
         }
     });
 
-
     /*---------关闭或刷新页面时，对更改文件的保存--------*/
     window.onbeforeunload = function(e){
         console.log("__Do__: check leave")
@@ -281,7 +278,6 @@ $(document).ready(function(){
         }
     }
     $(".saveAs").click(function(){
-        console.log("click saveAs");
         window.open("/draw/file/download.gml");
     })
 });
