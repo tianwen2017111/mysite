@@ -28,7 +28,7 @@ $(document).ready(function(){
     });
 
     /*-------------设置表单内部的显示与隐藏--------------------*/
-    $(":radio[name='clustering_method']").each(function(){
+    /*$(":radio[name='clustering_method']").each(function(){
             $(this).click(function(){
                 var cm = $(this).val();
                 if(cm == 'modularity'){
@@ -38,14 +38,17 @@ $(document).ready(function(){
                     $('.choose_ip_seg').show();
                 };
             });
-        })
-
+        })*/
+//var nodes,nodes_new;  nodes_new == undefined;nodes=nodes_new;nodes_new=undefined
     /*-------------获取“设置”表单的属性,并将数据发送给后端----------*/
     $("#settings_submit_btn").click(function(){
+        console.log("__Do__: settings");
         var form_data = {};
-        form_data["clustering_method"] = $(":radio[name='clustering_method']:checked").val();
+//        form_data["clustering_method"] = $(":radio[name='clustering_method']:checked").val();
+        form_data["clustering_method"] = "ip_seg";
         form_data["choose_ip_seg"] = $(":radio[name='choose_ip_seg']:checked").val();
         form_data["with_neighbors"] = $(":radio[name='with_neighbors']:checked").val();
+        console.log(form_data);
         $.post('/draw/home/', form_data, function(data){
             var django_data = {
                                 "G" : JSON.parse(data["G"]),
@@ -56,8 +59,7 @@ $(document).ready(function(){
             $("#svg_graph").html("");
             $("#svg_hierarchic").html("");
             $("#svg_sub_graph").html("");
-            console.log("settings");
-            console.log(django_data["clustering"])
+//            console.log(django_data["clustering"])
             graph_show(django_data);
         });//向后台发送数据
     });//end click()
@@ -95,6 +97,7 @@ $(document).ready(function(){
             $prev_span.addClass("msg onError").text(errorMsg);
         }
         else if(ip_ret.test(search_input)){
+            $prev_span.addClass("msg onSuccess").text("*输入正确");
             search_data['search_ip'] = search_input;
             search_data['hop'] = $("input[name='hop']").val();
             console.log("__Do__ : search_ip" + ", search : " +search_data['search_ip'] + ", hop : " + search_data['hop']);
@@ -131,6 +134,7 @@ $(document).ready(function(){
             errorMsg = "*输入错误"
             $prev_span.addClass("msg onError").text(errorMsg);
         }else if(filter_pattern.test(filter_input)){
+            $prev_span.addClass("msg onSuccess").text("输入正确");
             filter_request['filter_condition'] = filter_input;
             console.log("__Do__ : filter nodes, filter_condition " + filter_input);
             $.post('/draw/home/', filter_request, function(data){
@@ -287,14 +291,13 @@ function graph_show(django_data){
     $(document).ready(function(){
         clustering = django_data['clustering'];
         G_sub_graphs = django_data['G_sub_graphs'];
-        std_G = std_graph(django_data['G']);
+        std_G = std_graph(django_data['G'], clustering);
         var m = Math.max.apply(null, obj_to_arr(clustering)) + 1;//聚类数目
         color = set_color(m);
 
         if(IMP_node != undefined){
             set_IMP_C(IMP_node, clustering, std_G.nodes);
         }
-
 
         G_parent_label = get_common_seg(django_data['G'], clustering);
 	    std_G_parent = parent_add_attr(django_data['G_parent'], clustering, G_parent_label);
@@ -374,16 +377,16 @@ $(document).ready(function(){
 });
 
 //标准化图的格式
-function std_graph(Graph){
+function std_graph(Graph, cls){
+//    console.log("__func__: std_graph()");
     var nodes = [];
     var links = [];
     var labelAnchors = [];
     var labelAnchorLinks = [];
-
     for(var i=0; i<Graph.nodes.length; i++){
         var node = {"id": Graph.nodes[i].id,
                     "label": Graph.nodes[i].label,
-                    "cluster": 1,
+                    "cluster": cls[Graph.nodes[i].id],
                     "size": 4
                     };
         nodes.push(node);
@@ -409,9 +412,10 @@ function std_graph(Graph){
     return graph;
 };
 
-//为原始图设置属性
+//为层次布局图设置属性
 function parent_add_attr(G_parent, clustering, label){
-    std_G_parent = std_graph(G_parent);
+//    console.log("__func__: parent_add_attr");
+    std_G_parent = std_graph(G_parent, clustering);
     clustering_arr = obj_to_arr(clustering);
     checked_clustering = arrCheck(clustering_arr);
     //为G_parent中的节点添加'size'、'group'和'label'属性
@@ -430,8 +434,38 @@ function parent_add_attr(G_parent, clustering, label){
     return std_G_parent;
 }
 
+function plot_sub_graph(svg_id, sub_graph_id){
+//    console.log("__func__ : plot_sub_graph()");
+    sub_graphs = G_sub_graphs;
+    clustering = clustering;
+    sub_graph = std_graph(JSON.parse(G_sub_graphs[sub_graph_id]), clustering);
+
+    show_graph_info(sub_graph);
+    multi_force(sub_graph, clustering, svg_id);
+//    test(sub_graph, clustering, svg_id)
+}
+
+//统计节点一共被划分成多少组
+function count_group_number(nodes){
+//    console.log(nodes);
+//    console.log("__func__ : count_group_number()");
+    var nodes_group = new Array();
+        group_number = 0;
+    for(var i=0; i<nodes.length; i++){
+        nodes_group.push(nodes[i].cluster);
+    }
+    checked_group = arrCheck(nodes_group);
+//    console.log(checked_group);
+    for(var key in checked_group){
+        group_number++;
+    }
+//    console.log(group_number);
+    return [group_number, checked_group];
+}
+
 //提取每一组IP地址的相同段位
 function get_common_seg(G, clustering){
+    console.log("__func__ : get_common_seg()");
     var nodes_label = [];
     var choose_ip_seg = Number($(":radio[name='choose_ip_seg']:checked").val());
     clustering_arr = obj_to_arr(clustering);
@@ -445,30 +479,6 @@ function get_common_seg(G, clustering){
         nodes_label.push(common_seg);
     }
     return nodes_label;
-}
-
-function plot_sub_graph(svg_id, sub_graph_id){
-    sub_graphs = G_sub_graphs;
-    clustering = clustering;
-    sub_graph = std_graph(JSON.parse(G_sub_graphs[sub_graph_id]));
-    show_graph_info(sub_graph);
-    multi_force(sub_graph, clustering, svg_id);
-//    test(sub_graph, clustering, svg_id)
-}
-
-//统计节点一共被划分成多少组
-function count_group_number(nodes){
-//    console.log("__func__ : count_group_number()");
-    var nodes_group = new Array();
-        group_number = 0;
-    for(var i=0; i<nodes.length; i++){
-        nodes_group.push(nodes[i].cluster);
-    }
-    checked_group = arrCheck(nodes_group);
-    for(var key in checked_group){
-        group_number++;
-    }
-    return [group_number, checked_group];
 }
 
 //统计数组元素出现的次数
@@ -560,10 +570,10 @@ function swap_arr(arr, item1, item2){
 }
 
 /*计算图中每个节点的位置坐标*/
-function get_foci(m){
+function get_foci(foci_num){
 //    console.log("__func__ : get_foci()");
     var foci = [],
-        m_sqrt = Math.ceil(Math.sqrt(m));
+        m_sqrt = Math.ceil(Math.sqrt(foci_num));
     var x_arr = [], y_arr = [];
 
     var x_min = y_min = 100;

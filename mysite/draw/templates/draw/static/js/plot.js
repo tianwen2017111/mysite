@@ -363,6 +363,7 @@ function selectableForceDirectedGraph(Graph, svg_id) {
 
 function multi_force(Graph, clustering, svg_id, special_nodes){
 //    console.log(IMP_C);
+    console.log("__func__: muti_force()");
 
     graph = Graph;
     var special_nodes = special_nodes || "";
@@ -372,7 +373,6 @@ function multi_force(Graph, clustering, svg_id, special_nodes){
 
     foci = get_foci(m);
     var svg_center = Math.floor((Math.ceil(Math.sqrt(m)) * Math.ceil(Math.sqrt(m)))/2);
-
     foci = swap_foci(foci, svg_center, IMP_C);
 
     var svg = d3.select("#".concat(svg_id)).attr("tabindex", 1)
@@ -406,13 +406,14 @@ function multi_force(Graph, clustering, svg_id, special_nodes){
 
     /*-----------定义link、node、force、clusters---------------*/
 
-
     var clusters = new Array(m);
-    var force = d3.layout.force().size([width, height])
+
+    force = d3.layout.force().size([width, height])
         .charge(-20);
 //        .alpha(1)
 //        .gravity(.02)
 //        .on("tick",tick);
+
     var drag = d3.behavior.drag()
               .on("dragstart", dragstarted)
               .on("drag", dragged)
@@ -514,18 +515,23 @@ function multi_force(Graph, clustering, svg_id, special_nodes){
         });
     }
 
+    nodes.forEach(function(o ,i){
+        console.log("o.id:" + o.id + ",  o.cluster:" + o.cluster + ",  foci[o.cluster].y:" + foci[o.cluster].y + ",  o.y:" + o.y);
+    })
+
+//    console.log("---------------------tick()----------------------");
     force.on("tick", function(e) {
 
-        force2.start();
         var k = .1 * e.alpha;
-
         // Push nodes toward their designated focus.
         nodes.forEach(function(o, i) {
+            console.log("o.id:" + o.id + ",  o.cluster:" + o.cluster);
+//            console.log("foci[o.cluster].y:" + foci[o.cluster].y );
+//            console.log("o.y:" + o.y);
             o.y += (foci[o.cluster].y - o.y) * k;
             o.x += (foci[o.cluster].x - o.x) * k;
         });
-
-
+        force2.start();
 
         anchorNode.each(function(d, i) {
             if(i % 2 == 0) {
