@@ -1,5 +1,9 @@
 graph [
   node [
+    id 0
+    label "128.0.0.143"
+  ]
+  node [
     id 1
     label "128.0.0.235"
   ]
@@ -314,6 +318,34 @@ graph [
   node [
     id 79
     label "126.2.158.161"
+  ]
+  node [
+    id 80
+    label "125.0.0.0"
+  ]
+  edge [
+    source 0
+    target 2
+  ]
+  edge [
+    source 0
+    target 3
+  ]
+  edge [
+    source 0
+    target 4
+  ]
+  edge [
+    source 0
+    target 5
+  ]
+  edge [
+    source 0
+    target 6
+  ]
+  edge [
+    source 0
+    target 7
   ]
   edge [
     source 1

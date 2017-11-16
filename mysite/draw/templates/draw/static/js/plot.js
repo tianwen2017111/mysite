@@ -2,27 +2,26 @@ var width = 960, height = 640, shiftKey, ctrlKey;
 var xScale = d3.scale.linear().domain([0,width]).range([0,width]);
 var yScale = d3.scale.linear().domain([0,height]).range([0, height]);
 var foci = [];
-//$(document).ready(function(){
-    function swap_foci(foci, svg_center, IMP_C){
-//        console.log("__func__ : swap_foci(), " + "important node list: " + IMP_C);
-        if(IMP_C){
-            for(var i=0; i<IMP_C.length ;i++){
-                console.log("i:  " + i);
-                var skew = Math.floor((i+1)/2);
-                console.log("svg_center:  " + svg_center);
-                console.log("skew:  " + skew);
-                console.log("IMP_C[i]:  " + IMP_C[i]);
-                if(i % 2 == 0){
-                    foci = swap_arr(foci, svg_center-skew, IMP_C[i]);
-                }
-                if(i % 2 == 1){
-                    foci = swap_arr(foci, svg_center+skew, IMP_C[i]);
-                }
+
+function swap_foci(foci, svg_center, IMP_C){
+//    console.log("__func__ : swap_foci(), " + "important node list: " + IMP_C);
+    if(IMP_C){
+        for(var i=0; i<IMP_C.length ;i++){
+            console.log("i:  " + i);
+            var skew = Math.floor((i+1)/2);
+            console.log("svg_center:  " + svg_center);
+            console.log("skew:  " + skew);
+            console.log("IMP_C[i]:  " + IMP_C[i]);
+            if(i % 2 == 0){
+                foci = swap_arr(foci, svg_center-skew, IMP_C[i]);
+            }
+            if(i % 2 == 1){
+                foci = swap_arr(foci, svg_center+skew, IMP_C[i]);
             }
         }
-        return foci;
     }
-
+    return foci;
+}
 
 //绘图函数
 function selectableForceDirectedGraph(Graph, svg_id) {
@@ -365,6 +364,15 @@ function multi_force(Graph, clustering, svg_id, special_nodes){
 //    console.log(IMP_C);
     console.log("__func__: muti_force()");
 
+//    var graph_new;
+//    console.log("-------------------Graph: ------------------");
+//    console.log(Graph);
+//    if(Graph != undefined){
+//        console.log("Graph != undefined");
+//        graph = JSON.parse(JSON.stringify(Graph));
+//        console.log("-------------------graph------------------");
+//        console.log(graph);
+
     graph = Graph;
     var special_nodes = special_nodes || "";
     clustering_arr = obj_to_arr(clustering);
@@ -487,7 +495,6 @@ function multi_force(Graph, clustering, svg_id, special_nodes){
                 .style("fill", function(d, i) {return color[d.cluster]; })
                 .call(drag)
                 .on("click", show_node_info);
-
     force.nodes(nodes).start();
 
     var force2 = d3.layout.force().nodes(labelAnchors).links(labelAnchorLinks)
@@ -515,22 +522,24 @@ function multi_force(Graph, clustering, svg_id, special_nodes){
         });
     }
 
-    nodes.forEach(function(o ,i){
-        console.log("o.id:" + o.id + ",  o.cluster:" + o.cluster + ",  foci[o.cluster].y:" + foci[o.cluster].y + ",  o.y:" + o.y);
-    })
+//    nodes.forEach(function(o ,i){
+//        console.log("o.id:" + o.id + ",  o.cluster:" + o.cluster + ",  foci[o.cluster].y:" + foci[o.cluster].y + ",  o.y:" + o.y);
+//    })
 
-//    console.log("---------------------tick()----------------------");
+    console.log("---------------------tick()----------------------");
     force.on("tick", function(e) {
 
         var k = .1 * e.alpha;
         // Push nodes toward their designated focus.
-        nodes.forEach(function(o, i) {
-            console.log("o.id:" + o.id + ",  o.cluster:" + o.cluster);
-//            console.log("foci[o.cluster].y:" + foci[o.cluster].y );
-//            console.log("o.y:" + o.y);
-            o.y += (foci[o.cluster].y - o.y) * k;
-            o.x += (foci[o.cluster].x - o.x) * k;
-        });
+        try{
+            nodes.forEach(function(o, i) {
+                o.y += (foci[o.cluster].y - o.y) * k;
+                o.x += (foci[o.cluster].x - o.x) * k;
+            });
+        }catch(TypeError){
+            console.log("TypeError");
+            return ;
+        }
         force2.start();
 
         anchorNode.each(function(d, i) {
@@ -677,7 +686,12 @@ function multi_force(Graph, clustering, svg_id, special_nodes){
         brush.select('.background').style('cursor', 'auto')
         svg_graph.call(zoomer);
     }
-
+//}
+//    Graph = undefined;
+//    console.log("-------------------Graph------------------");
+//    console.log(Graph);
+//    console.log("-------------------graph------------------");
+//    console.log(graph);
 }
 
 function show_graph_info(graph){
@@ -704,4 +718,4 @@ function show_link_info(d){
         $("#weight").text("权重: " + d.weight);
     });
 }
-//})
+

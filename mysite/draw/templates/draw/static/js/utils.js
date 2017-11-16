@@ -59,7 +59,19 @@ $(document).ready(function(){
             $("#svg_graph").html("");
             $("#svg_hierarchic").html("");
             $("#svg_sub_graph").html("");
-//            console.log(django_data["clustering"])
+//            console.log("-------------------new_data------------------");
+//            console.log(new_data);
+//            console.log("-------------------django_data------------------");
+//            console.log(django_data);
+//            if(new_data != undefined){
+//                django_data = JSON.parse(JSON.stringify(new_data));
+//                graph_show(django_data);
+//            }
+//            new_data = undefined;
+//            console.log("-------------------new_data------------------");
+//            console.log(new_data);
+//            console.log("-------------------django_data------------------");
+//            console.log(django_data);
             graph_show(django_data);
         });//向后台发送数据
     });//end click()
