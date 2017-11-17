@@ -1,5 +1,6 @@
 # coding: utf-8
 from django.shortcuts import render, redirect, reverse, render_to_response
+import sys
 from django.conf import settings
 from django.http import HttpResponse
 import os, json
@@ -8,15 +9,14 @@ from .models import UploadFile
 from algo import graph_utils as gu
 from algo.interface import *
 
-
 def home(request):
-    print " 'method': ", request.method
+    print "script: views.py,  lineNumber:", sys._getframe().f_lineno,  ",  requst.method: ", request.method
     global graph_loaded
     graph_loaded = "false"
     request.session.set_expiry(0)
 
     if request.method == "GET":
-        print "'request.GET': ", request.GET
+        print "script: views.py,  lineNumber: ", sys._getframe().f_lineno, ",  request.GET: ", request.GET
         if "check_ip" in request.GET.keys():
             info = checkIpInfo(request)
             return HttpResponse(json.dumps(info), content_type="application/json")
@@ -33,7 +33,7 @@ def home(request):
 
 
     if request.method == "POST":
-        print "'request.POST': ", request.POST
+        print "script: views.py,  lineNumber: ", sys._getframe().f_lineno, ",  request.POST: ", request.POST
         upload_file_form = UploadFileForm(request.POST, request.FILES)
         if upload_file_form.is_valid():
             graph_loaded = "true"
@@ -54,9 +54,6 @@ def home(request):
                 upload_file.save()
             file_path = request.session['file_path']
             G = gu.import_graph(file_path)
-
-            # request.session['G'] = G
-            # print request.session['G'].nodes()
             clustering_method = "ip_seg"
             choose_ip_seg = 2
             largest_cc = max(nx.connected_components(G), key=len) #求最大连通点
@@ -78,13 +75,11 @@ def home(request):
             return render(request, 'draw/home.html', context=context)
         if "clustering_method" in request.POST.keys():
             context = setting_form_response(request)
-            # print context
             return HttpResponse(json.dumps(context), content_type="application/json")
 
         if "search_ip" in request.POST.keys():
-            print request.session['file_path']
             G = gu.import_graph(request.session['file_path'])
-            # G = request.session['G']
+
             ip = request.POST['search_ip']
             hop = int(request.POST['hop'])
             search_result = {"search_result": search_node(G, ip, hop)}
@@ -96,7 +91,7 @@ def home(request):
             G = gu.import_graph(request.session['file_path'])
             filter_condition = request.POST['filter_condition']
             filter_result = {"filter_result": myfilter(G, filter_condition)}
-            print filter_result
+
             return HttpResponse(json.dumps(filter_result), content_type="application/json")
 
         if "manage_type" in request.POST.keys():
@@ -147,7 +142,7 @@ def setting_form_response(request):
         context = set_empty_context()
     return context
 
-
+# 数据增删请求的响应
 def manage_response(request):
     manage_type = request.POST['manage_type']
     if 'file_path' in request.session:
@@ -213,22 +208,8 @@ def set_empty_context():
     return empty_context
 
 
-# def updateSQL(file, file_path):
-#
-#     print file
-#     print file_path
-#     upload_file = UploadFile()
-#     if os.path.exists(file_path):
-#         pass
-#     else:
-#         upload_file.file = file
-#         upload_file.filepath = file_path
-#         upload_file.filename = file.name
-#         upload_file.save()
-
-
 def download(request):
-    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
+    print "script: views.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     # f=open('./draw/algo/temp.gml','r')
     f = open(request.session['file_path'], 'r')
     d=f.read()

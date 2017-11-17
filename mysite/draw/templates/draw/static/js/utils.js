@@ -441,14 +441,13 @@ function parent_add_attr(G_parent, clustering, label){
 }
 
 function plot_sub_graph(svg_id, sub_graph_id){
-//    console.log("__func__ : plot_sub_graph()");
+    console.log("__func__ : plot_sub_graph()");
     sub_graphs = G_sub_graphs;
     clustering = clustering;
     sub_graph = std_graph(JSON.parse(G_sub_graphs[sub_graph_id]), clustering);
 
     show_graph_info(sub_graph);
     multi_force(sub_graph, clustering, svg_id);
-//    test(sub_graph, clustering, svg_id)
 }
 
 //统计节点一共被划分成多少组
