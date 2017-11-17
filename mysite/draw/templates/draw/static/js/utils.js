@@ -59,19 +59,6 @@ $(document).ready(function(){
             $("#svg_graph").html("");
             $("#svg_hierarchic").html("");
             $("#svg_sub_graph").html("");
-//            console.log("-------------------new_data------------------");
-//            console.log(new_data);
-//            console.log("-------------------django_data------------------");
-//            console.log(django_data);
-//            if(new_data != undefined){
-//                django_data = JSON.parse(JSON.stringify(new_data));
-//                graph_show(django_data);
-//            }
-//            new_data = undefined;
-//            console.log("-------------------new_data------------------");
-//            console.log(new_data);
-//            console.log("-------------------django_data------------------");
-//            console.log(django_data);
             graph_show(django_data);
         });//向后台发送数据
     });//end click()
@@ -294,7 +281,14 @@ $(document).ready(function(){
         }
     }
     $(".saveAs").click(function(){
-        window.open("/draw/file/download.gml");
+        console.log(file_uploaded);
+        if(file_uploaded){
+            window.open("/draw/file/download.gml");
+        }else{
+            alert("请先上传文件");
+        }
+
+
     })
 });
 

@@ -5,7 +5,7 @@ from django.http import HttpResponse
 import os, json
 from .forms import UploadFileForm
 from .models import UploadFile
-from algo import graphUtils as gu
+from algo import graph_utils as gu
 from algo.interface import *
 
 
@@ -178,9 +178,12 @@ def manage_response(request):
         elif 'G' in result.keys():
             new_G = result['G']
             temp_fp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'algo', 'temp.gml')
-            nx.write_gml(result['G'], temp_fp)
+            # print temp_fp
+            # print os.path.exists(temp_fp)
+            # nx.write_gml(result['G'], temp_fp)
 
-            request.session['file_path'] = temp_fp
+            # request.session['file_path'] = temp_fp
+            nx.write_gml(result['G'], request.session['file_path'])
             G_parent, G_sub_graphs, clustering = find_community(G=new_G,
                                                                 algorithm="ip_seg",
                                                                 ip_seg=2,
@@ -212,6 +215,7 @@ def set_empty_context():
     }
     return empty_context
 
+
 def updateSQL(file, file_path):
     upload_file = UploadFile()
     if os.path.exists(file_path):
@@ -221,6 +225,15 @@ def updateSQL(file, file_path):
         upload_file.filepath = file_path
         upload_file.filename = file.name
         upload_file.save()
+
+
+def download(request):
+    print "LOG_TAG:", LOG_TAG, ",  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
+    # f=open('./draw/algo/temp.gml','r')
+    f = open(request.session['file_path'], 'r')
+    d=f.read()
+    f.close()
+    return HttpResponse(d, content_type="application/octet-stream")
 
 
 def fileupload(request):
@@ -256,13 +269,6 @@ def fileupload(request):
         upload_file_form = UploadFileForm()
     return render(request, 'draw/fileupload.html',
                   {"upload_file_form": upload_file_form})
-
-def download(request):
-    f=open('./draw/algo/temp.gml','r')
-    d=f.read()
-    f.close()
-    return HttpResponse(d, content_type="application/octet-stream")
-
 
 def test(request):
     if request.method == "POST":

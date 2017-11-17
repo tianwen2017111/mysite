@@ -1,7 +1,7 @@
 #coding: utf-8
 # import networkx as nx
 import copy
-from graphUtils import *
+from graph_utils import *
 from cluster_method import clustering_by_ip, clustering_by_modularity
 import sys
 LOG_TAG = "interface"

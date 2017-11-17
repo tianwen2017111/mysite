@@ -1,6 +1,6 @@
 # coding: utf-8
 import networkx as nx
-from graphUtils import find_node_id
+from graph_utils import find_node_id
 
 
 def del_node(G, ip):

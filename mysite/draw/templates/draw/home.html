@@ -95,7 +95,9 @@
 							<script  type=text/javascript>
 								var graph_loaded = {{graph_loaded|safe}};
 								var django_data = "";
+								var file_uploaded = false;
 								if(graph_loaded == true){
+									file_uploaded = true;
 									console.log("file status: graph loaded")
 									django_data = {
 										"G" : {{G|safe}} ,
@@ -105,6 +107,7 @@
 										};
 								}
 								else if(graph_loaded == false){
+									file_uploaded = false;
 									console.log("file status: not load");
 								}
 							</script>
