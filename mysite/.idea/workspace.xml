@@ -21,70 +21,18 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/draw/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="231" column="40" lean-forward="true" selection-start-line="231" selection-start-column="40" selection-end-line="231" selection-end-column="40" />
+            <state relative-caret-position="403">
+              <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
               <folding>
                 <element signature="e#16#90#0" expanded="true" />
                 <element signature="e#493#1087#0" expanded="false" />
                 <element signature="e#587#697#0" expanded="false" />
-                <element signature="e#4765#5959#0" expanded="false" />
-                <element signature="e#8363#8585#0" expanded="false" />
-                <element signature="e#8624#8848#0" expanded="false" />
-                <element signature="e#9209#10648#0" expanded="false" />
-                <marker date="1510905130947" expanded="false" signature="16:55" ph="import ..." />
-                <marker date="1510905130947" expanded="false" signature="10668:11146" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cluster_method.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/draw/algo/cluster_method.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4080">
-              <caret line="185" column="16" lean-forward="false" selection-start-line="185" selection-start-column="16" selection-end-line="185" selection-end-column="16" />
-              <folding>
-                <element signature="e#95#2052#0" expanded="false" />
-                <element signature="e#2094#3732#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="interface.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/draw/algo/interface.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="207" column="4" lean-forward="true" selection-start-line="206" selection-start-column="4" selection-end-line="207" selection-end-column="4" />
-              <folding>
-                <element signature="e#39#50#0" expanded="true" />
-                <element signature="e#256#1609#0" expanded="false" />
-                <element signature="e#1681#2296#0" expanded="false" />
-                <element signature="e#2369#3196#0" expanded="false" />
-                <element signature="e#3271#4351#0" expanded="false" />
-                <element signature="e#4425#4983#0" expanded="false" />
-                <element signature="e#5043#5421#0" expanded="false" />
-                <element signature="e#5502#6240#0" expanded="false" />
-                <element signature="e#6307#6621#0" expanded="false" />
-                <element signature="e#6653#7001#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graph_utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/draw/algo/graph_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding>
-                <element signature="e#116#459#0" expanded="false" />
-                <element signature="e#497#1555#0" expanded="false" />
-                <element signature="e#1590#1896#0" expanded="false" />
-                <element signature="e#1922#2031#0" expanded="false" />
-                <element signature="e#2062#2108#0" expanded="false" />
-                <element signature="e#2130#2536#0" expanded="false" />
-                <element signature="e#2582#3097#0" expanded="false" />
+                <element signature="e#4735#5929#0" expanded="false" />
+                <element signature="e#5966#8230#0" expanded="false" />
+                <element signature="e#8262#8484#0" expanded="false" />
+                <element signature="e#9167#10606#0" expanded="false" />
+                <marker date="1510908663345" expanded="false" signature="16:55" ph="import ..." />
+                <marker date="1510908663345" expanded="false" signature="10626:11104" ph="..." />
               </folding>
             </state>
           </provider>
@@ -100,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plot.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/plot.js">
+      <file leaf-file-name="draw.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/draw.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="814">
-              <caret line="544" column="40" lean-forward="true" selection-start-line="544" selection-start-column="40" selection-end-line="544" selection-end-column="40" />
+              <caret line="544" column="40" lean-forward="false" selection-start-line="544" selection-start-column="40" selection-end-line="544" selection-end-column="40" />
               <folding>
                 <element signature="e#0#23468#0" expanded="false" />
                 <element signature="e#0#23468#0" expanded="false" />
@@ -123,9 +71,11 @@
       <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1102">
-              <caret line="287" column="25" lean-forward="false" selection-start-line="287" selection-start-column="25" selection-end-line="287" selection-end-column="25" />
+            <state relative-caret-position="480">
+              <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding>
+                <element signature="e#0#20254#0" expanded="false" />
+                <element signature="e#0#20254#0" expanded="false" />
                 <element signature="e#0#20254#0" expanded="false" />
                 <element signature="e#0#20254#0" expanded="false" />
                 <element signature="e#0#20254#0" expanded="false" />
@@ -149,10 +99,9 @@
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/draw/templates/draw/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1056">
-              <caret line="109" column="58" lean-forward="false" selection-start-line="109" selection-start-column="58" selection-end-line="109" selection-end-column="58" />
+            <state relative-caret-position="586">
+              <caret line="107" column="66" lean-forward="false" selection-start-line="107" selection-start-column="66" selection-end-line="107" selection-end-column="66" />
               <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#form#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -164,14 +113,14 @@
                 <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#li#2;n#form#0;n#ul#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <marker date="1510899459595" expanded="false" signature="8528:9054" ph="..." />
-                <marker date="1510899459595" expanded="false" signature="9107:9541" ph="..." />
-                <marker date="1510899459595" expanded="false" signature="9133:9196" ph="..." />
-                <marker date="1510899459595" expanded="false" signature="9221:9533" ph="..." />
-                <marker date="1510899459595" expanded="false" signature="9594:10120" ph="..." />
-                <marker date="1510899459595" expanded="false" signature="9620:9682" ph="..." />
-                <marker date="1510899459595" expanded="false" signature="10193:10630" ph="..." />
-                <marker date="1510899459595" expanded="false" signature="10658:10706" ph="..." />
+                <marker date="1510907790858" expanded="false" signature="8568:9094" ph="..." />
+                <marker date="1510907790858" expanded="false" signature="9147:9581" ph="..." />
+                <marker date="1510907790858" expanded="false" signature="9173:9236" ph="..." />
+                <marker date="1510907790858" expanded="false" signature="9261:9573" ph="..." />
+                <marker date="1510907790858" expanded="false" signature="9634:10160" ph="..." />
+                <marker date="1510907790858" expanded="false" signature="9660:9722" ph="..." />
+                <marker date="1510907790858" expanded="false" signature="10233:10670" ph="..." />
+                <marker date="1510907790858" expanded="false" signature="10698:10746" ph="..." />
               </folding>
             </state>
           </provider>
@@ -202,7 +151,6 @@
       <find>all</find>
       <find>font-fa</find>
       <find>clustering_arr</find>
-      <find>onError</find>
       <find>count_group_number</find>
       <find>show</find>
       <find>show_graph</find>
@@ -212,13 +160,14 @@
       <find>show_graph_info</find>
       <find>nodes</find>
       <find>stop</find>
-      <find>start</find>
       <find>import</find>
-      <find>设置</find>
-      <find>graph_show</find>
       <find>import_ge</find>
       <find>download</find>
+      <find>onError</find>
+      <find>start</find>
+      <find>graph_show</find>
       <find>temp.gml</find>
+      <find>设置</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -271,9 +220,9 @@
         <option value="$PROJECT_DIR$/draw/algo/graphUtils.py" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/css/style.css" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/js/plot.js" />
-        <option value="$PROJECT_DIR$/draw/templates/draw/home.html" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/js/utils.js" />
         <option value="$PROJECT_DIR$/draw/algo/cluster_method.py" />
+        <option value="$PROJECT_DIR$/draw/templates/draw/home.html" />
         <option value="$PROJECT_DIR$/draw/views.py" />
       </list>
     </option>
@@ -801,6 +750,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19833334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40283287" sideWeight="0.50666666" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917848" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23229462" sideWeight="0.49333334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -821,7 +771,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18166667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917848" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -868,7 +817,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="187" />
+      <option name="time" value="188" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -1021,32 +970,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="708" column="8" lean-forward="false" selection-start-line="708" selection-start-column="1" selection-end-line="708" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/plot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="544" column="40" lean-forward="true" selection-start-line="544" selection-start-column="40" selection-end-line="544" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#23468#0" expanded="false" />
-            <element signature="e#0#23468#0" expanded="false" />
-            <element signature="e#0#23468#0" expanded="false" />
-            <element signature="e#0#23468#0" expanded="false" />
-            <element signature="e#0#23468#0" expanded="false" />
-            <element signature="e#0#23468#0" expanded="false" />
-            <element signature="e#0#23468#0" expanded="false" />
-            <element signature="e#0#23468#0" expanded="false" />
-            <element signature="e#0#23468#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://G:/Program Files/Python/Anaconda2/Lib/site-packages/networkx/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1185">
@@ -1055,71 +978,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/home.html">
+    <entry file="file://$PROJECT_DIR$/draw/algo/interface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="109" column="58" lean-forward="false" selection-start-line="109" selection-start-column="58" selection-end-line="109" selection-end-column="58" />
+        <state relative-caret-position="336">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#1;n#form#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#5;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#6;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#2;n#form#0;n#ul#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1510899459595" expanded="false" signature="8528:9054" ph="..." />
-            <marker date="1510899459595" expanded="false" signature="9107:9541" ph="..." />
-            <marker date="1510899459595" expanded="false" signature="9133:9196" ph="..." />
-            <marker date="1510899459595" expanded="false" signature="9221:9533" ph="..." />
-            <marker date="1510899459595" expanded="false" signature="9594:10120" ph="..." />
-            <marker date="1510899459595" expanded="false" signature="9620:9682" ph="..." />
-            <marker date="1510899459595" expanded="false" signature="10193:10630" ph="..." />
-            <marker date="1510899459595" expanded="false" signature="10658:10706" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="287" column="25" lean-forward="false" selection-start-line="287" selection-start-column="25" selection-end-line="287" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-            <element signature="e#0#20254#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/draw/algo/graph_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#116#459#0" expanded="false" />
-            <element signature="e#497#1555#0" expanded="false" />
-            <element signature="e#1590#1896#0" expanded="false" />
-            <element signature="e#1922#2031#0" expanded="false" />
-            <element signature="e#2062#2108#0" expanded="false" />
-            <element signature="e#2130#2536#0" expanded="false" />
-            <element signature="e#2582#3097#0" expanded="false" />
+            <element signature="e#39#50#0" expanded="true" />
+            <element signature="e#256#1609#0" expanded="false" />
+            <element signature="e#1681#2296#0" expanded="false" />
+            <element signature="e#2369#3196#0" expanded="false" />
+            <element signature="e#3271#4351#0" expanded="false" />
+            <element signature="e#4425#4983#0" expanded="false" />
+            <element signature="e#5043#5421#0" expanded="false" />
+            <element signature="e#5502#6240#0" expanded="false" />
+            <element signature="e#6307#6621#0" expanded="false" />
+            <element signature="e#6653#7001#0" expanded="false" />
+            <element signature="e#7085#8113#0" expanded="false" />
+            <element signature="e#8146#9032#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1135,39 +1010,118 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/draw/algo/interface.py">
+    <entry file="file://$PROJECT_DIR$/draw/algo/graph_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="207" column="4" lean-forward="true" selection-start-line="206" selection-start-column="4" selection-end-line="207" selection-end-column="4" />
+        <state relative-caret-position="-441">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="e#39#50#0" expanded="true" />
-            <element signature="e#256#1609#0" expanded="false" />
-            <element signature="e#1681#2296#0" expanded="false" />
-            <element signature="e#2369#3196#0" expanded="false" />
-            <element signature="e#3271#4351#0" expanded="false" />
-            <element signature="e#4425#4983#0" expanded="false" />
-            <element signature="e#5043#5421#0" expanded="false" />
-            <element signature="e#5502#6240#0" expanded="false" />
-            <element signature="e#6307#6621#0" expanded="false" />
-            <element signature="e#6653#7001#0" expanded="false" />
+            <element signature="e#116#459#0" expanded="false" />
+            <element signature="e#497#1555#0" expanded="false" />
+            <element signature="e#1590#1896#0" expanded="false" />
+            <element signature="e#1922#2031#0" expanded="false" />
+            <element signature="e#2062#2108#0" expanded="false" />
+            <element signature="e#2130#2536#0" expanded="false" />
+            <element signature="e#2582#3097#0" expanded="false" />
+            <element signature="e#3129#3347#0" expanded="false" />
+            <element signature="e#3394#3657#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="708" column="8" lean-forward="false" selection-start-line="708" selection-start-column="1" selection-end-line="708" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/draw.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="544" column="40" lean-forward="false" selection-start-line="544" selection-start-column="40" selection-end-line="544" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#23468#0" expanded="false" />
+            <element signature="e#0#23468#0" expanded="false" />
+            <element signature="e#0#23468#0" expanded="false" />
+            <element signature="e#0#23468#0" expanded="false" />
+            <element signature="e#0#23468#0" expanded="false" />
+            <element signature="e#0#23468#0" expanded="false" />
+            <element signature="e#0#23468#0" expanded="false" />
+            <element signature="e#0#23468#0" expanded="false" />
+            <element signature="e#0#23468#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+            <element signature="e#0#20254#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="107" column="66" lean-forward="false" selection-start-line="107" selection-start-column="66" selection-end-line="107" selection-end-column="66" />
+          <folding>
+            <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#1;n#form#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#5;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#6;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#2;n#form#0;n#ul#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1510907790858" expanded="false" signature="8568:9094" ph="..." />
+            <marker date="1510907790858" expanded="false" signature="9147:9581" ph="..." />
+            <marker date="1510907790858" expanded="false" signature="9173:9236" ph="..." />
+            <marker date="1510907790858" expanded="false" signature="9261:9573" ph="..." />
+            <marker date="1510907790858" expanded="false" signature="9634:10160" ph="..." />
+            <marker date="1510907790858" expanded="false" signature="9660:9722" ph="..." />
+            <marker date="1510907790858" expanded="false" signature="10233:10670" ph="..." />
+            <marker date="1510907790858" expanded="false" signature="10698:10746" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/draw/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="231" column="40" lean-forward="true" selection-start-line="231" selection-start-column="40" selection-end-line="231" selection-end-column="40" />
+        <state relative-caret-position="403">
+          <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
           <folding>
             <element signature="e#16#90#0" expanded="true" />
             <element signature="e#493#1087#0" expanded="false" />
             <element signature="e#587#697#0" expanded="false" />
-            <element signature="e#4765#5959#0" expanded="false" />
-            <element signature="e#8363#8585#0" expanded="false" />
-            <element signature="e#8624#8848#0" expanded="false" />
-            <element signature="e#9209#10648#0" expanded="false" />
-            <marker date="1510905130947" expanded="false" signature="16:55" ph="import ..." />
-            <marker date="1510905130947" expanded="false" signature="10668:11146" ph="..." />
+            <element signature="e#4735#5929#0" expanded="false" />
+            <element signature="e#5966#8230#0" expanded="false" />
+            <element signature="e#8262#8484#0" expanded="false" />
+            <element signature="e#9167#10606#0" expanded="false" />
+            <marker date="1510908663345" expanded="false" signature="16:55" ph="import ..." />
+            <marker date="1510908663345" expanded="false" signature="10626:11104" ph="..." />
           </folding>
         </state>
       </provider>

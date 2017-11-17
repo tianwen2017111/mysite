@@ -9,7 +9,7 @@
 <script src="/static/js/jquery.min.js"></script>
 <script src="/static/js/d3.min.js"></script>
 <script src="/static/js/utils.js"></script> 
-<script type="text/javascript" src="/static/js/plot.js"></script>
+<script type="text/javascript" src="/static/js/draw.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -105,6 +105,7 @@
 										"G_sub_graphs" : {{G_sub_graphs|safe}} ,
 										"clustering" : {{clustering|safe}}
 										};
+									console.log(django_data['G']);
 								}
 								else if(graph_loaded == false){
 									file_uploaded = false;
@@ -112,7 +113,7 @@
 								}
 							</script>
 							<!-- <script src="/static/js/utils.js"></script>  -->
-							<!-- <script type="text/javascript" src="/static/js/plot.js"></script> -->
+							<!-- <script type="text/javascript" src="/staticdraw.jst.js"></script> -->
 					</div>
 				<div class="clearfix"> </div>
 				</div>

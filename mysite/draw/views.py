@@ -42,12 +42,11 @@ def home(request):
             request.session['file_path'] = file_path
             upload_file = UploadFile()
             if os.path.exists(file_path):
-                pass
-                # os.remove(file_path)
-                # upload_file.file = file
-                # upload_file.filepath = file_path
-                # upload_file.filename = file.name
-                # upload_file.save()
+                os.remove(file_path)
+                upload_file.file = file
+                upload_file.filepath = file_path
+                upload_file.filename = file.name
+                upload_file.save()
             else:
                 upload_file.file = file
                 upload_file.filepath = file_path
@@ -55,6 +54,7 @@ def home(request):
                 upload_file.save()
             file_path = request.session['file_path']
             G = gu.import_graph(file_path)
+
             # request.session['G'] = G
             # print request.session['G'].nodes()
             clustering_method = "ip_seg"
@@ -177,11 +177,8 @@ def manage_response(request):
             my_context = {"error": result['error']}
         elif 'G' in result.keys():
             new_G = result['G']
-            temp_fp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'algo', 'temp.gml')
-            # print temp_fp
-            # print os.path.exists(temp_fp)
+            # temp_fp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'algo', 'temp.gml')
             # nx.write_gml(result['G'], temp_fp)
-
             # request.session['file_path'] = temp_fp
             nx.write_gml(result['G'], request.session['file_path'])
             G_parent, G_sub_graphs, clustering = find_community(G=new_G,
@@ -216,15 +213,18 @@ def set_empty_context():
     return empty_context
 
 
-def updateSQL(file, file_path):
-    upload_file = UploadFile()
-    if os.path.exists(file_path):
-        pass
-    else:
-        upload_file.file = file
-        upload_file.filepath = file_path
-        upload_file.filename = file.name
-        upload_file.save()
+# def updateSQL(file, file_path):
+#
+#     print file
+#     print file_path
+#     upload_file = UploadFile()
+#     if os.path.exists(file_path):
+#         pass
+#     else:
+#         upload_file.file = file
+#         upload_file.filepath = file_path
+#         upload_file.filename = file.name
+#         upload_file.save()
 
 
 def download(request):
