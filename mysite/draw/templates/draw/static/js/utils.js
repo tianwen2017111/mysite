@@ -108,7 +108,9 @@ $(document).ready(function(){
                     $("#svg_sub_graph").html("");
                     Graph = JSON.parse(data['search_result']);
                     show_graph_info(Graph);
-                    multi_force(Graph, clustering, 'svg_sub_graph', search_input);
+
+                    cls = set_specific_cluster(clustering, JSON.parse(data['hop_nbunch']));
+                    multi_force(Graph, cls, 'svg_sub_graph', search_input);
                     $("#svg_graph").hide();
                     $("#svg_hierarchic").hide();
                     $("#svg_sub_graph").show();
@@ -598,4 +600,15 @@ function get_foci(foci_num){
         }
     }
     return foci;
+}
+
+function set_specific_cluster(cls, sp_cls){
+    new_cls = JSON.parse(JSON.stringify(cls));
+    for(var i in sp_cls){
+        for(j=0; j<sp_cls[i].length; j++){
+            sp_id = sp_cls[i][j];
+            new_cls[sp_id] = i;
+        }
+    }
+    return new_cls;
 }

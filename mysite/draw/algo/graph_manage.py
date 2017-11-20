@@ -1,10 +1,10 @@
 # coding: utf-8
 import networkx as nx
-from graph_utils import find_node_id
+from graph_utils import get_node_id
 
 
 def del_node(G, ip):
-    ip_id = find_node_id(G, ip)
+    ip_id = get_node_id(G, ip)
     if ip_id is not None:
         G.remove_node(ip_id)
         return G
@@ -15,8 +15,8 @@ def del_node(G, ip):
 
 def del_edge(G, source_ip, target_ip):
     print "__func__: del_edge"
-    source_ip_id = find_node_id(G, source_ip)
-    target_ip_id = find_node_id(G, target_ip)
+    source_ip_id = get_node_id(G, source_ip)
+    target_ip_id = get_node_id(G, target_ip)
     print G.all_neighbors(source_ip_id)
     if source_ip_id is None:
         error = "%s 不存在，请检查输入" %source_ip

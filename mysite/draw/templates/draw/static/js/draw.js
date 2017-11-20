@@ -526,7 +526,7 @@ function multi_force(Graph, clustering, svg_id, special_nodes){
 //        console.log("o.id:" + o.id + ",  o.cluster:" + o.cluster + ",  foci[o.cluster].y:" + foci[o.cluster].y + ",  o.y:" + o.y);
 //    })
 
-    console.log("---------------------tick()----------------------");
+//    console.log("---------------------tick()----------------------");
     force.on("tick", function(e) {
 
         var k = .1 * e.alpha;

@@ -82,7 +82,11 @@ def home(request):
 
             ip = request.POST['search_ip']
             hop = int(request.POST['hop'])
-            search_result = {"search_result": search_node(G, ip, hop)}
+            search_sub_graph, hop_nbunch = search_node(G, ip, hop)
+            # search_result = {"search_result": search_node(G, ip, hop)}
+            # print "script: view.py, hop_nbunch: ",hop_nbunch
+            search_result = {"search_result": search_sub_graph,
+                             "hop_nbunch" : json.dumps(hop_nbunch)}
             return HttpResponse(json.dumps(search_result), content_type="application/json")
 
 

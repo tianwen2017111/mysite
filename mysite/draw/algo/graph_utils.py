@@ -16,8 +16,8 @@ def map_vtx_to_label(clustering):
 def modularity(G, clustering):
     """Calculating the modularity of the graph with respect to a given clustring
         parameter:
-            _graph: a graph created by networkx
-            _cluster: a list of clustering result, such as [0,0,1,1,1,1,....]
+            G: a graph created by networkx
+            clustering: a list of clustering result, such as [0,0,1,1,1,1,....]
         return:
             Q: the modularity score
             Q = sum(L_c/m) - sum((D_c/2*m)^2)
@@ -103,14 +103,25 @@ def compute_weight(G, bunch1, bunch2):
     return weight
 
 
-def find_node_id(G, ip):
-    print "script: graph_utils,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
+def get_node_id(G, node_label):
+    """Find node id by label"""
+    print "script: graph_utils,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name,
     for id in G.nodes():
         node = G.node[id]
-        if node['label'] == ip:
+        if node['label'] == node_label:
+            print ", IP:", node_label, ", ID:", id
             return id
 
+
 def check_edge_exist(G, source, target):
+    """check whether the edge exist 
+        parameter:
+            G: A networkx graph                
+            sourch: the sourch_node id            
+            target: the target_node_id
+        return:
+            True if edge exist in graph          
+    """
     print "script: graph_utils,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     source_neighbors = [n for n in nx.all_neighbors(G, source)]
     if target in source_neighbors:

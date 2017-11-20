@@ -87,18 +87,15 @@ def find_community(G, algorithm, ip_seg=2, with_neighbors=True):
 
 #------------"查询节点"功能---------
 def search_node(G, node_label, hop):
-    print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     result = ''
-    nbunch, nbunch_hop = dict(), dict()
+    nbunch, hop_nbunch = dict(), dict()
+    nbunch[0] = [get_node_id(G, node_label)]
+    hop_nbunch[0] = nbunch[0]
+    print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name,
+    print ", IP:", node_label, ", ID:", nbunch[0][0]
 
-    # find check node id, add it into nbunch
-    for id in G.nodes():
-        node = G.node[id]
-        if node['label'] == node_label:
-            nbunch[0] = [node['id']]
-
-    if nbunch.has_key(0):
-        node_cc = nx.node_connected_component(G, nbunch.get(0)[0])
+    if nbunch[0][0] is not None:
+        node_cc = nx.node_connected_component(G, nbunch[0][0])
         node_cc_graph = nx.subgraph(G, node_cc)
         d = nx.diameter(node_cc_graph)
 
@@ -113,10 +110,9 @@ def search_node(G, node_label, hop):
                     neighbors.extend(n_neighbors)
                 neighbors.extend(temp_bunch)
                 nbunch[hop_iter] = list(set(neighbors))
-
-        print nbunch
-        result = nx_to_json(nx.subgraph(G, nbunch[hop]))
-    return result
+                hop_nbunch[hop_iter] = list(set(nbunch[hop_iter]).difference(nbunch[hop_iter-1]))
+            result = nx_to_json(nx.subgraph(G, nbunch[hop]))
+    return result, hop_nbunch
 
 
 #------------过滤节点--------------
@@ -140,7 +136,7 @@ def myfilter(G, filter_condition):
 #-----------删除节点---------------
 def del_node(G, ip):
     print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
-    ip_id = find_node_id(G, ip)
+    ip_id = get_node_id(G, ip)
     result = dict()
     if ip_id is None:
         error = "无此节点，请重新输入"
@@ -157,9 +153,8 @@ def del_node(G, ip):
 def del_edge(G, source_ip, target_ip):
     print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     result = dict()
-    source_ip_id = find_node_id(G, source_ip)
-    target_ip_id = find_node_id(G, target_ip)
-    print nx.all_neighbors(G,source_ip_id)
+    source_ip_id = get_node_id(G, source_ip)
+    target_ip_id = get_node_id(G, target_ip)
     if source_ip_id is None:
         error = u"%s 不存在，请检查输入" %source_ip
         result['error'] = error
@@ -180,7 +175,7 @@ def del_edge(G, source_ip, target_ip):
 def my_add_node(G, ip):
     print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     result = dict()
-    id_exist = find_node_id(G, ip)
+    id_exist = get_node_id(G, ip)
     if id_exist is None:
         _my_add_node(G, ip)
         result['G'] = G
@@ -204,8 +199,8 @@ def _my_add_node(G, ip):
 def my_add_edge(G, source_ip, target_ip):
     print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     result = dict()
-    source_ip_id = find_node_id(G, source_ip)
-    target_ip_id = find_node_id(G, target_ip)
+    source_ip_id = get_node_id(G, source_ip)
+    target_ip_id = get_node_id(G, target_ip)
     if source_ip_id and target_ip_id:
         if target_ip_id in G.adj[source_ip_id].keys():
             result['error'] = "边已存在，请勿重复添加"
@@ -231,7 +226,7 @@ def my_add_edge(G, source_ip, target_ip):
 if __name__ == '__main__':
     file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\data.gml'
     G = import_graph(file_path)
-    search_node(G, "127.3.176.190", 1)
+    search_node(G, "127.3.175.96", 3)
     # temp_G = copy.deepcopy(G)
     # result = my_add_node(G,'192.168.8.9')
     # result = my_add_edge(G, '192.168.8.92', '192.166.6.5')
