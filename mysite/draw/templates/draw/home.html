@@ -108,7 +108,7 @@
 										"G_sub_graphs" : {{G_sub_graphs|safe}} ,
 										"clustering" : {{clustering|safe}}
 										};
-									console.log(django_data['G']);
+									<!--console.log(django_data['G']);-->
 								}
 								else if(graph_loaded == false){
 									file_uploaded = false;
@@ -171,7 +171,7 @@
 					<li><label class="control-label">标签：</label></li>
 					<li><input type="text" class="form-control ip" required="required" placeholder="输入节点IP"/><span></span></li>
 					<li>
-						<input class="btn btn-dark submit" type="button" value="确定"/>
+						<input class="btn btn-dark submit" type="button" value="删除"/>
 						<input class="btn cancel" type="button" value="取消"/>
 					</li>
 				<!--</form>-->
@@ -188,7 +188,7 @@
 				<li><strong>源节点：</strong><input type="text" class="form-control ip source" placeholder="输入节点IP"/><span></span></li>
 				<li><strong>目的节点：</strong><input type="text" class="form-control  ip target" placeholder="输入节点IP"/><span></span></li>
 				<li>
-					<input class="btn btn-dark submit" type="button" value="确定"/>
+					<input class="btn btn-dark submit" type="button" value="删除"/>
 					<input class="btn cancel" type="button" value="取消"/>
 				</li>
 			</ul>
@@ -267,10 +267,10 @@
 		<div class="pop-body">
 			<ul>
 				<li><strong>节点IP：</strong><input type="text" class="form-control key" placeholder="输入节点IP"/><span></span></li>
-				<li><strong>属性名：</strong><input type="text" class="form-control key" placeholder="输入属性名"/><span></span></li>
-				<li><strong>属性值：</strong><input type="text" class="form-control value" placeholder="输入属性值"/><span></span></li>
+				<li><strong style="display:none">属性列表：</strong><div id="ckb"></div></li>
+				<!--<li><strong>属性名：</strong><input type="text" class="form-control key" placeholder="输入属性名"/><span></span></li>-->
 				<li>
-					<input class="btn btn-dark submit" type="button" value="确定"/>
+					<input class="btn btn-dark submit" type="button" value="删除"/>
 					<input class="btn cancel" type="button" value="取消"/>
 				</li>
 			</ul>

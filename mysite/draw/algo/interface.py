@@ -268,14 +268,22 @@ def add_attr(G, ip, attr_key, attr_value):
 
 def del_attr(G, ip, attr_key):
     print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name,
-    print ", IP:", ip, ", key:", attr_key, ", value:", attr_value
+    print ", IP:", ip, ", key:", attr_key
     result = dict()
+    # if attr_key == 'id' or attr_key == 'ID':
+    #     result['error'] =
     ip_id = get_node_id(G, ip)
-
     if ip_id is None:
         result['error'] = "无此节点，请重新输入"
     else:
         print G.node[ip_id]
+        print G.node[ip_id].keys()
+        if attr_key in G.node[ip_id].keys():
+            G.node[ip_id].pop(attr_key)
+        print G.node[ip_id]
+        result['G'] = G
+    return result
+
 
 if __name__ == '__main__':
     file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\data_copy.gml'

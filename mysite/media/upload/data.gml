@@ -2,7 +2,6 @@ graph [
   node [
     id 0
     label "128.0.0.143"
-    dgh "5432"
   ]
   node [
     id 1

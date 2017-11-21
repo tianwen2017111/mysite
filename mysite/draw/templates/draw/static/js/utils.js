@@ -212,6 +212,7 @@ $(document).ready(function(){
         }
     });
 
+    /*----------‘增加节点属性’功能的输入验证-----------*/
     $(".pop-body input.form-control").blur(function(){
         var $next = $(this).next("span");
         $next.find(".msg").remove();
@@ -219,6 +220,32 @@ $(document).ready(function(){
         if($val == ""){
             var errorMsg = "输入不能为空";
             $next.addClass("msg onError").text(errorMsg);
+        }
+    });
+
+    $("#del_attr_div input.form-control").blur(function(){
+        var $this = $(this);
+        var $ip = $.trim($this.val());
+        var temp_nodes = django_data['G'].nodes;
+
+        for(i=0; i<temp_nodes.length; i++){
+            if(temp_nodes[i]['label'] == $ip){
+                var attr_key_arr = '';
+                for(var key in temp_nodes[i]){
+                    if((key!='id') && (key!='label')){
+                        //id和label这两个属性不能被删除
+                        attr_key_arr += '<input type="checkbox"><label>' + key + '</label>(' + temp_nodes[i][key] + ')<br>'
+                    }
+                }
+                if(attr_key_arr == ''){
+                    $("#ckb").html("该节点无可删除的属性").addClass("msg onError");
+                }
+                else{
+                    //动态显示可删除的属性选项
+                    $("#ckb").prev("strong").show();
+                    $("#ckb").empty().append(attr_key_arr);
+                }
+            }
         }
     });
 
@@ -274,6 +301,11 @@ $(document).ready(function(){
                 manage_request['attr_key'] = $key;
                 manage_request['attr_value'] = $value;
             }
+        }
+
+        else if($parent.hasClass('del_attr')){
+            $ip = $this.parent().prevAll().find('.ip').val();
+            console.log($ip);
         }
 
         if(!$.isEmptyObject(manage_request)){
