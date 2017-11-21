@@ -160,24 +160,30 @@ $(document).ready(function(){
         if(django_data == ""){
             alert("请先上传文件");
         }else{
-        /*-------弹出弹框-------*/
-        $this = $(this);
-        $('.popover-mask').fadeIn(100);
-        if($this.hasClass("del_node")){
-             $('#del_node_div').slideDown(200);
-        }
-        if($this.hasClass("del_edge")){
-             $('#del_edge_div').slideDown(200);
-        }
-        if($this.hasClass("add_node")){
-             $('#add_node_div').slideDown(200);
-        }
-        if($this.hasClass("add_edge")){
-             $('#add_edge_div').slideDown(200);
-        }
-        if($this.hasClass("set_important_node")){
-             $('#set_important_node_div').slideDown(200);
-        }
+            /*-------弹出弹框-------*/
+            $this = $(this);
+            $('.popover-mask').fadeIn(100);
+            if($this.hasClass("del_node")){
+                 $('#del_node_div').slideDown(200);
+            }
+            if($this.hasClass("del_edge")){
+                 $('#del_edge_div').slideDown(200);
+            }
+            if($this.hasClass("add_node")){
+                 $('#add_node_div').slideDown(200);
+            }
+            if($this.hasClass("add_edge")){
+                 $('#add_edge_div').slideDown(200);
+            }
+            if($this.hasClass("set_important_node")){
+                 $('#set_important_node_div').slideDown(200);
+            }
+            if($this.hasClass("add_attr")){
+                 $('#add_attr_div').slideDown(200);
+            }
+            if($this.hasClass("del_attr")){
+                 $('#del_attr_div').slideDown(200);
+            }
         }
     });
     $(".pop-title .close, .pop-body input.btn.cancel").click(function(){
@@ -187,11 +193,11 @@ $(document).ready(function(){
     });
 
     /*----------节点删减的输入验证-----------*/
-    $(".pop-body input.form-control").blur(function(){
+//    $(".pop-body input.form-control").blur(function(){
+    $(".pop-body input.ip").blur(function(){
         var $next = $(this).next("span");
         $next.find(".msg").remove();
         $val = $.trim($(this).val());
-
         if($val == ""){
             var errorMsg = "请输入IP";
             $next.addClass("msg onError").text(errorMsg);
@@ -206,9 +212,18 @@ $(document).ready(function(){
         }
     });
 
-    /*----------节点删减-----------*/
-    $(".pop-body input.btn.submit").click(function(){
+    $(".pop-body input.form-control").blur(function(){
+        var $next = $(this).next("span");
+        $next.find(".msg").remove();
+        $val = $.trim($(this).val());
+        if($val == ""){
+            var errorMsg = "输入不能为空";
+            $next.addClass("msg onError").text(errorMsg);
+        }
+    });
 
+    /*----------节点删减的功能实现-----------*/
+    $(".pop-body input.btn.submit").click(function(){
         var $this = $(this);
         var $parent = $this.closest("div.md-popover");
         var manage_request = {};
@@ -217,7 +232,7 @@ $(document).ready(function(){
             $val = $this.parent().prev().find('.form-control').val();
             if(ip_ret.test($val)){
                 manage_request['manage_type'] = 'del_node';
-                manage_request['node'] = $val;
+                manage_request['ip'] = $val;
             }
         }
 
@@ -235,7 +250,7 @@ $(document).ready(function(){
             $val = $this.parent().prev().find('.form-control').val();
             if(ip_ret.test($val)){
                 manage_request['manage_type'] = 'add_node';
-                manage_request['node'] = $val;
+                manage_request['ip'] = $val;
             }
         }
 
@@ -249,7 +264,20 @@ $(document).ready(function(){
             }
         }
 
+        else if($parent.hasClass('add_attr')){
+            $ip = $this.parent().prevAll().find('.ip').val();
+            $key = $this.parent().prevAll().find('.key').val();
+            $value = $this.parent().prevAll().find('.value').val();
+            if(ip_ret.test($ip) && $key && $value){
+                manage_request['manage_type'] = 'add_attr';
+                manage_request['ip'] = $ip;
+                manage_request['attr_key'] = $key;
+                manage_request['attr_value'] = $value;
+            }
+        }
+
         if(!$.isEmptyObject(manage_request)){
+            console.log(manage_request);
             $.post('/draw/home/', manage_request, function(data){
                 if("error" in data){
                     alert(data['error']);
@@ -283,14 +311,11 @@ $(document).ready(function(){
         }
     }
     $(".saveAs").click(function(){
-        console.log(file_uploaded);
         if(file_uploaded){
             window.open("/draw/file/download.gml");
         }else{
             alert("请先上传文件");
         }
-
-
     })
 });
 

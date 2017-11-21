@@ -100,7 +100,6 @@ def home(request):
 
         if "manage_type" in request.POST.keys():
             context = manage_response(request)
-
             return HttpResponse(json.dumps(context), content_type="application/json")
 
 
@@ -148,13 +147,14 @@ def setting_form_response(request):
 
 # 数据增删请求的响应
 def manage_response(request):
+    print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     manage_type = request.POST['manage_type']
     if 'file_path' in request.session:
         import copy
         file_path = request.session['file_path']
         G = gu.import_graph(file_path)
         if manage_type == 'del_node':
-            ip = request.POST['node']
+            ip = request.POST['ip']
             temp_G = copy.deepcopy(G)
             result = del_node(temp_G, ip)
         elif manage_type == 'del_edge':
@@ -163,7 +163,7 @@ def manage_response(request):
             temp_G = copy.deepcopy(G)
             result = del_edge(temp_G, source_ip, target_ip)
         elif manage_type == 'add_node':
-            ip = request.POST['node']
+            ip = request.POST['ip']
             temp_G = copy.deepcopy(G)
             result = my_add_node(temp_G, ip)
         elif manage_type == 'add_edge':
@@ -171,6 +171,13 @@ def manage_response(request):
             target_ip = request.POST['target']
             temp_G = copy.deepcopy(G)
             result = my_add_edge(temp_G, source_ip, target_ip)
+        elif manage_type == 'add_attr':
+            ip = request.POST['ip']
+            attr_key = request.POST['attr_key']
+            attr_value = request.POST['attr_value']
+            print ip, attr_key, attr_value
+            temp_G = copy.deepcopy(G)
+            result = add_attr(temp_G, ip, attr_key, attr_value)
 
         if "error" in result.keys():
             my_context = {"error": result['error']}

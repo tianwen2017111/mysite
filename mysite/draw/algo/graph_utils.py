@@ -116,9 +116,13 @@ def get_node_id(G, node_label):
 def check_edge_exist(G, source, target):
     """check whether the edge exist 
         parameter:
-            G: A networkx graph                
-            sourch: the sourch_node id            
-            target: the target_node_id
+            G : A networkx graph  
+                          
+            sourch : int 
+                the sourch_node_id            
+            
+            target : int
+                the target_node_id
         return:
             True if edge exist in graph          
     """
@@ -128,8 +132,6 @@ def check_edge_exist(G, source, target):
         return True
     else:
         return False
-
-
 
 
 if __name__ == '__main__':

@@ -2,11 +2,12 @@ graph [
   node [
     id 0
     label "128.0.0.143"
-    dgh "5432"
+	pos 100
   ]
   node [
     id 1
     label "128.0.0.235"
+	color red
   ]
   node [
     id 2

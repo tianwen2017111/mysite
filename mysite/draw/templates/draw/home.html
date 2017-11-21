@@ -78,6 +78,9 @@
 									<li class="btn manage add_node md-trigger">增加节点</li>
 									<li class="btn manage add_edge md-trigger">增加边</li>
 									<li class="btn manage set_important_node md-trigger">设置核心节点</li>
+									<li class="btn manage add_attr md-trigger">增加节点属性</li>
+									<li class="btn manage del_attr md-trigger">删除节点属性</li>
+									</li>
 								</ul>
 							</li>
 							<li class="btn-group dropdown open">
@@ -105,6 +108,7 @@
 										"G_sub_graphs" : {{G_sub_graphs|safe}} ,
 										"clustering" : {{clustering|safe}}
 										};
+									console.log(django_data['G']);
 								}
 								else if(graph_loaded == false){
 									file_uploaded = false;
@@ -163,14 +167,14 @@
 		</div>
 		<div class="pop-body">
 			<ul>
-				<form method="post">
+				<!--<form method="post">-->
 					<li><label class="control-label">标签：</label></li>
-					<li><input type="text" class="form-control"required="required" placeholder="输入节点IP"/><span></span></li>
+					<li><input type="text" class="form-control ip" required="required" placeholder="输入节点IP"/><span></span></li>
 					<li>
 						<input class="btn btn-dark submit" type="button" value="确定"/>
 						<input class="btn cancel" type="button" value="取消"/>
 					</li>
-				</form>
+				<!--</form>-->
 			</ul>
 		</div>
 	</div>
@@ -181,8 +185,8 @@
 		</div>
 		<div class="pop-body">
 			<ul>
-				<li><strong>源节点：</strong><input type="text" class="form-control source" placeholder="输入节点IP"/><span></span></li>
-				<li><strong>目的节点：</strong><input type="text" class="form-control target" placeholder="输入节点IP"/><span></span></li>
+				<li><strong>源节点：</strong><input type="text" class="form-control ip source" placeholder="输入节点IP"/><span></span></li>
+				<li><strong>目的节点：</strong><input type="text" class="form-control  ip target" placeholder="输入节点IP"/><span></span></li>
 				<li>
 					<input class="btn btn-dark submit" type="button" value="确定"/>
 					<input class="btn cancel" type="button" value="取消"/>
@@ -198,7 +202,7 @@
 		<div class="pop-body">
 			<ul>
 				<li><label class="control-label">标签</label></li>
-				<li><input type="text" class="form-control" placeholder="输入节点IP"/><span></span></li>
+				<li><input type="text" class="form-control ip" placeholder="输入节点IP"/><span></span></li>
 				<li>
 					<input class="btn btn-dark submit" type="button" value="确定"/>
 					<input class="btn cancel" type="button" value="取消"/>
@@ -213,8 +217,8 @@
 		</div>
 		<div class="pop-body">
 			<ul>
-				<li><strong>源节点：</strong><input type="text" class="form-control source" placeholder="输入节点IP"/><span></span></li>
-				<li><strong>目的节点：</strong><input type="text" class="form-control target" placeholder="输入节点IP"/><span></span></li>
+				<li><strong>源节点：</strong><input type="text" class="form-control ip source" placeholder="输入节点IP"/><span></span></li>
+				<li><strong>目的节点：</strong><input type="text" class="form-control ip target" placeholder="输入节点IP"/><span></span></li>
 				<li>
 					<input class="btn btn-dark submit" type="button" value="确定"/>
 					<input class="btn cancel" type="button" value="取消"/>
@@ -230,9 +234,43 @@
 		<div class="pop-body">
 			<ul>
 				<li><label class="control-label">标签</label></li>
-				<li><input type="text" class="form-control" placeholder="输入节点"/><span></span></li>
+				<li><input type="text" class="form-control ip" placeholder="输入节点"/><span></span></li>
 				<li>
 					<input class="btn btn-dark ep_submit" type="button" value="确定"/>
+					<input class="btn cancel" type="button" value="取消"/>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="md-popover add_attr" id="add_attr_div">
+		<div class="pop-title">
+			<span class="close thick"></span>
+			<h4>增加节点属性</h4>
+		</div>
+		<div class="pop-body">
+			<ul>
+				<li><strong>节点IP：</strong><input type="text" class="form-control ip" placeholder="输入节点IP"/><span></span></li>
+				<li><strong>属性名：</strong><input type="text" class="form-control key" placeholder="输入属性名"/><span></span></li>
+				<li><strong>属性值：</strong><input type="text" class="form-control value" placeholder="输入属性值"/><span></span></li>
+				<li>
+					<input class="btn btn-dark submit" type="button" value="确定"/>
+					<input class="btn cancel" type="button" value="取消"/>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="md-popover del_attr" id="del_attr_div">
+		<div class="pop-title">
+			<span class="close thick"></span>
+			<h4>删除节点属性</h4>
+		</div>
+		<div class="pop-body">
+			<ul>
+				<li><strong>节点IP：</strong><input type="text" class="form-control key" placeholder="输入节点IP"/><span></span></li>
+				<li><strong>属性名：</strong><input type="text" class="form-control key" placeholder="输入属性名"/><span></span></li>
+				<li><strong>属性值：</strong><input type="text" class="form-control value" placeholder="输入属性值"/><span></span></li>
+				<li>
+					<input class="btn btn-dark submit" type="button" value="确定"/>
 					<input class="btn cancel" type="button" value="取消"/>
 				</li>
 			</ul>
