@@ -105,7 +105,7 @@ def compute_weight(G, bunch1, bunch2):
 
 def get_node_id(G, node_label):
     """Find node id by label"""
-    print "script: graph_utils,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name,
+    # print "script: graph_utils,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name,
     for id in G.nodes():
         node = G.node[id]
         if node['label'] == node_label:

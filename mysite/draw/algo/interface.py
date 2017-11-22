@@ -267,20 +267,38 @@ def add_attr(G, ip, attr_key, attr_value):
 
 
 def del_attr(G, ip, attr_key):
+    """Delete a node's attribute
+
+       Parameters
+       ----------
+       G : NetworkX Graph
+
+       ip: string
+           The node id
+
+       attr_key : list
+          List of attribute by ip.
+
+
+       Examples
+       --------
+       >>> G = nx.path_graph(3)
+       >>> G.node[1].keys()
+       id, label, color, pos, size
+       >>> del_attr(G, "192.168.0.1", ['color','pos'])
+       >>> G.node[1].keys()
+       id, label, size
+       """
     print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name,
     print ", IP:", ip, ", key:", attr_key
     result = dict()
-    # if attr_key == 'id' or attr_key == 'ID':
-    #     result['error'] =
     ip_id = get_node_id(G, ip)
+
     if ip_id is None:
         result['error'] = "无此节点，请重新输入"
     else:
-        print G.node[ip_id]
-        print G.node[ip_id].keys()
-        if attr_key in G.node[ip_id].keys():
-            G.node[ip_id].pop(attr_key)
-        print G.node[ip_id]
+        for _key in attr_key:
+            G.node[ip_id].pop(_key)
         result['G'] = G
     return result
 
@@ -295,5 +313,6 @@ if __name__ == '__main__':
     # result = del_edge(G, '128.0.0.143', '128.0.0.235')
     # print result
     # add_attr(G, '128.0.0.143', "pos", "sfr")
-    print G.node[0]
-    del_attr(G, '128.0.0.143', 'pos')
+    # print G.node[0]
+    attr_keys = ['pos']
+    del_attr(G, '128.0.0.143', attr_keys)

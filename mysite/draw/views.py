@@ -149,6 +149,7 @@ def setting_form_response(request):
 def manage_response(request):
     print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     manage_type = request.POST['manage_type']
+    print request.POST
     if 'file_path' in request.session:
         import copy
         file_path = request.session['file_path']
@@ -175,9 +176,14 @@ def manage_response(request):
             ip = request.POST['ip']
             attr_key = request.POST['attr_key']
             attr_value = request.POST['attr_value']
-            print ip, attr_key, attr_value
             temp_G = copy.deepcopy(G)
             result = add_attr(temp_G, ip, attr_key, attr_value)
+        elif manage_type == 'del_attr':
+            ip = request.POST['ip']
+            attr_key = request.POST.getlist('attr_key')
+            print attr_key
+            temp_G = copy.deepcopy(G)
+            result = del_attr(temp_G, ip, attr_key)
 
         if "error" in result.keys():
             my_context = {"error": result['error']}
