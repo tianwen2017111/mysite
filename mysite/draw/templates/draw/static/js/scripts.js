@@ -79,7 +79,7 @@ $(document).ready(function(){
         }
     });//end click()
 
-    /*-------------‘查询节点’功能的实现接口-------------------*/
+    /*-------------'查询节点'功能的输入验证及实现接口-------------------*/
     $("#search_submit_btn").click(function(){
         var $this = $(this),
             $prev_span = $this.prevAll("span");
@@ -118,40 +118,44 @@ $(document).ready(function(){
         }
     });
 
-    /*-------------‘过滤’功能的实现接口-------------------*/
+    /*-------------'过滤'功能的输入验证及实现接口-------------------*/
     $("#filter_submit_btn").click(function(){
-        var $prev_span = $(this).prevAll("span");
-        $prev_span.find(".msg").remove();
-        var filter_input = $("input:text[name='filter_input']").val(),
-            filter_request = {};
-        var filter_pattern = /^((?:((?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))|\*)\.){3}((?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))|\*))$/;
-
-        if(filter_input == ""){
-            errorMsg = "*请输入过滤条件"
-            $prev_span.addClass("msg onError").text(errorMsg);
-        }
-        else if(!filter_pattern.test(filter_input)){
-            errorMsg = "*输入错误"
-            $prev_span.addClass("msg onError").text(errorMsg);
-        }else if(filter_pattern.test(filter_input)){
-            $prev_span.addClass("msg onSuccess").text("输入正确");
-            filter_request['filter_condition'] = filter_input;
-            console.log("__Do__ : filter nodes, filter_condition: " + filter_input);
-            $.post('/draw/home/', filter_request, function(data){
-                if(data['filter_result'] == ''){
-                    alert('无匹配项， 请重新输入');
-                }
-                else{
-                    $("#svg_sub_graph").html("");
-                    Graph = JSON.parse(data['filter_result']);
-                    show_graph_info(Graph);
-                    multi_force(Graph, clustering, 'svg_sub_graph');
-                    $("#svg_graph").hide();
-                    $("#svg_hierarchic").hide();
-                    $("#svg_sub_graph").show();
-                }
-            });//向后台发送数据
-        }
+        var $filter = $("input:text[name='filter']"),
+            $filter_condition = $("input:text[name='filter_condition']");
+        console.log($filter.val());
+        console.log($filter_condition.val());
+//        var $prev_span = $(this).prevAll("span");
+//        $prev_span.find(".msg").remove();
+//        var filter_input = $("input:text[name='filter_input']").val(),
+//            filter_request = {};
+//        var filter_pattern = /^((?:((?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))|\*)\.){3}((?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))|\*))$/;
+//
+//        if(filter_input == ""){
+//            errorMsg = "*请输入过滤条件"
+//            $prev_span.addClass("msg onError").text(errorMsg);
+//        }
+//        else if(!filter_pattern.test(filter_input)){
+//            errorMsg = "*输入错误"
+//            $prev_span.addClass("msg onError").text(errorMsg);
+//        }else if(filter_pattern.test(filter_input)){
+//            $prev_span.addClass("msg onSuccess").text("输入正确");
+//            filter_request['filter_condition'] = filter_input;
+//            console.log("__Do__ : filter nodes, filter_condition: " + filter_input);
+//            $.post('/draw/home/', filter_request, function(data){
+//                if(data['filter_result'] == ''){
+//                    alert('无匹配项， 请重新输入');
+//                }
+//                else{
+//                    $("#svg_sub_graph").html("");
+//                    Graph = JSON.parse(data['filter_result']);
+//                    show_graph_info(Graph);
+//                    multi_force(Graph, clustering, 'svg_sub_graph');
+//                    $("#svg_graph").hide();
+//                    $("#svg_hierarchic").hide();
+//                    $("#svg_sub_graph").show();
+//                }
+//            });//向后台发送数据
+//        }
     });
 
     /*-------------'数据操作'的弹框效果----------------*/
@@ -239,18 +243,19 @@ $(document).ready(function(){
                 if(temp_nodes[i]['label'] == $ip){
                     var attr_key_arr = '';
                     for(var key in temp_nodes[i]){
+                        //遍历该节点属性
                         if((key!='id') && (key!='label')){
                             //id和label这两个属性不能被删除
-//                            console.log(key);
                             attr_num += 1;
                             attr_key_arr += '<input type="checkbox"  name="attr_list"><label>' + key + '</label>:  ' + temp_nodes[i][key] + '<br>'
                         }
                     }
-                    if(attr_key_arr == ''){
-                        $("#ckb").html("该节点无可删除的属性").addClass("msg onError");
+                    if(attr_num == 0){
+                        $("#ckb").prev("strong").hide();
+                        $("#ckb").html("该节点无可删除的属性").css("font-size", '18px');
+                        $("#del_attr_div").height(330);
                     }
                     else{
-
                         $("#ckb").prev("strong").show();//显示"属性列表"文本
                         $("#ckb").empty().append(attr_key_arr);//显示可删除的属性选项
                         if(attr_num > 2){

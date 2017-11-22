@@ -2,15 +2,14 @@ graph [
   node [
     id 0
     label "128.0.0.143"
-    color "red"
-    pos 100
-    length "523"
-    size 200
+	pos 100
+	color red
+	size 200
   ]
   node [
     id 1
     label "128.0.0.235"
-    color "red"
+	color red
   ]
   node [
     id 2

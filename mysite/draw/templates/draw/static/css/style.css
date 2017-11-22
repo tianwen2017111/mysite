@@ -317,9 +317,8 @@ ul.social-in li  i.youtube:hover{
 	border-left: 1px solid transparent;
 }
 .dropdown .dropdown-menu {
-	/*z-index: 103;*/
-	padding: 20px;
-	min-width: 320px;
+	padding: 10px 30px;
+	min-width: 340px;
 	margin-top: 0px;
 }
 .dropdown form {
