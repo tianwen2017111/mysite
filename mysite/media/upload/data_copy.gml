@@ -2,7 +2,10 @@ graph [
   node [
     id 0
     label "128.0.0.143"
+    color "red"
     pos 100
+    length "523"
+    size 200
   ]
   node [
     id 1

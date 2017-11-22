@@ -49,12 +49,12 @@ $(document).ready(function(){
         form_data["with_neighbors"] = $(":radio[name='with_neighbors']:checked").val();
         console.log(form_data);
         $.post('/draw/home/', form_data, function(data){
-            var django_data = {
-                                "G" : JSON.parse(data["G"]),
-                                "G_parent" : JSON.parse(data["G_parent"]),
-                                "G_sub_graphs" : data["G_sub_graphs"],
-                                "clustering" : JSON.parse(data['clustering'])
-                             };
+            django_data = {
+                            "G" : JSON.parse(data["G"]),
+                            "G_parent" : JSON.parse(data["G_parent"]),
+                            "G_sub_graphs" : data["G_sub_graphs"],
+                            "clustering" : JSON.parse(data['clustering'])
+                          };
             $("#svg_graph").html("");
             $("#svg_hierarchic").html("");
             $("#svg_sub_graph").html("");
@@ -227,30 +227,36 @@ $(document).ready(function(){
         var $this = $(this);
         var $ip = $.trim($this.val());
         var temp_nodes = django_data['G'].nodes;
-
+        var attr_num = 0;
         if($ip == ''){
             //如果输入为空，则隐藏复选框
             $("#ckb").prev("strong").hide();
             $("#ckb").empty();
         }
         else{
+            //否则动态显示可删除的属性，并改变div高度
             for(i=0; i<temp_nodes.length; i++){
                 if(temp_nodes[i]['label'] == $ip){
                     var attr_key_arr = '';
                     for(var key in temp_nodes[i]){
                         if((key!='id') && (key!='label')){
                             //id和label这两个属性不能被删除
-                            attr_key_arr += '<input type="checkbox"  name="attr_list"><label>' + key + '</label>(' + temp_nodes[i][key] + ')<br>'
-//                            attr_key_arr += "<input type='checkbox'  name='attr_list' value='" + key + "'><br>";
+//                            console.log(key);
+                            attr_num += 1;
+                            attr_key_arr += '<input type="checkbox"  name="attr_list"><label>' + key + '</label>:  ' + temp_nodes[i][key] + '<br>'
                         }
                     }
                     if(attr_key_arr == ''){
                         $("#ckb").html("该节点无可删除的属性").addClass("msg onError");
                     }
                     else{
-                        //动态显示可删除的属性选项
-                        $("#ckb").prev("strong").show();
-                        $("#ckb").empty().append(attr_key_arr);
+
+                        $("#ckb").prev("strong").show();//显示"属性列表"文本
+                        $("#ckb").empty().append(attr_key_arr);//显示可删除的属性选项
+                        if(attr_num > 2){
+                            //动态增加div高度，以适应文本变化
+                            $("#del_attr_div").height($("#del_attr_div").height() + 50);
+                        }
                     }
                 }//end if(temp_nodes[i]['label'] == $ip)
             }//end for
@@ -336,12 +342,12 @@ $(document).ready(function(){
                     isfileChanged = true;
                     $('.popover-mask').fadeOut(100);
                     $this.closest('.md-popover').slideUp(200);
-                    var django_data = {
-                                "G" : JSON.parse(data["G"]),
-                                "G_parent" : JSON.parse(data["G_parent"]),
-                                "G_sub_graphs" : data["G_sub_graphs"],
-                                "clustering" : JSON.parse(data['clustering'])
-                             };
+                    django_data = {
+                                    "G" : JSON.parse(data["G"]),
+                                    "G_parent" : JSON.parse(data["G_parent"]),
+                                    "G_sub_graphs" : data["G_sub_graphs"],
+                                    "clustering" : JSON.parse(data['clustering'])
+                                  };
                     $("#svg_graph").html("");
                     $("#svg_hierarchic").html("");
                     $("#svg_sub_graph").html("");

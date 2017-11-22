@@ -140,9 +140,7 @@ def del_node(G, ip):
     result = dict()
     if ip_id is None:
         error = "无此节点，请重新输入"
-        # error = "error"
         result['error'] = error
-        # return error
     else:
         G.remove_node(ip_id)
         result['G'] = G
@@ -192,7 +190,6 @@ def _my_add_node(G, ip):
     G.add_node(new_node_id)
     G.node[new_node_id]['id'] = new_node_id
     G.node[new_node_id]['label'] = ip.decode("utf-8")
-    # return G
 
 
 #------------增加边------------------

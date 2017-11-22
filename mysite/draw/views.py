@@ -151,22 +151,19 @@ def manage_response(request):
     manage_type = request.POST['manage_type']
     print request.POST
     if 'file_path' in request.session:
-        import copy
+        # import copy
         file_path = request.session['file_path']
         G = gu.import_graph(file_path)
         if manage_type == 'del_node':
             ip = request.POST['ip']
-            temp_G = copy.deepcopy(G)
-            result = del_node(temp_G, ip)
+            result = del_node(G, ip)
         elif manage_type == 'del_edge':
             source_ip = request.POST['source']
             target_ip = request.POST['target']
-            temp_G = copy.deepcopy(G)
-            result = del_edge(temp_G, source_ip, target_ip)
+            result = del_edge(G, source_ip, target_ip)
         elif manage_type == 'add_node':
             ip = request.POST['ip']
-            temp_G = copy.deepcopy(G)
-            result = my_add_node(temp_G, ip)
+            result = my_add_node(G, ip)
         elif manage_type == 'add_edge':
             source_ip = request.POST['source']
             target_ip = request.POST['target']
@@ -176,14 +173,11 @@ def manage_response(request):
             ip = request.POST['ip']
             attr_key = request.POST['attr_key']
             attr_value = request.POST['attr_value']
-            temp_G = copy.deepcopy(G)
-            result = add_attr(temp_G, ip, attr_key, attr_value)
+            result = add_attr(G, ip, attr_key, attr_value)
         elif manage_type == 'del_attr':
             ip = request.POST['ip']
             attr_key = request.POST.getlist('attr_key')
-            print attr_key
-            temp_G = copy.deepcopy(G)
-            result = del_attr(temp_G, ip, attr_key)
+            result = del_attr(G, ip, attr_key)
 
         if "error" in result.keys():
             my_context = {"error": result['error']}
