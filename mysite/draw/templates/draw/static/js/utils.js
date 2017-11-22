@@ -20,12 +20,12 @@ $(document).ready(function(){
         graph_show(django_data);
     }
 
-    /*-------------添加回车确定效果-------------------*/
-    $("form.dropdown-menu, div.md-popover").keydown(function() {
-        if (event.keyCode == "13") {//keyCode=13是回车键
-            $(this).find("input.btn.submit").click();
-        }
-    });
+//    /*-------------添加回车确定效果-------------------*/
+//    $("form.dropdown-menu, div.md-popover").keydown(function() {
+//        if (event.keyCode == "13") {//keyCode=13是回车键
+//            $(this).find("input.btn.submit").click();
+//        }
+//    });
 
     /*-------------设置表单内部的显示与隐藏--------------------*/
     /*$(":radio[name='clustering_method']").each(function(){
@@ -212,7 +212,7 @@ $(document).ready(function(){
         }
     });
 
-    /*----------‘增加节点属性’功能的输入验证-----------*/
+    /*----------‘增加节点属性’功能的输入验证（仅验证输入是否为空）-----------*/
     $(".pop-body input.form-control").blur(function(){
         var $next = $(this).next("span");
         $next.find(".msg").remove();
@@ -221,13 +221,20 @@ $(document).ready(function(){
             var errorMsg = "输入不能为空";
             $next.addClass("msg onError").text(errorMsg);
         }
-    });
 
+    });
+    /*----------‘删除节点属性’功能中复选框的显示与隐藏-----------*/
     $("#del_attr_div input.form-control").blur(function(){
         var $this = $(this);
         var $ip = $.trim($this.val());
         var temp_nodes = django_data['G'].nodes;
 
+        if($ip == ''){
+            //如果输入为空
+            $("#ckb").prev("strong").hide();
+            $("#ckb").empty();
+        }
+        else{
         for(i=0; i<temp_nodes.length; i++){
             if(temp_nodes[i]['label'] == $ip){
                 var attr_key_arr = '';
@@ -247,6 +254,8 @@ $(document).ready(function(){
                 }
             }
         }
+        }
+
     });
 
     /*----------节点删减的功能实现-----------*/
@@ -334,21 +343,7 @@ $(document).ready(function(){
         }
     });
 
-    /*---------关闭或刷新页面时，对更改文件的保存--------*/
-    window.onbeforeunload = function(e){
-        console.log("__Do__: check leave")
-        if(fileChanged){
-            //        setTimeout(doSaveAs, 0);
-            return "文件已修改，是否保存更改"
-        }
-    }
-    $(".saveAs").click(function(){
-        if(file_uploaded){
-            window.open("/draw/file/download.gml");
-        }else{
-            alert("请先上传文件");
-        }
-    })
+
 });
 
 /*绘图程序*/

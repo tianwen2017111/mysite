@@ -2,12 +2,12 @@ graph [
   node [
     id 0
     label "128.0.0.143"
-	pos 100
+    pos 100
   ]
   node [
     id 1
     label "128.0.0.235"
-	color red
+    color "red"
   ]
   node [
     id 2
@@ -320,6 +320,10 @@ graph [
   node [
     id 79
     label "126.2.158.161"
+  ]
+  node [
+    id 80
+    label "1.1.1.1"
   ]
   edge [
     source 0
