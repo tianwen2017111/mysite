@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>charts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="/static/js/d3.min.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/drawCharts.js"></script>
+    <style>
+        body {
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          position: relative;
+          width: 960px;
+        }
+
+        .axis text {
+          font: 10px sans-serif;
+        }
+
+        .axis path,
+        .axis line {
+          fill: none;
+          stroke: #000;
+          shape-rendering: crispEdges;
+        }
+
+        .bar {
+          fill: steelblue;
+          fill-opacity: .9;
+        }
+
+        .x.axis path {
+          display: none;
+        }
+
+        label {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <label><input type="checkbox"> Sort values</label>
+</body>
+</html>

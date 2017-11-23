@@ -6,10 +6,10 @@ from . import views
 
 urlpatterns = [
     url(r'^home/$', views.home, name='home'),
+    url(r'^charts/$', views.charts, name='charts'),
     url(r'^file/download.gml$', views.download, name='download'),
-    url(r'^StatisticsChart/$', views.StatisticsChart, name='StatisticsChart'),
+    url(r'^data.tsv$', views.dataTsv, name='dataTsv'),
     url(r'^fileupload/$', views.fileupload, name='fileupload'),
-	url(r'^data.tsv$', views.dataTsv, name='dataTsv'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

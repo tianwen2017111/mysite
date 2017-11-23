@@ -118,15 +118,11 @@ def search_node(G, node_label, hop):
 #------------过滤节点--------------
 def my_filter(G, filter_name, filter_condition):
     """
-    Filtering nodes by regular expression
+    
     :param G: networkx graph
-    :param filter_name: regular expression
+    :param filter_name: regular expression 
     :param filter_condition: regular expression
-     Examples
-    --------
-    >>> G = nx.path_graph(3)
-    >>> bb = nx.betweenness_centrality(G)
-    >>> my_filter(G, "^co[a-z]{3}$", "^r.d$")
+    :return: 
     """
     print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     import re
