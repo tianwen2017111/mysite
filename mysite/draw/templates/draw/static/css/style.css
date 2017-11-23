@@ -771,3 +771,23 @@ a.details {
 	-ms-border-radius: 5px;
 	font-weight: 100;
 }
+.axis text {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.bar {
+    fill: steelblue;
+    fill-opacity: .9;
+}
+
+.x.axis path {
+    display: none;
+}
+
