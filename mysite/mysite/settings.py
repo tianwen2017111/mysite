@@ -141,7 +141,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'draw/templates/draw/static').replace('\\', '/')
 STATICFILES_DIRS = (
-    ('html', os.path.join(STATIC_ROOT, 'html').replace('\\', '/')),
+    ('data', os.path.join(STATIC_ROOT, 'data').replace('\\', '/')),
     ('css', os.path.join(STATIC_ROOT, 'css').replace('\\', '/')),
     ('js', os.path.join(STATIC_ROOT, 'js').replace('\\', '/')),
     ('images', os.path.join(STATIC_ROOT, 'images').replace('\\', '/')),

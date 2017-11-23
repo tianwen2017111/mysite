@@ -21,130 +21,109 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/draw/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="99" column="59" lean-forward="false" selection-start-line="99" selection-start-column="59" selection-end-line="99" selection-end-column="59" />
+            <state relative-caret-position="832">
+              <caret line="291" column="21" lean-forward="false" selection-start-line="291" selection-start-column="21" selection-end-line="291" selection-end-column="21" />
               <folding>
                 <element signature="e#16#90#0" expanded="true" />
+                <element signature="e#341#4841#0" expanded="false" />
                 <element signature="e#4874#5136#0" expanded="false" />
                 <element signature="e#5179#6373#0" expanded="false" />
                 <element signature="e#6421#9108#0" expanded="false" />
                 <element signature="e#9140#9362#0" expanded="false" />
-                <element signature="e#9392#9686#0" expanded="false" />
-                <element signature="e#9718#11157#0" expanded="false" />
-                <element signature="e#11182#11655#0" expanded="false" />
-                <marker date="1511401780612" expanded="false" signature="16:55" ph="import ..." />
+                <element signature="e#9392#9725#0" expanded="false" />
+                <element signature="e#9757#11196#0" expanded="false" />
+                <element signature="e#11233#11728#0" expanded="false" />
+                <marker date="1511424818550" expanded="false" signature="16:55" ph="import ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/scripts.js">
+      <file leaf-file-name="StatisticsChart.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/draw/templates/draw/StatisticsChart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="165" column="50" lean-forward="true" selection-start-line="165" selection-start-column="50" selection-end-line="165" selection-end-column="50" />
+            <state relative-caret-position="1067">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
-                <element signature="e#0#18393#0" expanded="false" />
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="interface.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/draw/algo/interface.py">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="141" column="35" lean-forward="false" selection-start-line="140" selection-start-column="34" selection-end-line="141" selection-end-column="35" />
-              <folding>
-                <element signature="e#39#50#0" expanded="true" />
-                <element signature="e#234#1586#0" expanded="false" />
-                <element signature="e#1658#2242#0" expanded="false" />
-                <element signature="e#3222#4330#0" expanded="false" />
-                <element signature="e#3562#4300#0" expanded="false" />
-                <element signature="e#6310#6637#0" expanded="false" />
-                <element signature="e#6718#7410#0" expanded="false" />
-                <element signature="e#7477#7789#0" expanded="false" />
-                <element signature="e#7821#8153#0" expanded="false" />
-                <element signature="e#8237#9524#0" expanded="false" />
-                <element signature="e#9574#10418#0" expanded="false" />
-                <element signature="e#10456#11285#0" expanded="false" />
-                <element signature="e#10456#10894#1" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="function.py" pinned="false" current-in-tab="false">
-        <entry file="file://G:/Program Files/Python/Anaconda2/Lib/site-packages/networkx/classes/function.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-427">
-              <caret line="309" column="21" lean-forward="true" selection-start-line="309" selection-start-column="21" selection-end-line="309" selection-end-column="21" />
+            <state relative-caret-position="-114">
+              <caret line="617" column="0" lean-forward="false" selection-start-line="617" selection-start-column="0" selection-end-line="617" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graph_utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/draw/algo/graph_utils.py">
+      <file leaf-file-name="forceLayout.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/forceLayout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="108" column="4" lean-forward="false" selection-start-line="108" selection-start-column="4" selection-end-line="109" selection-end-column="25" />
-              <folding>
-                <element signature="e#1564#1870#0" expanded="false" />
-                <element signature="e#1896#2005#0" expanded="false" />
-                <element signature="e#2036#2082#0" expanded="false" />
-                <element signature="e#2104#2508#0" expanded="false" />
-                <element signature="e#2554#3067#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="720">
+              <caret line="18" column="42" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="39" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/scripts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="charts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/charts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="911">
+              <caret line="95" column="3" lean-forward="false" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/draw/templates/draw/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="751">
-              <caret line="67" column="75" lean-forward="false" selection-start-line="67" selection-start-column="75" selection-end-line="67" selection-end-column="75" />
+            <state relative-caret-position="633">
+              <caret line="31" column="52" lean-forward="true" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
               <folding>
-                <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#form#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#input#2;n#form#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#ul#0;n#li#5;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#form#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#li#3;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#4;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#input#2;n#form#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#li#5;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#ul#0;n#li#5;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#li#6;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#strong#0;n#li#1;n#ul#0;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#strong#0;n#li#1;n#ul#0;n#div#1;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#10;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -162,10 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>all</find>
-      <find>font-fa</find>
-      <find>clustering_arr</find>
-      <find>count_group_number</find>
       <find>show</find>
       <find>show_graph</find>
       <find>parent_add_attr</find>
@@ -191,14 +166,16 @@
       <find>fileChanged</find>
       <find>django</find>
       <find>fil</find>
+      <find>ts</find>
       <find>django_data</find>
+      <find>width</find>
+      <find>img</find>
+      <find>request.session['file_path']</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../code/VertextClustering.py" />
-        <option value="$PROJECT_DIR$/draw/draw_graph.py" />
         <option value="$PROJECT_DIR$/draw/Utils.py" />
         <option value="$PROJECT_DIR$/draw/clustering.py" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/js/draw_graph.js" />
@@ -220,7 +197,6 @@
         <option value="$PROJECT_DIR$/draw/templates/draw/ttt.html" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/js/ttt.html" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/js/plot_back_up.js" />
-        <option value="$PROJECT_DIR$/mysite/settings.py" />
         <option value="$PROJECT_DIR$/draw/admin.py" />
         <option value="$PROJECT_DIR$/draw/models.py" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/css/bootstrap.css" />
@@ -235,19 +211,22 @@
         <option value="$PROJECT_DIR$/draw/tet.py" />
         <option value="E:/tt.py" />
         <option value="$USER_HOME$/Desktop/bishi.py" />
-        <option value="$PROJECT_DIR$/draw/urls.py" />
         <option value="$PROJECT_DIR$/draw/algo/graph_manage.py" />
         <option value="$PROJECT_DIR$/draw/algo/graphUtils.py" />
-        <option value="$PROJECT_DIR$/draw/templates/draw/static/css/style.css" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/js/plot.js" />
         <option value="$PROJECT_DIR$/draw/algo/cluster_method.py" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/js/draw.js" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/js/utils.js" />
         <option value="$PROJECT_DIR$/draw/algo/graph_utils.py" />
-        <option value="$PROJECT_DIR$/draw/templates/draw/home.html" />
-        <option value="$PROJECT_DIR$/draw/views.py" />
-        <option value="$PROJECT_DIR$/draw/algo/interface.py" />
         <option value="$PROJECT_DIR$/draw/templates/draw/static/js/scripts.js" />
+        <option value="$PROJECT_DIR$/draw/algo/interface.py" />
+        <option value="$PROJECT_DIR$/mysite/settings.py" />
+        <option value="$PROJECT_DIR$/draw/views.py" />
+        <option value="$PROJECT_DIR$/draw/urls.py" />
+        <option value="$PROJECT_DIR$/draw/templates/draw/static/js/charts.js" />
+        <option value="$PROJECT_DIR$/draw/templates/draw/StatisticsChart.html" />
+        <option value="$PROJECT_DIR$/draw/templates/draw/static/css/style.css" />
+        <option value="$PROJECT_DIR$/draw/templates/draw/home.html" />
       </list>
     </option>
   </component>
@@ -277,7 +256,7 @@
     </entry>
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -290,7 +269,130 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="draw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -630,7 +732,7 @@
     <frame x="-1208" y="-410" width="1216" height="1896" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33031163" sideWeight="0.495" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29858357" sideWeight="0.49" order="2" side_tool="false" content_ui="tabs" />
@@ -703,21 +805,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/jquery.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="1" column="266" lean-forward="false" selection-start-line="1" selection-start-column="266" selection-end-line="1" selection-end-column="266" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/Program Files/Python/Anaconda2/Lib/site-packages/networkx/classes/digraph.py" />
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/fileupload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="33" column="11" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="33" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://G:/Program Files/Python/Anaconda2/Lib/site-packages/Django-1.10.6-py2.7.egg/django/forms/widgets.py" />
     <entry file="file://G:/Program Files/Python/Anaconda2/Lib/site-packages/Django-1.10.6-py2.7.egg/django/forms/fields.py" />
     <entry file="file://$PROJECT_DIR$/draw/forms.py">
@@ -784,13 +871,6 @@
     </entry>
     <entry file="file://E:/tt.py" />
     <entry file="file://$USER_HOME$/Desktop/bishi.py" />
-    <entry file="file://$PROJECT_DIR$/mysite/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="151" column="19" lean-forward="true" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mysite/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
@@ -819,13 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/draw/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://G:/Program Files/Python/Anaconda2/Lib/site-packages/networkx/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1185">
@@ -845,66 +918,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2860">
           <caret line="169" column="11" lean-forward="true" selection-start-line="169" selection-start-column="11" selection-end-line="169" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="113" column="8" lean-forward="false" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-            <element signature="e#0#8594#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/draw/templates/draw/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="751">
-          <caret line="67" column="75" lean-forward="false" selection-start-line="67" selection-start-column="75" selection-end-line="67" selection-end-column="75" />
-          <folding>
-            <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#2;n#form#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#ul#0;n#li#5;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#strong#0;n#li#1;n#ul#0;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#95#2052#0" expanded="false" />
+            <element signature="e#2094#3732#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -913,9 +929,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="531" column="29" lean-forward="false" selection-start-line="531" selection-start-column="29" selection-end-line="531" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/algo/interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1786">
+          <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding>
-            <element signature="e#0#23470#0" expanded="false" />
+            <element signature="e#39#50#0" expanded="false" />
+            <element signature="e#234#1586#0" expanded="false" />
+            <element signature="e#1658#2242#0" expanded="false" />
+            <element signature="e#3222#4330#0" expanded="false" />
+            <element signature="e#3562#4300#0" expanded="false" />
+            <element signature="e#6476#6803#0" expanded="false" />
+            <element signature="e#6884#7576#0" expanded="false" />
+            <element signature="e#7643#7955#0" expanded="false" />
+            <element signature="e#7987#8319#0" expanded="false" />
+            <element signature="e#8403#9690#0" expanded="false" />
+            <element signature="e#9740#10584#0" expanded="false" />
+            <element signature="e#10622#11451#0" expanded="false" />
+            <element signature="e#10622#11060#1" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://G:/Program Files/Python/Anaconda2/Lib/site-packages/networkx/classes/function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-427">
+          <caret line="309" column="21" lean-forward="true" selection-start-line="309" selection-start-column="21" selection-end-line="309" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -933,78 +977,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://G:/Program Files/Python/Anaconda2/Lib/site-packages/networkx/classes/function.py">
+    <entry file="file://$PROJECT_DIR$/mysite/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-427">
-          <caret line="309" column="21" lean-forward="true" selection-start-line="309" selection-start-column="21" selection-end-line="309" selection-end-column="21" />
+        <state relative-caret-position="562">
+          <caret line="143" column="44" lean-forward="false" selection-start-line="143" selection-start-column="44" selection-end-line="143" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/draw/views.py">
+    <entry file="file://$PROJECT_DIR$/draw/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="99" column="59" lean-forward="false" selection-start-line="99" selection-start-column="59" selection-end-line="99" selection-end-column="59" />
+        <state relative-caret-position="336">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
           <folding>
-            <element signature="e#16#90#0" expanded="true" />
-            <element signature="e#4874#5136#0" expanded="false" />
-            <element signature="e#5179#6373#0" expanded="false" />
-            <element signature="e#6421#9108#0" expanded="false" />
-            <element signature="e#9140#9362#0" expanded="false" />
-            <element signature="e#9392#9686#0" expanded="false" />
-            <element signature="e#9718#11157#0" expanded="false" />
-            <element signature="e#11182#11655#0" expanded="false" />
-            <marker date="1511401780612" expanded="false" signature="16:55" ph="import ..." />
+            <element signature="e#0#8594#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/draw/algo/interface.py">
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/forceLayout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="141" column="35" lean-forward="false" selection-start-line="140" selection-start-column="34" selection-end-line="141" selection-end-column="35" />
-          <folding>
-            <element signature="e#39#50#0" expanded="true" />
-            <element signature="e#234#1586#0" expanded="false" />
-            <element signature="e#1658#2242#0" expanded="false" />
-            <element signature="e#3222#4330#0" expanded="false" />
-            <element signature="e#3562#4300#0" expanded="false" />
-            <element signature="e#6310#6637#0" expanded="false" />
-            <element signature="e#6718#7410#0" expanded="false" />
-            <element signature="e#7477#7789#0" expanded="false" />
-            <element signature="e#7821#8153#0" expanded="false" />
-            <element signature="e#8237#9524#0" expanded="false" />
-            <element signature="e#9574#10418#0" expanded="false" />
-            <element signature="e#10456#11285#0" expanded="false" />
-            <element signature="e#10456#10894#1" expanded="false" />
-          </folding>
+        <state relative-caret-position="720">
+          <caret line="18" column="42" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="39" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="165" column="50" lean-forward="true" selection-start-line="165" selection-start-column="50" selection-end-line="165" selection-end-column="50" />
+        <state relative-caret-position="96">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/js/charts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="911">
+          <caret line="95" column="3" lean-forward="false" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/StatisticsChart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1067">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
-            <element signature="e#0#18393#0" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="832">
+          <caret line="291" column="21" lean-forward="false" selection-start-line="291" selection-start-column="21" selection-end-line="291" selection-end-column="21" />
+          <folding>
+            <element signature="e#16#90#0" expanded="true" />
+            <element signature="e#341#4841#0" expanded="false" />
+            <element signature="e#4874#5136#0" expanded="false" />
+            <element signature="e#5179#6373#0" expanded="false" />
+            <element signature="e#6421#9108#0" expanded="false" />
+            <element signature="e#9140#9362#0" expanded="false" />
+            <element signature="e#9392#9725#0" expanded="false" />
+            <element signature="e#9757#11196#0" expanded="false" />
+            <element signature="e#11233#11728#0" expanded="false" />
+            <marker date="1511424818550" expanded="false" signature="16:55" ph="import ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114">
+          <caret line="617" column="0" lean-forward="false" selection-start-line="617" selection-start-column="0" selection-end-line="617" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/draw/templates/draw/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="31" column="52" lean-forward="true" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
+          <folding>
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#3;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#4;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#2;n#form#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#5;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#ul#0;n#li#5;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#6;n#ul#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#strong#0;n#li#1;n#ul#0;n#div#1;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#10;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>

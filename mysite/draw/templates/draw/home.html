@@ -9,122 +9,148 @@
 <script src="/static/js/jquery.min.js"></script>
 <script src="/static/js/d3.min.js"></script>
 <script src="/static/js/utils.js"></script> 
-<script type="text/javascript" src="/static/js/draw.js"></script>
+<script type="text/javascript" src="/static/js/forceLayout.js"></script>
 <script type="text/javascript" src="/static/js/scripts.js"></script>
+
 </head>
 <body>
 	<div class="container">
 		<div class="header">
 			<div class="header-top">
+				<!--<div class="header-top-on"></div>-->
 				<div class="clearfix"> </div>
-				<div class="header-bottom">
-					<div class="top-nav">
-						<span class="menu"> </span>
-						<ul>
-							<li><input type="button" class="btn btn-group" id="plot_graph_btn" value="绘制所有节点" ></li>
-							<li><input type="button" class="btn btn-group" id="plot_hierarchic_btn" value="展示层次布局" ></li>
-							<li class="btn-group dropdown open">
-								<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="设置">
-								<form class="dropdown-menu dropdown-animation settings-form"  method="post">
-										<div class ="clustering_method" style="display:none">
-											<label for="id_clustering_method_0" class="label_head">选择分层方式:</label>
-											<ul id="id_clustering_method">
-												<li><label for="id_clustering_method_0"><input class="clustering_method" id="id_clustering_method_0" name="clustering_method" type="radio" value="modularity"/> 模块度</label></li>
-												<li><label for="id_clustering_method_1"><input class="clustering_method" id="id_clustering_method_1" name="clustering_method" type="radio" value="ip_seg" checked="checked"/> IP地址</label></li>
-											</ul>
-										</div>
-										<div class="choose_ip_seg">
-											<label for="id_choose_ip_seg_0"  class="label_head">选择IP段位:</label>
-											<ul id="id_choose_ip_seg">
-												<li><label for="id_choose_ip_seg_0"><input class="choose_ip_seg" id="id_choose_ip_seg_0" name="choose_ip_seg" type="radio" value="1"/> 1(<font color="red">***</font>.***.***.***)</label></li><br>
-												<li><label for="id_choose_ip_seg_1"><input class="choose_ip_seg" id="id_choose_ip_seg_1" name="choose_ip_seg" type="radio" value="2" checked="checked"/> 2(***.<font color="red">***</font>.***.***)</label></li><br>
-												<li><label for="id_choose_ip_seg_2"><input class="choose_ip_seg" id="id_choose_ip_seg_2" name="choose_ip_seg" type="radio" value="3"/> 3(***.***.<font color="red">***</font>.***)</label></li><br>
-												<li><label for="id_choose_ip_seg_3"><input class="choose_ip_seg" id="id_choose_ip_seg_3" name="choose_ip_seg" type="radio" value="4"/> 4(***.***.***.<font color="red">***</font>)</label></li>
-											</ul>
-										</div>
-										<div class="with_neighbors">
-											<label for="id_choose_ip_seg_0"  class="label_head">是否显示所有邻居节点:</label>
-											<ul id="id_with_neighbors">
-												<li><label for="id_with_neighbors_1"><input class="with_neighbors" id="id_with_neighbors_1" name="with_neighbors" type="radio" value="yes" checked="checked"/> 是</label></li>
-												<li><label for="id_with_neighbors_2"><input class="with_neighbors" id="id_with_neighbors_2" name="with_neighbors" type="radio" value="no"/> 否</label></li>
-											</ul>
-										</div>
-										<input type="button" class="btn btn-group btn-dark submit" id="settings_submit_btn" value="确定">
-									</form>
-							</li>
-							<li class="btn-group dropdown open">
-								<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="查询节点">
-								<form class="dropdown-menu dropdown-animation"  method="post">
-									<label class="control-label">请输入ip:</label><span></span>
-									<input type="text" class="form-control" required="required" id="search_input"/>
-									<label class="control-label">请选择跳数:</label>
-									<input type="number" name="hop" min="0" max={{diameter}} step="1" value="1"/>
-									<input type="button" class="btn btn-group btn-dark submit" id="search_submit_btn" value="确定">
-								</form>
-							</li>
-							<li class="btn-group dropdown open">
-								<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="过滤">
-								<form class="dropdown-menu dropdown-animation"  method="post">
-									<label class="control-label">过滤器(不区分大小写)：</label><span></span>
-									<input type="text" class="form-control" required="required" name="filter" placeholder="例：IP"/>
-									<label class="control-label">过滤条件：</label><span></span>
-									<input type="text" class="form-control" required="required" name="filter_condition" placeholder="例：192.1.*.*"/>
-									<input type="text" class="form-control" required="required" style="display: none"/>
-									<input type="button" class="btn btn-group btn-dark submit" id="filter_submit_btn" value="确定">
-								</form>
-							</li>
-							<li class="btn-group dropdown open">
-								<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="数据操作">
-								<ul class="dropdown-menu dropdown-animation">
-									<li class="btn manage del_node md-trigger">删除节点</li>
-									<li class="btn manage del_edge md-trigger">删除边</li>
-									<li class="btn manage add_node md-trigger">增加节点</li>
-									<li class="btn manage add_edge md-trigger">增加边</li>
-									<li class="btn manage set_important_node md-trigger">设置核心节点</li>
-									<li class="btn manage add_attr md-trigger">增加节点属性</li>
-									<li class="btn manage del_attr md-trigger">删除节点属性</li>
-									</li>
-								</ul>
-							</li>
-							<li class="btn-group dropdown open">
-								<input type="button" class="btn dropdown-toggle saveAs" data-toggle="dropdown" value="下载" >
-							</li>
-						</ul>
-					</div>
-					<div class="search">
-							<!--<iframe id="upload_file_iframe" src="/draw/fileupload/" frameborder="no"></iframe>-->
-							 <form method="POST" enctype="multipart/form-data" id="upload_file_form">
-								{% csrf_token %}
-								<input class="test_form" id="id_upload_file" name="upload_file" type="file" required/>
-								<input type="submit" value="上传" class="btn btn-group btn-dark" id="upload_file_btn">
-							</form>
-							<script  type=text/javascript>
-								var graph_loaded = {{graph_loaded|safe}};
-								var django_data = "";
-								var file_uploaded = false;
-								if(graph_loaded == true){
-									file_uploaded = true;
-									console.log("file status: graph loaded")
-									django_data = {
-										"G" : {{G|safe}} ,
-										"G_parent" : {{G_parent|safe}} ,
-										"G_sub_graphs" : {{G_sub_graphs|safe}} ,
-										"clustering" : {{clustering|safe}}
-										};
-									<!--console.log(django_data['G']);-->
-								}
-								else if(graph_loaded == false){
-									file_uploaded = false;
-									console.log("file status: not load");
-								}
-							</script>
-							<!-- <script src="/static/js/utils.js"></script>  -->
-							<!-- <script type="text/javascript" src="/staticdraw.jst.js"></script> -->
-					</div>
-				<div class="clearfix"> </div>
+			</div>
+			<!---->
+			<div class="header-bottom">
+				<div class="top-nav">
+					<span class="menu"> </span>
+					<ul>
+						<li class="active" ><a href="" >HOME  </a> </li>
+						<li><a href="../StatisticsChart" data-hover="EVENTS" > EVENTS</a></li>
+					</ul>
+					<script>
+					$("span.menu").click(function(){
+						$(".top-nav ul").slideToggle(500, function(){
+						});
+					});
+			</script>
 				</div>
+				<div class="clearfix"> </div>
 			</div>
 		</div>
+	</div>
+	<div class="container">
+		<div class="clearfix"> </div>
+		<div class="header-bottom">
+			<!--<i class="line"> </i>-->
+			<div class="top-nav">
+				<span class="menu"> </span>
+				<ul>
+					<li><input type="button" class="btn btn-group" id="plot_graph_btn" value="绘制所有节点" ></li>
+					<li><input type="button" class="btn btn-group" id="plot_hierarchic_btn" value="展示层次布局" ></li>
+					<li class="btn-group dropdown open">
+						<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="设置">
+						<form class="dropdown-menu dropdown-animation settings-form"  method="post">
+								<div class ="clustering_method" style="display:none">
+									<label for="id_clustering_method_0" class="label_head">选择分层方式:</label>
+									<ul id="id_clustering_method">
+										<li><label for="id_clustering_method_0"><input class="clustering_method" id="id_clustering_method_0" name="clustering_method" type="radio" value="modularity"/> 模块度</label></li>
+										<li><label for="id_clustering_method_1"><input class="clustering_method" id="id_clustering_method_1" name="clustering_method" type="radio" value="ip_seg" checked="checked"/> IP地址</label></li>
+									</ul>
+								</div>
+								<div class="choose_ip_seg">
+									<label for="id_choose_ip_seg_0"  class="label_head">选择IP段位:</label>
+									<ul id="id_choose_ip_seg">
+										<li><label for="id_choose_ip_seg_0"><input class="choose_ip_seg" id="id_choose_ip_seg_0" name="choose_ip_seg" type="radio" value="1"/> 1(<font color="red">***</font>.***.***.***)</label></li><br>
+										<li><label for="id_choose_ip_seg_1"><input class="choose_ip_seg" id="id_choose_ip_seg_1" name="choose_ip_seg" type="radio" value="2" checked="checked"/> 2(***.<font color="red">***</font>.***.***)</label></li><br>
+										<li><label for="id_choose_ip_seg_2"><input class="choose_ip_seg" id="id_choose_ip_seg_2" name="choose_ip_seg" type="radio" value="3"/> 3(***.***.<font color="red">***</font>.***)</label></li><br>
+										<li><label for="id_choose_ip_seg_3"><input class="choose_ip_seg" id="id_choose_ip_seg_3" name="choose_ip_seg" type="radio" value="4"/> 4(***.***.***.<font color="red">***</font>)</label></li>
+									</ul>
+								</div>
+								<div class="with_neighbors">
+									<label for="id_choose_ip_seg_0"  class="label_head">是否显示所有邻居节点:</label>
+									<ul id="id_with_neighbors">
+										<li><label for="id_with_neighbors_1"><input class="with_neighbors" id="id_with_neighbors_1" name="with_neighbors" type="radio" value="yes" checked="checked"/> 是</label></li>
+										<li><label for="id_with_neighbors_2"><input class="with_neighbors" id="id_with_neighbors_2" name="with_neighbors" type="radio" value="no"/> 否</label></li>
+									</ul>
+								</div>
+								<input type="button" class="btn btn-group btn-dark submit" id="settings_submit_btn" value="确定">
+							</form>
+					</li>
+					<li class="btn-group dropdown open">
+						<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="查询节点">
+						<form class="dropdown-menu dropdown-animation"  method="post">
+							<label class="control-label">请输入ip:</label><span></span>
+							<input type="text" class="form-control" required="required" id="search_input"/>
+							<label class="control-label">请选择跳数:</label>
+							<input type="number" name="hop" min="0" max={{diameter}} step="1" value="1"/>
+							<input type="button" class="btn btn-group btn-dark submit" id="search_submit_btn" value="确定">
+						</form>
+					</li>
+					<li class="btn-group dropdown open">
+						<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="过滤">
+						<form class="dropdown-menu dropdown-animation"  method="post">
+							<label class="control-label">过滤器(不区分大小写)：</label><span></span>
+							<input type="text" class="form-control" required="required" name="filter" placeholder="例：IP"/>
+							<label class="control-label">过滤条件：</label><span></span>
+							<input type="text" class="form-control" required="required" name="filter_condition" placeholder="例：192.1.*.*"/>
+							<input type="text" class="form-control" required="required" style="display: none"/>
+							<input type="button" class="btn btn-group btn-dark submit" id="filter_submit_btn" value="确定">
+						</form>
+					</li>
+					<li class="btn-group dropdown open">
+						<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="数据操作">
+						<ul class="dropdown-menu dropdown-animation">
+							<li class="btn manage del_node md-trigger">删除节点</li>
+							<li class="btn manage del_edge md-trigger">删除边</li>
+							<li class="btn manage add_node md-trigger">增加节点</li>
+							<li class="btn manage add_edge md-trigger">增加边</li>
+							<li class="btn manage set_important_node md-trigger">设置核心节点</li>
+							<li class="btn manage add_attr md-trigger">增加节点属性</li>
+							<li class="btn manage del_attr md-trigger">删除节点属性</li>
+							</li>
+						</ul>
+					</li>
+					<li class="btn-group dropdown open">
+						<input type="button" class="btn dropdown-toggle saveAs" data-toggle="dropdown" value="下载" >
+					</li>
+				</ul>
+			</div>
+			<div class="search">
+					<!--<iframe id="upload_file_iframe" src="/draw/fileupload/" frameborder="no"></iframe>-->
+					 <form method="POST" enctype="multipart/form-data" id="upload_file_form">
+						{% csrf_token %}
+						<input class="test_form" id="id_upload_file" name="upload_file" type="file" required/>
+						<input type="submit" value="上传" class="btn btn-group btn-dark" id="upload_file_btn">
+					</form>
+					<script  type=text/javascript>
+						var graph_loaded = {{graph_loaded|safe}};
+						var django_data = "";
+						var file_uploaded = false;
+						if(graph_loaded == true){
+							file_uploaded = true;
+							console.log("file status: graph loaded")
+							django_data = {
+								"G" : {{G|safe}} ,
+								"G_parent" : {{G_parent|safe}} ,
+								"G_sub_graphs" : {{G_sub_graphs|safe}} ,
+								"clustering" : {{clustering|safe}}
+								};
+							<!--console.log(django_data['G']);-->
+						}
+						else if(graph_loaded == false){
+							file_uploaded = false;
+							console.log("file status: not load");
+						}
+					</script>
+					<!-- <script src="/static/js/utils.js"></script>  -->
+					<!-- <script type="text/javascript" src="/staticdraw.jst.js"></script> -->
+			</div>
+
+			<div class="clearfix"> </div>
+
+		</div>
+		<i class="line"> </i>
 	</div>
 	<div class="container">
 		<div class="banner">
@@ -282,6 +308,5 @@
 	<div class="popover-mask">
 		<!--这是一个铺满整个页面的div，当弹出弹框时，页面变灰不可操作-->
 	</div>
-
 </body>
 </html>

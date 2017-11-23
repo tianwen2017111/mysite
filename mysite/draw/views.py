@@ -226,6 +226,7 @@ def download(request):
     print "script: views.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     # f=open('./draw/algo/temp.gml','r')
     f = open(request.session['file_path'], 'r')
+    print request.session['file_path']
     d=f.read()
     f.close()
     return HttpResponse(d, content_type="application/octet-stream")
@@ -265,15 +266,27 @@ def fileupload(request):
     return render(request, 'draw/fileupload.html',
                   {"upload_file_form": upload_file_form})
 
-def test(request):
+
+def StatisticsChart(request):
     if request.method == "POST":
         print request.POST
         clustering_method = request.POST['clustering_method']
         ip_seg = request.POST['choose_ip_seg']
         print clustering_method, ip_seg
-        return render(request, 'draw/test.html', {})
+        return render(request, 'draw/StatisticsChart.html', {})
     else:
         # clustering_method = request.GET['clustering_method']
         # ip_seg = request.GET['choose_ip_seg']
         # print clustering_method, ip_seg
-        return render(request, 'draw/test.html', {})
+        return render(request, 'draw/StatisticsChart.html', {})
+
+def dataTsv(request):
+    print "script: views.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
+    # f=open('./draw/algo/temp.gml','r')
+    tsv_path = os.path.join(settings.STATIC_ROOT, 'data', 'data.tsv')
+    print tsv_path
+    f = open(tsv_path, 'r')
+    d = f.read()
+    f.close()
+    return HttpResponse(d, content_type="text/tab-separated-values")
+    # return HttpResponse("hello world", content_type="text/tab-separated-values")

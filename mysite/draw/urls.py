@@ -7,8 +7,9 @@ from . import views
 urlpatterns = [
     url(r'^home/$', views.home, name='home'),
     url(r'^file/download.gml$', views.download, name='download'),
-    url(r'^test/$', views.test, name='test'),
+    url(r'^StatisticsChart/$', views.StatisticsChart, name='StatisticsChart'),
     url(r'^fileupload/$', views.fileupload, name='fileupload'),
+	url(r'^data.tsv$', views.dataTsv, name='dataTsv'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
