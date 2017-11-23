@@ -121,9 +121,73 @@ $(document).ready(function(){
     /*-------------'过滤'功能的输入验证及实现接口-------------------*/
     $("#filter_submit_btn").click(function(){
         var $filter = $("input:text[name='filter']"),
-            $filter_condition = $("input:text[name='filter_condition']");
-        console.log($filter.val());
-        console.log($filter_condition.val());
+            $filter_condition = $("input:text[name='filter_condition']"),
+            $prev_filter_span = $filter.prev("span"),
+            $prev_filter_condition_span = $filter_condition.prev("span");
+        var filter = $filter.val(),
+            filter_condition = $filter_condition.val(),
+            filter_request = {},
+            IP_string_pattern = /ip/;
+            IP_filter_pattern = /^((?:((?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))|\*)\.){3}((?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))|\*))$/;
+
+        $prev_filter_span.find(".msg").remove();
+        $prev_filter_condition_span.find(".msg").remove();
+        /*-------------'过滤器'的输入验证----------------*/
+        if(filter == ""){
+            errorMsg = "*请输入过滤器"
+            $prev_filter_span.addClass("msg onError").text(errorMsg);
+        }
+        else{
+            $prev_filter_span.text("");
+        }
+
+        /*-------------'过滤条件'的输入验证(此处仅验证是否为空)----------------*/
+        if(filter_condition == ""){
+            errorMsg = "*请输入过滤条件"
+            $prev_filter_condition_span.addClass("msg onError").text(errorMsg);
+        }
+        else{
+            $prev_filter_condition_span.text("");
+        }
+
+        if(filter && filter_condition){
+            if(IP_string_pattern.test(filter)){
+                //如果过滤器为IP，则验证过滤条件
+                if(!IP_filter_pattern.test(filter_condition)){
+                    errorMsg = "*输入错误"
+                    $prev_filter_condition_span.addClass("msg onError").text(errorMsg);
+                }else if(IP_filter_pattern.test(filter_condition)){
+                    filter_request['filter'] = filter;
+                    filter_request['filter_condition'] = filter_condition;
+                }
+            }
+            else{
+                //如果过滤器为其他任意输入，则不验证过滤条件
+                filter_request['filter'] = filter;
+                filter_request['filter_condition'] = filter_condition;
+            }
+        }
+
+        if(!$.isEmptyObject(filter_request)){
+            //当过滤表单的输入均验证通过时，向后台发送用户输入
+            console.log(filter_request);
+            $.post('/draw/home/', filter_request, function(data){
+                if(data['filter_result'] == ''){
+                    alert('无匹配项， 请重新输入');
+                }
+                else{
+                    $("#svg_sub_graph").html("");
+                    Graph = JSON.parse(data['filter_result']);
+                    show_graph_info(Graph);
+                    multi_force(Graph, clustering, 'svg_sub_graph');
+                    $("#svg_graph").hide();
+                    $("#svg_hierarchic").hide();
+                    $("#svg_sub_graph").show();
+                }
+            });//向后台发送数据
+        }
+
+//        console.log(filter_request);
 //        var $prev_span = $(this).prevAll("span");
 //        $prev_span.find(".msg").remove();
 //        var filter_input = $("input:text[name='filter_input']").val(),

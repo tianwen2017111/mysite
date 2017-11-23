@@ -93,9 +93,12 @@ def home(request):
 
         if "filter_condition" in request.POST.keys():
             G = gu.import_graph(request.session['file_path'])
+            filter_name = request.POST['filter']
             filter_condition = request.POST['filter_condition']
-            filter_result = {"filter_result": myfilter(G, filter_condition)}
-
+            print "filter: ", filter_name
+            print "filter_condition: ", filter_condition
+            filter_result = {"filter_result": my_filter(G, filter_name, filter_condition)}
+            # filter_result = {"filter_result":""}
             return HttpResponse(json.dumps(filter_result), content_type="application/json")
 
         if "manage_type" in request.POST.keys():

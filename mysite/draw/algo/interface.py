@@ -116,20 +116,45 @@ def search_node(G, node_label, hop):
 
 
 #------------过滤节点--------------
-def myfilter(G, filter_condition):
+def my_filter(G, filter_name, filter_condition):
+    """
+    
+    :param G: networkx graph
+    :param filter_name: regular expression 
+    :param filter_condition: regular expression
+    :return: 
+    """
     print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     import re
-    filter_pattern = filter_condition.replace('*','(25[0-5]|2[0-4]\d|[01]?\d\d?)').replace('.','\.')
-    p = re.compile('%s'%filter_pattern)
     node_bunch = list()
-    for id in G.nodes():
-        label = G.node[id]['label']
-        if p.match(label):
-            node_bunch.append(id)
+    filter_result = ''
+
+    if filter_name.upper() == "IP":
+        #如果根据IP地址查找，则匹配IP地址的正则表达式
+        IP_filter_pattern = filter_condition.replace('*', '(25[0-5]|2[0-4]\d|[01]?\d\d?)').replace('.', '\.')
+        p = re.compile('%s' % IP_filter_pattern)
+        for id in G.nodes():
+            label = G.node[id]['label']
+            if p.match(label):
+                node_bunch.append(id)
+    else:
+        # print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ", filter_name: ", filter_name
+        # print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ", filter_condition: ", filter_condition
+        filter_name_pattern = re.compile(r'' + filter_name + '', re.I)
+        filter_condition_pattern = re.compile(r'' + filter_condition + '', re.I)
+        for id in G.nodes():
+            node = G.node[id]
+            for attr_key in node.keys():
+                #先匹配过滤器，再匹配过滤条件
+                if filter_name_pattern.match(attr_key) is not None:
+                    if not isinstance(node[attr_key], basestring):
+                        #属性值有可能是int或其他类型（比如id），需将其转换为string，才能进行正则表达式匹配
+                        node[attr_key] = str(node[attr_key])
+                    if filter_condition_pattern.match(node[attr_key]) is not None:
+                        node_bunch.append(id)
+    # print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ", node_bunch: ", node_bunch
     if node_bunch:
         filter_result = nx_to_json(nx.subgraph(G, node_bunch))
-    else:
-        filter_result = ''
     return filter_result
 
 
@@ -303,6 +328,11 @@ def del_attr(G, ip, attr_key):
 if __name__ == '__main__':
     file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\data_copy.gml'
     G = import_graph(file_path)
+
+    # result = my_filter(G, "p.s", "^((0?[1-9])|((1|2)[0-9])|30|31)$")
+    # result = my_filter(G, "p.s", "^\d{2,3}$")
+    result = my_filter(G, "^co[a-z]{3}$", "^r.d$")
+
     # search_node(G, "127.3.175.96", 3)
     # temp_G = copy.deepcopy(G)
     # result = my_add_node(G,'192.168.8.9')
@@ -311,5 +341,6 @@ if __name__ == '__main__':
     # print result
     # add_attr(G, '128.0.0.143', "pos", "sfr")
     # print G.node[0]
-    attr_keys = ['pos']
-    del_attr(G, '128.0.0.143', attr_keys)
+
+    # attr_keys = ['pos']
+    # del_attr(G, '128.0.0.143', attr_keys)
