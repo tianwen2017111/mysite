@@ -46,14 +46,14 @@ h1,h2,h3,h4,h5,h6,label,p{
 	margin:10px;
 }
 .header {
-	padding: 0 1em;
+	/*padding: 0 1em;*/
 	border-bottom:3px solid #6d6d6d;
 }
 .logo {
 	float:left;
 }
 .header-top {
-	padding: 2em 0 0;
+	padding: 1.2em 0;
 }
 .header-top-on{
 	float:right;
@@ -113,12 +113,13 @@ ul.social-in li  i.youtube:hover{
 	position: relative;
 	display: inline-block;
 	-webkit-transition: 0.5s all;
-	margin: 0 1em 0 0;
+	padding: 6px 20px;
+	margin: 0 1.7em;
 	outline: none;
 	color: #838383;
     background-color: white;
 	text-decoration: none;
-	letter-spacing: 2px;
+	letter-spacing: 4px;
 	text-shadow: 0 0 1px rgba(255,255,255,0.3);
 	font-size: 1.6em;
 	border:none;
@@ -130,9 +131,20 @@ ul.social-in li  i.youtube:hover{
 
 .top-nav ul li a{
     font-size: 24px;
-	margin: 0;
-	padding: 6px 12px;
+	margin-right: 3em;
+	padding: 0 1em;
 	text-align: center;
+}
+.top-nav ul li a span{
+    height: 28px;
+	width: 28px;
+	background: url(../images/img-sprite.png) no-repeat -319px -15px;
+	display: inline-block;
+	margin: 0 0.5em 0 0;
+	vertical-align: bottom;
+}
+.top-nav ul li a:hover{
+    color:black;
 }
 .top-nav ul li input[type="button"]::before {
 	/*color: #000;
@@ -262,7 +274,7 @@ ul.social-in li  i.youtube:hover{
 /****************************created by tianwen********************************/
 .btn{
     text-align: center;
-    padding: 6px 12px;
+    padding: 6px 15px;
     line-height: 1.42857143;
     border-radius:5px;
     margin: 0;
@@ -774,20 +786,21 @@ a.details {
 .axis text {
     font: 10px sans-serif;
 }
-
 .axis path,
 .axis line {
     fill: none;
     stroke: #000;
     shape-rendering: crispEdges;
 }
-
 .bar {
     fill: steelblue;
     fill-opacity: .9;
 }
-
 .x.axis path {
     display: none;
 }
-
+.chart{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #b5b5b5;
+}

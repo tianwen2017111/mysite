@@ -1,7 +1,7 @@
 $(document).ready(function(){
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 650 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
 var formatPercent = d3.format(".0%");
 
@@ -20,7 +20,7 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .tickFormat(formatPercent);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#histogram").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
