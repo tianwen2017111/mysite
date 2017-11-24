@@ -272,9 +272,11 @@ def charts(request):
 
 def dataTsv(request):
     print "script: views.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
-    tsv_path = os.path.join(settings.STATIC_ROOT, 'data', 'data.tsv')
+    tsv_path = os.path.join(settings.STATIC_ROOT, 'data', 'data.csv')
+    # tsv_path = os.path.join(settings.STATIC_ROOT, 'data', 'data.tsv')
     print tsv_path
     f = open(tsv_path, 'r')
     d = f.read()
     f.close()
-    return HttpResponse(d, content_type="text/tab-separated-values")
+    # return HttpResponse(d, content_type="text/tab-separated-values")
+    return HttpResponse(d, content_type="text/csv")

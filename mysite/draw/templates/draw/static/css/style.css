@@ -800,7 +800,23 @@ a.details {
     display: none;
 }
 .chart{
+    width: 640px;
+    height: 450px;
     border-style: solid;
     border-width: 2px;
     border-color: #b5b5b5;
+    margin: 0 1em;
+}
+.chart label{
+    float: right;
+}
+path.slice{
+	stroke-width:2px;
+}
+
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
 }

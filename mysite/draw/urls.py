@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^home/$', views.home, name='home'),
     url(r'^charts/$', views.charts, name='charts'),
     url(r'^file/download.gml$', views.download, name='download'),
-    url(r'^data.tsv$', views.dataTsv, name='dataTsv'),
+    url(r'^data.csv$', views.dataTsv, name='dataTsv'),
     url(r'^fileupload/$', views.fileupload, name='fileupload'),
 ]
 
