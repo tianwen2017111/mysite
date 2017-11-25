@@ -66,7 +66,6 @@ function set_IMP_C(imp_node, clustering, graph_nodes){
     }
 }
 
-
 //标准化图的格式
 function std_graph(Graph, cls){
 //    console.log("__func__: std_graph()");

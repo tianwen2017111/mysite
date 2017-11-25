@@ -79,8 +79,11 @@ def clustering_by_ip(G, ip_seg=2):
         if is_ip(vtx['label']):
             std_ip[vtx['id']] = vtx['label']
         else:
-            std_ip[vtx['id']] = unicode(socket.inet_ntoa(struct.pack("=l", int(vtx['label']))))
-
+            try:
+                std_ip[vtx['id']] = unicode(socket.inet_ntoa(struct.pack("=l", int(vtx['label']))))
+            except:
+                print "第", id, "个节点ip地址错误"
+        # print std_ip
         ip_segs = [ip.split('.') for ip in std_ip.values()] #取出ip地址中的字节
 
     # "根据ip地址区间划分社团"
@@ -187,7 +190,7 @@ def clustering_by_ip(G, ip_seg=2):
 
 
 if __name__ == '__main__':
-    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\mysite\media\upload\ip_test.gml'
+    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\ip_test.gml'
     G = import_graph(file_path)
     c = clustering_by_ip(G)
 

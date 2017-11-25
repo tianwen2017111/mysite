@@ -1,13 +1,15 @@
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 640 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var margin = {top: 20, right: 20, bottom: 30, left: 40};
+
 $(document).ready(function(){
     sortable_bar_chart("#bar", "../data.csv");
     pie_chart("#pie", "../data.csv");
-
+    table_chart("#table", "../data.csv", degree_detail);
+    $("tr:odd").addClass("tr_odd");
 });
 
 function sortable_bar_chart(svg_id, data){
+    width = 740 - margin.left - margin.right,
+    height = 440 - margin.top - margin.bottom;
     var formatPercent = d3.format(".0%");
 
     var x = d3.scale.ordinal().rangeRoundBands([0, width], .1, 1);
@@ -67,7 +69,6 @@ function sortable_bar_chart(svg_id, data){
 
         function change() {
             clearTimeout(sortTimeout);
-
             // Copy-on-write since tweens are evaluated after a delay.
             var x0 = x.domain(data.sort(this.checked
                         ? function(a, b) { return b.frequency - a.frequency; }
@@ -94,9 +95,11 @@ function sortable_bar_chart(svg_id, data){
 }
 
 function pie_chart(svg_id, data){
-    var m = 10,
-        r = 100,
-        z = d3.scale.category20c();
+    width = 440 - margin.left - margin.right,
+    height = 440 - margin.top - margin.bottom;
+    var m = 20,
+        r = Math.min(width,height)/2.3,
+        color = d3.scale.category20c();
 
     // Define a pie layout: the pie angle encodes the count of flights. Since our
     // data is stored in CSV, the counts are strings which we coerce to numbers.
@@ -125,8 +128,6 @@ function pie_chart(svg_id, data){
                     .style("width", width)
                     .style("height", height)
                     .append("svg")
-//                    .attr("width", (r + m) * 2)
-//                    .attr("height", (r + m) * 2)
                     .attr("width", width)
                     .attr("height", height)
                     .append("g")
@@ -147,7 +148,7 @@ function pie_chart(svg_id, data){
         // Add a colored arc path, with a mouseover title showing the count.
         g.append("path")
             .attr("d", arc)
-            .style("fill", function(d) { return z(d.data.count); })
+            .style("fill", function(d) { return color(d.data.degree); })
             .append("title")
             .text(function(d) {return d.data.degree + ": " + d.data.count; });
 
@@ -165,3 +166,32 @@ function pie_chart(svg_id, data){
         }
     });
 }
+
+function table_chart(svg_id, data, data_detail){
+    data = d3.csv(data, function(error, data){
+        for(var i=0; i<data.length; i++){
+            var tr = $("<tr></tr>");
+            tr.appendTo(svg_id);
+            var td = $("<td>" + data[i].degree +"</td>" + "<td>"+ data[i].count + "</td>" + "<td>" + data_detail[data[i].degree] + "</td>");
+            td.appendTo(tr);
+        }
+        $("tr:odd").css("background-color", "#eeeeee");
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

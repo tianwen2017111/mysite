@@ -34,14 +34,26 @@
         <div class="banner">
             <div class="banner-top"></div>
             <div class="banner-bottom">
-                    <div class="chart">
-                    <div class="svg img-responsive" id="bar">
-                        <!--<label><input type="checkbox"> Sort values</label>-->
+                <div class="chart">
+                    <div class="svg" id="bar">
+                        <label><input type="checkbox"> 按大小排列</label>
                     </div>
-                    <div class="svg img-responsive" id="pie"></div>
-                    </div>
+                    <div class="svg" id="pie" ></div>
+                </div>
+                <div class="table">
+                    <table id="table">
+                        <tr>
+                            <th style="width:200px">节点的度</th>
+                            <th style="width:200px">数目</th>
+                            <th style="width:900px">id列表</th>
+                        </tr>
+                    </table>
+                    <script type="text/javascript">
+                        var degree_detail = {{degree_detail|safe}};
+                        console.log(degree_detail);
+                    </script>
+                </div>
             </div>
-
         </div>
     </div>
 </body>

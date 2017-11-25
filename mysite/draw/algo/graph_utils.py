@@ -55,8 +55,27 @@ def import_graph(filepath):
         import os
     except ImportError:
         raise ImportError('The program requires os')
+    try:
+        import socket
+    except ImportError:
+        raise ImportError('The program requires socket')
+
+    try:
+        import struct
+    except ImportError:
+        raise ImportError('The program requires struct')
     G = networkx.read_gml(filepath)
-    # G = networkx.read_graphml(filepath)
+    error_node_list = []
+    for id in G.node:
+        vtx = G.node[id]
+        if not is_ip(vtx['label']):
+            try:
+                vtx['label'] = unicode(socket.inet_ntoa(struct.pack("=l", int(vtx['label']))))
+            except:
+                print "第", vtx['id'], "个节点ip地址错误"
+                error_node_list.append(vtx['id'])
+    for id in error_node_list:
+        G.remove_node(id)
     return G
 
 
@@ -134,7 +153,30 @@ def check_edge_exist(G, source, target):
         return False
 
 
+def write_csv(filepath, data, title=None):
+    """Write data in csv format to the file path.
+
+        Parameters
+        ----------
+
+            filepath (filename) : string
+                The filename to write.
+
+            title : list 
+               The name of each column. It will be writen in the first line. 
+
+            data : dict or list or set
+    """
+    import csv
+    csvfile = open(filepath, 'wb')
+    writer = csv.writer(csvfile)
+    if title is not None:
+        writer.writerow(title)
+    writer.writerows(list(data.iteritems()))
+    csvfile.close()
+
+
 if __name__ == '__main__':
-    G=import_graph(r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\data.gml')
-    check_edge_exist(G, 0, 55)
-    # find_node_id(G, '128.0.0.143')
+    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\ip_test.gml'
+    G = import_graph(file_path)
+# find_node_id(G, '128.0.0.143')

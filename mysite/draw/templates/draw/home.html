@@ -27,17 +27,21 @@
 					</ul>
 				</div>
 				<div class="search">
-							<!--<iframe id="upload_file_iframe" src="/draw/fileupload/" frameborder="no"></iframe>-->
-							 <form method="POST" enctype="multipart/form-data" id="upload_file_form">
-								{% csrf_token %}
-								<input class="test_form" id="id_upload_file" name="upload_file" type="file" required/>
-								<input type="submit" value="上传" class="btn btn-group btn-dark" id="upload_file_btn">
-							</form>
-							<script  type=text/javascript>
-								var graph_loaded = {{graph_loaded|safe}};
-								var django_data = "";
-								var file_uploaded = false;
-								if(graph_loaded == true){
+					<!--<iframe id="upload_file_iframe" src="/draw/fileupload/" frameborder="no"></iframe>-->
+					 <form method="POST" enctype="multipart/form-data" id="upload_file_form">
+						{% csrf_token %}
+						<input class="test_form" id="id_upload_file" name="upload_file" type="file" required/>
+
+						<input type="submit" value="上传" class="btn btn-group btn-dark" id="upload_file_btn">
+					</form>
+					<script  type=text/javascript>
+							var graph_loaded = {{graph_loaded|safe}};
+							var django_data = "";
+							var file_uploaded = false;
+							if(graph_loaded == true){
+								if({{G|safe}} == ""){
+									alert("文件错误，请重新上传");
+								}else{
 									file_uploaded = true;
 									console.log("file status: graph loaded")
 									django_data = {
@@ -46,16 +50,16 @@
 										"G_sub_graphs" : {{G_sub_graphs|safe}} ,
 										"clustering" : {{clustering|safe}}
 										};
-									<!--console.log(django_data['G']);-->
+										console.log(django_data['G']);
 								}
-								else if(graph_loaded == false){
-									file_uploaded = false;
-									console.log("file status: not load");
-								}
-							</script>
-							<!-- <script src="/static/js/utils.js"></script>  -->
-							<!-- <script type="text/javascript" src="/staticdraw.jst.js"></script> -->
-					</div>
+
+							}
+							else if(graph_loaded == false){
+								file_uploaded = false;
+								console.log(" file status: not load");
+							}
+					</script>
+				</div>
 				<div class="clearfix"> </div>
 			</div>
 		</div>

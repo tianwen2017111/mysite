@@ -39,6 +39,7 @@ def home(request):
             graph_loaded = "true"
             file = upload_file_form.cleaned_data['upload_file']
             file_path = os.path.join(settings.MEDIA_ROOT, 'upload', file.name)
+            # if os.path.splitext(file_path)[-1] == '.gml':
             request.session['file_path'] = file_path
             upload_file = UploadFile()
             if os.path.exists(file_path):
@@ -53,25 +54,31 @@ def home(request):
                 upload_file.filename = file.name
                 upload_file.save()
             file_path = request.session['file_path']
-            G = gu.import_graph(file_path)
-            clustering_method = "ip_seg"
-            choose_ip_seg = 2
-            largest_cc = max(nx.connected_components(G), key=len) #求最大连通点
-            cc_graph = nx.subgraph(G, largest_cc) #最大连通子图
-            d = nx.diameter(cc_graph) #最大连通子图的直径
-            G_parent, G_sub_graphs, clustering = find_community(G=G,
-                                                               algorithm=clustering_method,
-                                                               ip_seg=choose_ip_seg,
-                                                               with_neighbors=True)
-            context = {
-                "upload_file_form": upload_file_form,
-                "graph_loaded": graph_loaded,
-                "G": gu.nx_to_json(G),
-                "G_parent": G_parent,
-                "G_sub_graphs": G_sub_graphs,
-                "clustering": clustering,
-                "diameter": d
-            }
+            try:
+                G = gu.import_graph(file_path)
+                clustering_method = "ip_seg"
+                choose_ip_seg = 2
+                largest_cc = max(nx.connected_components(G), key=len) #求最大连通点
+                cc_graph = nx.subgraph(G, largest_cc) #最大连通子图
+                d = nx.diameter(cc_graph) #最大连通子图的直径
+                G_parent, G_sub_graphs, clustering = find_community(G=G,
+                                                                   algorithm=clustering_method,
+                                                                   ip_seg=choose_ip_seg,
+                                                                   with_neighbors=True)
+                context = {
+                    "upload_file_form": upload_file_form,
+                    "graph_loaded": graph_loaded,
+                    "G": gu.nx_to_json(G),
+                    "G_parent": G_parent,
+                    "G_sub_graphs": G_sub_graphs,
+                    "clustering": clustering,
+                    "diameter": d
+                }
+            except:
+                context = set_empty_context()
+                context['graph_loaded'] = "true"
+            # else:
+            #     context = {"error": "file_type_error"}
             return render(request, 'draw/home.html', context=context)
         if "clustering_method" in request.POST.keys():
             context = setting_form_response(request)
@@ -88,8 +95,6 @@ def home(request):
             search_result = {"search_result": search_sub_graph,
                              "hop_nbunch" : json.dumps(hop_nbunch)}
             return HttpResponse(json.dumps(search_result), content_type="application/json")
-
-
 
         if "filter_condition" in request.POST.keys():
             G = gu.import_graph(request.session['file_path'])
@@ -215,8 +220,8 @@ def set_empty_context():
         "graph_loaded": "false",
         "G": json.dumps(""),
         "G_parent": json.dumps(""),
-        "G_sub_graphs": "",
-        "clustering": "",
+        "G_sub_graphs": json.dumps(""),
+        "clustering": json.dumps(""),
         "diameter": 0
     }
     return empty_context
@@ -269,10 +274,10 @@ def fileupload(request):
 def charts(request):
     print "script: views.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
     csv_file_path = os.path.join(settings.STATIC_ROOT, 'data', 'data.csv')
-
     G = import_graph(request.session['file_path'])
-    write_csv(csv_file_path, statistic_pro(G), ['degree', 'count'])
-    return render(request, 'draw/charts.html')
+    write_csv(csv_file_path, degree_hist(G), ['degree', 'count'])
+    context = {"degree_detail": json.dumps(nodes_degree(G))}
+    return render(request, 'draw/charts.html', context=context)
 
 
 def dataTsv(request):

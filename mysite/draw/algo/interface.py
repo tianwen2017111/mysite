@@ -327,7 +327,7 @@ def del_attr(G, ip, attr_key):
     return result
 
 
-def statistic_pro(G):
+def degree_hist(G):
     degree_dict = dict()
     hist = nx.degree_histogram(G)
     for i, value in enumerate(hist):
@@ -336,33 +336,25 @@ def statistic_pro(G):
     return degree_dict
 
 
-def write_csv(filepath, data, title=None):
-    """Write data in csv format to the file path.
-        
-        Parameters
-        ----------
-        
-            filepath (filename) : string
-                The filename to write.
-    
-            title : list 
-               The name of each column. It will be writen in the first line. 
-    
-            data : dict or list or set
-    """
-    import csv
-    csvfile = open(filepath, 'wb')
-    writer = csv.writer(csvfile)
-    if title is not None:
-        writer.writerow(title)
-    writer.writerows(list(data.iteritems()))
-    csvfile.close()
+def nodes_degree(G):
+    degree_count = dict()
+    G_degree =G.degree()
+    # print G_degree
+    for id, degree in G_degree.items():
+        if degree_count.has_key(degree):
+            degree_count[degree].append(id)
+        else:
+            degree_count[degree] = [id];
+    # print degree_count
+    return degree_count
+
+
 
 
 if __name__ == '__main__':
     file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\test.gml'
     G = import_graph(file_path)
-
+    nodes_degree(G)
     # result = my_filter(G, "p.s", "^((0?[1-9])|((1|2)[0-9])|30|31)$")
     # result = my_filter(G, "p.s", "^\d{2,3}$")
     # result = my_filter(G, "^co[a-z]{3}$", "^r.d$")
@@ -379,5 +371,5 @@ if __name__ == '__main__':
     # attr_keys = ['pos']
     # del_attr(G, '128.0.0.143', attr_keys)
 
-    hist = statistic_pro(G)
-    write_csv("C:\Users\yutianwen\Desktop\data.csv", hist, title=['degree','count'])
+    # hist = degree_hist(G)
+    # write_csv("C:\Users\yutianwen\Desktop\data.csv", hist, title=['degree','count'])
