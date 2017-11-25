@@ -267,14 +267,20 @@ def fileupload(request):
 
 
 def charts(request):
-    return render(request, 'draw/charts.html', {"string:" : "hello world!"})
+    print "script: views.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
+    csv_file_path = os.path.join(settings.STATIC_ROOT, 'data', 'data.csv')
+
+    G = import_graph(request.session['file_path'])
+    write_csv(csv_file_path, statistic_pro(G), ['degree', 'count'])
+    return render(request, 'draw/charts.html')
 
 
 def dataTsv(request):
     print "script: views.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
+
     tsv_path = os.path.join(settings.STATIC_ROOT, 'data', 'data.csv')
     # tsv_path = os.path.join(settings.STATIC_ROOT, 'data', 'data.tsv')
-    print tsv_path
+    # print tsv_path
     f = open(tsv_path, 'r')
     d = f.read()
     f.close()

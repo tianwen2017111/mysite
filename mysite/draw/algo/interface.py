@@ -251,6 +251,7 @@ def my_add_edge(G, source_ip, target_ip):
     return result
 
 
+#------------增加节点属性------------------
 def add_attr(G, ip, attr_key, attr_value):
     """Set a node's attributes from dictionary of nodes and values
 
@@ -288,6 +289,7 @@ def add_attr(G, ip, attr_key, attr_value):
     return result
 
 
+#------------删除节点属性------------------
 def del_attr(G, ip, attr_key):
     """Delete a node's attribute
 
@@ -325,13 +327,45 @@ def del_attr(G, ip, attr_key):
     return result
 
 
+def statistic_pro(G):
+    degree_dict = dict()
+    hist = nx.degree_histogram(G)
+    for i, value in enumerate(hist):
+        if value != 0:
+            degree_dict[i] = value
+    return degree_dict
+
+
+def write_csv(filepath, data, title=None):
+    """Write data in csv format to the file path.
+        
+        Parameters
+        ----------
+        
+            filepath (filename) : string
+                The filename to write.
+    
+            title : list 
+               The name of each column. It will be writen in the first line. 
+    
+            data : dict or list or set
+    """
+    import csv
+    csvfile = open(filepath, 'wb')
+    writer = csv.writer(csvfile)
+    if title is not None:
+        writer.writerow(title)
+    writer.writerows(list(data.iteritems()))
+    csvfile.close()
+
+
 if __name__ == '__main__':
-    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\data_copy.gml'
+    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\test.gml'
     G = import_graph(file_path)
 
     # result = my_filter(G, "p.s", "^((0?[1-9])|((1|2)[0-9])|30|31)$")
     # result = my_filter(G, "p.s", "^\d{2,3}$")
-    result = my_filter(G, "^co[a-z]{3}$", "^r.d$")
+    # result = my_filter(G, "^co[a-z]{3}$", "^r.d$")
 
     # search_node(G, "127.3.175.96", 3)
     # temp_G = copy.deepcopy(G)
@@ -344,3 +378,6 @@ if __name__ == '__main__':
 
     # attr_keys = ['pos']
     # del_attr(G, '128.0.0.143', attr_keys)
+
+    hist = statistic_pro(G)
+    write_csv("C:\Users\yutianwen\Desktop\data.csv", hist, title=['degree','count'])
