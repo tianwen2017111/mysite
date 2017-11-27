@@ -54,37 +54,6 @@ def find_community(G, algorithm, ip_seg=2, with_neighbors=True):
     return G_parent, G_sub_graphs, json.dumps(clustering)
 
 
-#------------从数据库中查询ip信息---------------
-# def checkIpInfo(request):
-#     print "script: interface.py,  lineNumber:", sys._getframe().f_lineno, ",  func:", sys._getframe().f_code.co_name
-#     ip = request.GET['ip']
-
-    # t = ipInfo.objects.filter(ip=ip)
-    # if len(t) == 0:
-    #     ip_info = 'no record!'
-    # else:
-    #     ip_info = t[0].information
-    # info = {"info": ip_info}
-    # return info
-    # import sqlite3, os
-    # ip = '1'
-    # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    # db_file = os.path.join(BASE_DIR, 'test.db')
-    # cx = sqlite3.connect(db_file)
-    # cu = cx.cursor()
-    # cu.execute("select ip from ip")
-    # res = cu.fetchall()
-    #
-    # print 'row:', cu.rowcount
-    # print 'desc:', cu.description
-    # for line in res:
-    #     # print line
-    #     if ip in line:
-    #         print line
-    # cu.close()
-    # cx.close()
-
-
 #------------"查询节点"功能---------
 def search_node(G, node_label, hop):
     result = ''
@@ -113,6 +82,8 @@ def search_node(G, node_label, hop):
                 hop_nbunch[hop_iter] = list(set(nbunch[hop_iter]).difference(nbunch[hop_iter-1]))
             result = nx_to_json(nx.subgraph(G, nbunch[hop]))
     return result, hop_nbunch
+
+
 
 
 #------------过滤节点--------------
@@ -348,13 +319,37 @@ def nodes_degree(G):
     # print degree_count
     return degree_count
 
+#------------从数据库中查询ip信息---------------
+def checkIpInfo(ip, db_file_path):
+    try:
+        import sqlite3
+    except ImportError:
+        raise ImportError('The program requires sqlite3')
 
-
+    cx = sqlite3.connect(db_file_path)
+    cu = cx.cursor()
+    try:
+        cu.execute("SELECT * FROM IPINFO WHERE IP=?", (ip,))
+        res = cu.fetchall()
+        print res
+        for line in res:
+            if ip in line:
+                ip_info = line[2]
+            else:
+                ip_info = 'no record!'
+        cu.close()
+        cx.close()
+        info = {"info": ip_info}
+    except:
+        print "No table"
+    return info
 
 if __name__ == '__main__':
     file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\test.gml'
     G = import_graph(file_path)
-    nodes_degree(G)
+    r = checkIpInfo('128.0.0.143', r'G:\git\mysite\test.db')
+    print r
+    # nodes_degree(G)
     # result = my_filter(G, "p.s", "^((0?[1-9])|((1|2)[0-9])|30|31)$")
     # result = my_filter(G, "p.s", "^\d{2,3}$")
     # result = my_filter(G, "^co[a-z]{3}$", "^r.d$")

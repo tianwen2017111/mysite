@@ -149,5 +149,5 @@ STATICFILES_DIRS = (
 )
 
 if __name__ == '__main__':
-    print TEMPLATES
+    print BASE_DIR
     print MEDIA_ROOT
