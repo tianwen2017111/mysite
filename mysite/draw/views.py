@@ -112,27 +112,6 @@ def home(request):
             return HttpResponse(json.dumps(context), content_type="application/json")
 
 
-# def checkIpInfo(request):
-#     try:
-#         import sqlite3
-#     except ImportError:
-#         raise ImportError('The program requires sqlite3')
-#     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#     db_file = os.path.join(BASE_DIR, 'test.db')
-#     ip = request.GET['check_ip']
-#     # def getIpInfo
-#     cx = sqlite3.connect(db_file)
-#     cu = cx.cursor()
-#     cu.execute("SELECT" + ip + " from sqlite_master WHERE TYPE='table' ")
-#     res = cu.fetchall()
-#
-#     print 'row:', cu.rowcount
-#     print 'desc:', cu.description
-#     ip_info = 'no record!'
-#     info = {"info": ip_info}
-#     return info
-
-
 def setting_form_response(request):
     clustering_method = request.POST['clustering_method']
     choose_ip_seg = int(request.POST['choose_ip_seg'])

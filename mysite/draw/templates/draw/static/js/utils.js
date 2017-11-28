@@ -208,8 +208,8 @@ function set_color(color_number){
 //    console.log("__func__ : set_color()");
     var color = [];
      if(color_number>MAX_GROUP){
-        for(var i=0;i<MAX_GROUP; i++){
-            color[i] = "#000000";
+        for(var i=0;i<color_number; i++){
+            color[i] = "#454077";
         }
         alert("聚类数目太多，建议修改聚类方法");
     }
@@ -218,9 +218,10 @@ function set_color(color_number){
         c2 = d3.scale.category20b();
         for(var i=0; i<20; i++){
             color[i] = c1(i);
-            color[i*2] = c2(i);
+            color[i+20] = c2(i);
         }
     }
+    console.log(color);
     return color;
 }
 

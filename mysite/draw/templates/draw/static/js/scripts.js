@@ -43,8 +43,8 @@ $(document).ready(function(){
     $("#settings_submit_btn").click(function(){
         console.log("__Do__: settings");
         var form_data = {};
-//        form_data["clustering_method"] = $(":radio[name='clustering_method']:checked").val();
-        form_data["clustering_method"] = "ip_seg";
+        form_data["clustering_method"] = $(":radio[name='clustering_method']:checked").val();
+//        form_data["clustering_method"] = "ip_seg";
         form_data["choose_ip_seg"] = $(":radio[name='choose_ip_seg']:checked").val();
         form_data["with_neighbors"] = $(":radio[name='with_neighbors']:checked").val();
         console.log(form_data);
@@ -186,40 +186,6 @@ $(document).ready(function(){
                 }
             });//向后台发送数据
         }
-
-//        console.log(filter_request);
-//        var $prev_span = $(this).prevAll("span");
-//        $prev_span.find(".msg").remove();
-//        var filter_input = $("input:text[name='filter_input']").val(),
-//            filter_request = {};
-//        var filter_pattern = /^((?:((?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))|\*)\.){3}((?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))|\*))$/;
-//
-//        if(filter_input == ""){
-//            errorMsg = "*请输入过滤条件"
-//            $prev_span.addClass("msg onError").text(errorMsg);
-//        }
-//        else if(!filter_pattern.test(filter_input)){
-//            errorMsg = "*输入错误"
-//            $prev_span.addClass("msg onError").text(errorMsg);
-//        }else if(filter_pattern.test(filter_input)){
-//            $prev_span.addClass("msg onSuccess").text("输入正确");
-//            filter_request['filter_condition'] = filter_input;
-//            console.log("__Do__ : filter nodes, filter_condition: " + filter_input);
-//            $.post('/draw/home/', filter_request, function(data){
-//                if(data['filter_result'] == ''){
-//                    alert('无匹配项， 请重新输入');
-//                }
-//                else{
-//                    $("#svg_sub_graph").html("");
-//                    Graph = JSON.parse(data['filter_result']);
-//                    show_graph_info(Graph);
-//                    multi_force(Graph, clustering, 'svg_sub_graph');
-//                    $("#svg_graph").hide();
-//                    $("#svg_hierarchic").hide();
-//                    $("#svg_sub_graph").show();
-//                }
-//            });//向后台发送数据
-//        }
     });
 
     /*-------------'数据操作'的弹框效果----------------*/
@@ -459,7 +425,7 @@ $(document).ready(function(){
     });
 
     /*-------------设置表单内部的显示与隐藏--------------------*/
-    /*$(":radio[name='clustering_method']").each(function(){
+    $(":radio[name='clustering_method']").each(function(){
             $(this).click(function(){
                 var cm = $(this).val();
                 if(cm == 'modularity'){
@@ -469,6 +435,6 @@ $(document).ready(function(){
                     $('.choose_ip_seg').show();
                 };
             });
-        })*/
+        })
 
 });

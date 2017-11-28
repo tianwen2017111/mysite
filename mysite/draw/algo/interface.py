@@ -347,8 +347,9 @@ def checkIpInfo(ip, db_file_path):
 if __name__ == '__main__':
     file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\test.gml'
     G = import_graph(file_path)
-    r = checkIpInfo('128.0.0.143', r'G:\git\mysite\test.db')
-    print r
+    find_community(G, 'modularity')
+    # r = checkIpInfo('128.0.0.143', r'G:\git\mysite\test.db')
+    # print r
     # nodes_degree(G)
     # result = my_filter(G, "p.s", "^((0?[1-9])|((1|2)[0-9])|30|31)$")
     # result = my_filter(G, "p.s", "^\d{2,3}$")

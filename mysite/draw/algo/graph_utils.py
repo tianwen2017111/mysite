@@ -32,6 +32,7 @@ def modularity(G, clustering):
     for vtx, adj in G.edge.iteritems():
         label = clustering[vtx]
         for neighbor in adj.keys():
+            # print label , clustering[neighbor]
             if label == clustering[neighbor]:
                 e += 1
             if label not in cluster_degree_dict:
@@ -177,6 +178,8 @@ def write_csv(filepath, data, title=None):
 
 
 if __name__ == '__main__':
-    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\ip_test.gml'
+    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\data.gml'
     G = import_graph(file_path)
+    # clstr = range(1,62)
+    # c = modularity(G, clstr)
 # find_node_id(G, '128.0.0.143')

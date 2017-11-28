@@ -55,7 +55,10 @@ def clustering_by_modularity(G, iterations=5):
 
     max_modularity = max(clustering.keys())
     final_clustering = map_vtx_to_label(clustering.get(max_modularity))
-    return final_clustering
+    clstr = dict()
+    for idx, c in enumerate(final_clustering):
+        clstr[idx] = c
+    return clstr
 
 
 def clustering_by_ip(G, ip_seg=2):
@@ -190,9 +193,13 @@ def clustering_by_ip(G, ip_seg=2):
 
 
 if __name__ == '__main__':
-    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\ip_test.gml'
+    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\data.gml'
     G = import_graph(file_path)
+
     c = clustering_by_ip(G)
+    d = clustering_by_modularity(G)
+    # print c
+    # print d
 
 
 
