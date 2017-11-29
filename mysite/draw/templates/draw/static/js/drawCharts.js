@@ -108,7 +108,7 @@ function pie_chart(svg_id, data){
                 .sort(function(a, b) { return b.count - a.count; });
 
     // Define an arc generator. Note the radius is specified here, not the layout.
-    var arc = d3.svg.arc().innerRadius(r / 2).outerRadius(r);
+    var arc = d3.svg.arc().innerRadius(0).outerRadius(r);
 
     // Load the flight data asynchronously.
     d3.csv(data, function(error, flights) {
@@ -134,10 +134,10 @@ function pie_chart(svg_id, data){
                     .attr("transform", "translate(" + (r + m) + "," + (r + m) + ")");
 
         // Add a label for the airport. The `key` comes from the nest operator.
-        svg.append("text")
-           .attr("dy", ".35em")
-           .attr("text-anchor", "middle")
-           .text("degree");
+//        svg.append("text")
+//           .attr("dy", ".35em")
+//           .attr("text-anchor", "middle")
+//           .text("degree");
 
         // Pass the nested per-airport values to the pie layout. The layout computes
         // the angles for each arc. Another g element will hold the arc and its label.

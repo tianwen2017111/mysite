@@ -1,7 +1,7 @@
 var isfileChanged = false; //全局变量，监控文件是否被修改
 
 $(document).ready(function(){
-
+    console.log("isfileChanged:  " + isfileChanged);
     /*----------------文件是否上传的验证-------------*/
     if(django_data == ""){
         $("#plot_graph_btn, #plot_hierarchic_btn, #settings_submit_btn, #search_submit_btn, #filter_submit_btn").click(function(){
@@ -10,7 +10,6 @@ $(document).ready(function(){
         });
     }
     else{
-
         graph_show(django_data);
     }
 
@@ -208,8 +207,8 @@ $(document).ready(function(){
             if($this.hasClass("add_edge")){
                  $('#add_edge_div').slideDown(200);
             }
-            if($this.hasClass("set_important_node")){
-                 $('#set_important_node_div').slideDown(200);
+            if($this.hasClass("set_center_node")){
+                 $('#set_center_node_div').slideDown(200);
             }
             if($this.hasClass("add_attr")){
                  $('#add_attr_div').slideDown(200);
@@ -253,7 +252,6 @@ $(document).ready(function(){
             var errorMsg = "输入不能为空";
             $next.addClass("msg onError").text(errorMsg);
         }
-
     });
 
     /*----------‘删除节点属性’功能中复选框的显示与隐藏-----------*/
@@ -303,7 +301,7 @@ $(document).ready(function(){
         var $this = $(this);
         var $parent = $this.closest("div.md-popover");
         var manage_request = {};
-
+        
         if( $parent.hasClass('del_node')){
             $val = $this.parent().prev().find('.form-control').val();
             if(ip_ret.test($val)){
@@ -394,7 +392,7 @@ $(document).ready(function(){
 
 
     /*-----------'设置中心节点'的实现----------------*/
-    $("#set_important_node_div input.btn.ep_submit").click(function(){
+    $("#set_center_node_div input.btn.ep_submit").click(function(){
         var $this = $(this);
         var $hint = $this.closest(".pop-body").find("span");
         $hint.find(".msg").remove();
@@ -410,7 +408,7 @@ $(document).ready(function(){
         }
         else  if(ip_ret.test($val)){
             $('.popover-mask').fadeOut(100);
-            $("#set_important_node_div").slideUp(200);
+            $("#set_center_node_div").slideUp(200);
             var errorMsg = "输入正确";
             $hint.addClass("msg onSuccess").text(errorMsg);
 //            temp_IMP_node = $val;

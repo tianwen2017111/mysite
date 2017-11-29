@@ -73,7 +73,7 @@ def import_graph(filepath):
             try:
                 vtx['label'] = unicode(socket.inet_ntoa(struct.pack("=l", int(vtx['label']))))
             except:
-                print "第", vtx['id'], "个节点ip地址错误"
+                print vtx['id'], " IP error"
                 error_node_list.append(vtx['id'])
     for id in error_node_list:
         G.remove_node(id)

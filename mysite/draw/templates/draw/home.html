@@ -70,8 +70,8 @@
 			<div class="top-nav">
 				<span class="menu"> </span>
 				<ul>
-					<li><input type="button" class="btn btn-group" id="plot_graph_btn" value="绘制所有节点" ></li>
-					<li><input type="button" class="btn btn-group" id="plot_hierarchic_btn" value="展示层次布局" ></li>
+					<li><input type="button" class="btn btn-group" id="plot_graph_btn" value="网络布局" ></li>
+					<li><input type="button" class="btn btn-group" id="plot_hierarchic_btn" value="层次布局" ></li>
 					<li class="btn-group dropdown open">
 						<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="设置">
 						<form class="dropdown-menu dropdown-animation settings-form"  method="post">
@@ -103,7 +103,7 @@
 							</form>
 					</li>
 					<li class="btn-group dropdown open">
-						<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="查询节点">
+						<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="查询">
 						<form class="dropdown-menu dropdown-animation"  method="post">
 							<label class="control-label">请输入ip:</label><span></span>
 							<input type="text" class="form-control" required="required" id="search_input"/>
@@ -130,7 +130,7 @@
 							<li class="btn manage del_edge md-trigger">删除边</li>
 							<li class="btn manage add_node md-trigger">增加节点</li>
 							<li class="btn manage add_edge md-trigger">增加边</li>
-							<li class="btn manage set_important_node md-trigger">设置核心节点</li>
+							<li class="btn manage set_center_node md-trigger">设置中心节点</li>
 							<li class="btn manage add_attr md-trigger">增加节点属性</li>
 							<li class="btn manage del_attr md-trigger">删除节点属性</li>
 							</li>
@@ -248,10 +248,10 @@
 			</ul>
 		</div>
 	</div>
-	<div class="md-popover set_important_node" id="set_important_node_div">
+	<div class="md-popover set_center_node" id="set_center_node_div">
 		<div class="pop-title">
 			<span class="close thick"></span>
-			<h4>设置核心节点</h4>
+			<h4>设置中心节点</h4>
 		</div>
 		<div class="pop-body">
 			<ul>

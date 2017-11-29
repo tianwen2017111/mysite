@@ -325,18 +325,19 @@ def checkIpInfo(ip, db_file_path):
         import sqlite3
     except ImportError:
         raise ImportError('The program requires sqlite3')
-
     cx = sqlite3.connect(db_file_path)
     cu = cx.cursor()
     try:
         cu.execute("SELECT * FROM IPINFO WHERE IP=?", (ip,))
         res = cu.fetchall()
-        print res
-        for line in res:
-            if ip in line:
-                ip_info = line[2]
-            else:
-                ip_info = 'no record!'
+        if res:
+            for line in res:
+                if ip in line:
+                    ip_info = line[2]
+                else:
+                    ip_info = '无该节点记录'
+        else:
+            ip_info = '无该节点记录'
         cu.close()
         cx.close()
         info = {"info": ip_info}

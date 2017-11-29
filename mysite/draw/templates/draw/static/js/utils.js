@@ -221,7 +221,6 @@ function set_color(color_number){
             color[i+20] = c2(i);
         }
     }
-    console.log(color);
     return color;
 }
 

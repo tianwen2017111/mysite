@@ -19,7 +19,7 @@ def home(request):
         print "script: views.py,  lineNumber: ", sys._getframe().f_lineno, ",  request.GET: ", request.GET
         if "check_ip" in request.GET.keys():
             ip = request.GET['check_ip']
-            db_file_path = os.path.join(settings.BASE_DIR, 'test.db')
+            db_file_path = os.path.join(settings.BASE_DIR, 'graph.db')
             info = checkIpInfo(ip, db_file_path)
             return HttpResponse(json.dumps(info), content_type="application/json")
         upload_file_form = UploadFileForm()

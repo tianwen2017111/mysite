@@ -114,7 +114,7 @@ ul.social-in li  i.youtube:hover{
 	display: inline-block;
 	-webkit-transition: 0.5s all;
 	padding: 6px 20px;
-	margin: 0 1.7em;
+	margin: 0 2em;
 	outline: none;
 	color: #838383;
     background-color: white;
@@ -801,7 +801,7 @@ a.details {
 }
 .chart{
     width: 1300px;
-    height: 450px;
+    height: 460px;
     border-style: solid;
     border-width: 2px;
     border-color: #b5b5b5;
@@ -824,7 +824,7 @@ polyline{
 	stroke-width: 2px;
 	fill: none;
 }
-.table{
+table{
     width: 1300px;
     border-style: solid;
     border-width: 2px;
@@ -839,3 +839,13 @@ td, th{
     text-align: center;
     height: 60px;
 }
+.table p {
+    margin-left: 630px;
+    font-size: 1.2em;
+}
+/*
+.chart p{
+    display: inline;
+    position: relative;
+    left: 100px;
+}*/
