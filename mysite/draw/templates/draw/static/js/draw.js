@@ -4,14 +4,15 @@ var yScale = d3.scale.linear().domain([0,height]).range([0, height]);
 var foci = [];
 
 function swap_foci(foci, svg_center, IMP_C){
-//    console.log("__func__ : swap_foci(), " + "important node list: " + IMP_C);
+    console.log("__func__ : swap_foci(), " + "important node list: " + IMP_C);
     if(IMP_C){
         for(var i=0; i<IMP_C.length ;i++){
-            console.log("i:  " + i);
+//            console.log("i:  " + i);
             var skew = Math.floor((i+1)/2);
-            console.log("svg_center:  " + svg_center);
-            console.log("skew:  " + skew);
-            console.log("IMP_C[i]:  " + IMP_C[i]);
+//            console.log("svg_center:  " + svg_center);
+//            console.log("skew:  " + skew);
+//            console.log("IMP_C[i]:  " + IMP_C[i]);
+            console.log("old_center_class: " + svg_center + ", new_center_class: " + IMP_C[i]);
             if(i % 2 == 0){
                 foci = swap_arr(foci, svg_center-skew, IMP_C[i]);
             }

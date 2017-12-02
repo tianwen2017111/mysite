@@ -75,23 +75,23 @@
 					<li class="btn-group dropdown open">
 						<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" value="设置">
 						<form class="dropdown-menu dropdown-animation settings-form"  method="post">
-								<div class ="clustering_method">
-								<!--<div class ="clustering_method" style="display:none">-->
-									<label for="id_clustering_method_0" class="label_head">选择分层方式:</label>
-									<ul id="id_clustering_method">
-										<li><label for="id_clustering_method_0"><input class="clustering_method" id="id_clustering_method_0" name="clustering_method" type="radio" value="modularity"/> 模块度</label></li>
-										<li><label for="id_clustering_method_1"><input class="clustering_method" id="id_clustering_method_1" name="clustering_method" type="radio" value="ip_seg" checked="checked"/> IP地址</label></li>
-									</ul>
-								</div>
-								<div class="choose_ip_seg">
-									<label for="id_choose_ip_seg_0"  class="label_head">选择IP段位:</label>
-									<ul id="id_choose_ip_seg">
-										<li><label for="id_choose_ip_seg_0"><input class="choose_ip_seg" id="id_choose_ip_seg_0" name="choose_ip_seg" type="radio" value="1"/> 1(<font color="red">***</font>.***.***.***)</label></li><br>
-										<li><label for="id_choose_ip_seg_1"><input class="choose_ip_seg" id="id_choose_ip_seg_1" name="choose_ip_seg" type="radio" value="2" checked="checked"/> 2(***.<font color="red">***</font>.***.***)</label></li><br>
-										<li><label for="id_choose_ip_seg_2"><input class="choose_ip_seg" id="id_choose_ip_seg_2" name="choose_ip_seg" type="radio" value="3"/> 3(***.***.<font color="red">***</font>.***)</label></li><br>
-										<li><label for="id_choose_ip_seg_3"><input class="choose_ip_seg" id="id_choose_ip_seg_3" name="choose_ip_seg" type="radio" value="4"/> 4(***.***.***.<font color="red">***</font>)</label></li>
-									</ul>
-								</div>
+							<div class ="clustering_method">
+							<!--<div class ="clustering_method" style="display:none">-->
+								<label for="id_clustering_method_0" class="label_head">选择分层方式:</label>
+								<ul id="id_clustering_method">
+									<li><label for="id_clustering_method_0"><input class="clustering_method" id="id_clustering_method_0" name="clustering_method" type="radio" value="modularity"/> 模块度</label></li>
+									<li><label for="id_clustering_method_1"><input class="clustering_method" id="id_clustering_method_1" name="clustering_method" type="radio" value="ip_seg" checked="checked"/> IP地址</label></li>
+								</ul>
+							</div>
+							<div class="choose_ip_seg">
+								<label for="id_choose_ip_seg_0"  class="label_head">选择IP段位:</label>
+								<ul id="id_choose_ip_seg">
+									<li><label for="id_choose_ip_seg_0"><input class="choose_ip_seg" id="id_choose_ip_seg_0" name="choose_ip_seg" type="radio" value="1"/> 1(<font color="red">***</font>.***.***.***)</label></li><br>
+									<li><label for="id_choose_ip_seg_1"><input class="choose_ip_seg" id="id_choose_ip_seg_1" name="choose_ip_seg" type="radio" value="2" checked="checked"/> 2(***.<font color="red">***</font>.***.***)</label></li><br>
+									<li><label for="id_choose_ip_seg_2"><input class="choose_ip_seg" id="id_choose_ip_seg_2" name="choose_ip_seg" type="radio" value="3"/> 3(***.***.<font color="red">***</font>.***)</label></li><br>
+									<li><label for="id_choose_ip_seg_3"><input class="choose_ip_seg" id="id_choose_ip_seg_3" name="choose_ip_seg" type="radio" value="4"/> 4(***.***.***.<font color="red">***</font>)</label></li>
+								</ul>
+							</div>
 								<div class="with_neighbors">
 									<label for="id_choose_ip_seg_0"  class="label_head">是否显示所有邻居节点:</label>
 									<ul id="id_with_neighbors">
@@ -192,6 +192,7 @@
 				<!--<form method="post">-->
 					<li><label class="control-label">标签：</label></li>
 					<li><input type="text" class="form-control ip" required="required" placeholder="输入节点IP"/><span></span></li>
+					<li></li>
 					<li>
 						<input class="btn btn-dark submit" type="button" value="删除"/>
 						<input class="btn cancel" type="button" value="取消"/>
@@ -209,6 +210,7 @@
 			<ul>
 				<li><strong>源节点：</strong><input type="text" class="form-control ip source" placeholder="输入节点IP"/><span></span></li>
 				<li><strong>目的节点：</strong><input type="text" class="form-control  ip target" placeholder="输入节点IP"/><span></span></li>
+				<li></li>
 				<li>
 					<input class="btn btn-dark submit" type="button" value="删除"/>
 					<input class="btn cancel" type="button" value="取消"/>
@@ -225,6 +227,7 @@
 			<ul>
 				<li><label class="control-label">标签</label></li>
 				<li><input type="text" class="form-control ip" placeholder="输入节点IP"/><span></span></li>
+				<li></li>
 				<li>
 					<input class="btn btn-dark submit" type="button" value="确定"/>
 					<input class="btn cancel" type="button" value="取消"/>
@@ -241,6 +244,7 @@
 			<ul>
 				<li><strong>源节点：</strong><input type="text" class="form-control ip source" placeholder="输入节点IP"/><span></span></li>
 				<li><strong>目的节点：</strong><input type="text" class="form-control ip target" placeholder="输入节点IP"/><span></span></li>
+				<li></li>
 				<li>
 					<input class="btn btn-dark submit" type="button" value="确定"/>
 					<input class="btn cancel" type="button" value="取消"/>
@@ -257,6 +261,7 @@
 			<ul>
 				<li><label class="control-label">标签</label></li>
 				<li><input type="text" class="form-control ip" placeholder="输入节点"/><span></span></li>
+				<li id="error_msg"></li>
 				<li>
 					<input class="btn btn-dark ep_submit" type="button" value="确定"/>
 					<input class="btn cancel" type="button" value="取消"/>
@@ -274,6 +279,7 @@
 				<li><strong>节点IP：</strong><input type="text" class="form-control ip" placeholder="输入节点IP"/><span></span></li>
 				<li><strong>属性名：</strong><input type="text" class="form-control key" placeholder="输入属性名"/><span></span></li>
 				<li><strong>属性值：</strong><input type="text" class="form-control value" placeholder="输入属性值"/><span></span></li>
+				<li></li>
 				<li>
 					<input class="btn btn-dark submit" type="button" value="确定"/>
 					<input class="btn cancel" type="button" value="取消"/>
@@ -290,7 +296,8 @@
 			<ul>
 				<li><strong>节点IP：</strong><input type="text" class="form-control ip" placeholder="输入节点IP"/><span></span></li>
 				<li><strong style="display:none">属性列表：</strong><div id="ckb"></div></li>
-				<!--<li><strong>属性名：</strong><input type="text" class="form-control key" placeholder="输入属性名"/><span></span></li>-->
+				<li></li>
+				<!--<div id="ckb"></div>-->
 				<li>
 					<input class="btn btn-dark submit" type="button" value="删除"/>
 					<input class="btn cancel" type="button" value="取消"/>

@@ -94,15 +94,17 @@ $(document).ready(function(){
             $prev_span.addClass("msg onError").text(errorMsg);
         }
         else if(ip_ret.test(search_input)){
-            $prev_span.addClass("msg onSuccess").text("*输入正确");
+//            $prev_span.addClass("msg onSuccess").text("*输入正确");
             search_data['search_ip'] = search_input;
             search_data['hop'] = $("input[name='hop']").val();
             console.log("__Do__ : search_ip" + ", search : " +search_data['search_ip'] + ", hop : " + search_data['hop']);
             $.post('/draw/home/', search_data, function(data){
                 if(data['search_result'] == ''){
-                    alert('无此ip， 请重新输入');
+//                    alert('无此ip， 请重新输入');
+                    $prev_span.removeClass("onSuccess").addClass("msg onError").text('无此节点， 请重新输入');
                 }
                 else{
+                    $prev_span.text("");
                     $("#svg_sub_graph").html("");
                     Graph = JSON.parse(data['search_result']);
                     show_graph_info(Graph);
@@ -172,7 +174,8 @@ $(document).ready(function(){
             console.log(filter_request);
             $.post('/draw/home/', filter_request, function(data){
                 if(data['filter_result'] == ''){
-                    alert('无匹配项， 请重新输入');
+//                    alert('无匹配项， 请重新输入');
+                    $prev_filter_condition_span.addClass("onError").text("无匹配项， 请重新输入");
                 }
                 else{
                     $("#svg_sub_graph").html("");
@@ -256,19 +259,25 @@ $(document).ready(function(){
 
     /*----------‘删除节点属性’功能中复选框的显示与隐藏-----------*/
     $("#del_attr_div input.form-control").blur(function(){
-        var $this = $(this);
+        var $this = $(this),
+            $prev = $("#ckb").prev("strong");
+//            $next = $("#ckb").parent().next("li");
+//            console.log($next);
         var $ip = $.trim($this.val());
         var temp_nodes = django_data['G'].nodes;
         var attr_num = 0;
+        console.log($ip);
         if($ip == ''){
             //如果输入为空，则隐藏复选框
-            $("#ckb").prev("strong").hide();
+            $prev.hide();
             $("#ckb").empty();
         }
         else{
             //否则动态显示可删除的属性，并改变div高度
             for(i=0; i<temp_nodes.length; i++){
                 if(temp_nodes[i]['label'] == $ip){
+//                    $next.text("");
+                    console.log(temp_nodes[i]);
                     var attr_key_arr = '';
                     for(var key in temp_nodes[i]){
                         //遍历该节点属性
@@ -279,12 +288,12 @@ $(document).ready(function(){
                         }
                     }
                     if(attr_num == 0){
-                        $("#ckb").prev("strong").hide();
+                        $prev.hide();
                         $("#ckb").html("该节点无可删除的属性").css("font-size", '18px');
                         $("#del_attr_div").height(330);
                     }
                     else{
-                        $("#ckb").prev("strong").show();//显示"属性列表"文本
+                        $prev.show();//显示"属性列表"文本
                         $("#ckb").empty().append(attr_key_arr);//显示可删除的属性选项
                         if(attr_num > 2){
                             //动态增加div高度，以适应文本变化
@@ -298,12 +307,13 @@ $(document).ready(function(){
 
     /*----------'数据操作'的实现接口-----------*/
     $(".pop-body input.btn.submit").click(function(){
-        var $this = $(this);
-        var $parent = $this.closest("div.md-popover");
+        var $this = $(this),
+            $parent = $this.closest("div.md-popover");
+//            $prev_li =  $this.parent("li").prev("li");
         var manage_request = {};
-        
+
         if( $parent.hasClass('del_node')){
-            $val = $this.parent().prev().find('.form-control').val();
+            $val = $this.parent().prevAll().find('.form-control').val();
             if(ip_ret.test($val)){
                 manage_request['manage_type'] = 'del_node';
                 manage_request['ip'] = $val;
@@ -312,7 +322,7 @@ $(document).ready(function(){
 
         else if( $parent.hasClass('del_edge')){
             $source = $this.parent().prevAll().find('.source').val();
-            $target = $this.parent().prev().find('.target').val();
+            $target = $this.parent().prevAll().find('.target').val();
             if(ip_ret.test($source) && ip_ret.test($target)){
                 manage_request['manage_type'] = 'del_edge';
                 manage_request['source'] = $source;
@@ -321,7 +331,7 @@ $(document).ready(function(){
         }
 
         else if( $parent.hasClass('add_node')){
-            $val = $this.parent().prev().find('.form-control').val();
+            $val = $this.parent().prevAll().find('.form-control').val();
             if(ip_ret.test($val)){
                 manage_request['manage_type'] = 'add_node';
                 manage_request['ip'] = $val;
@@ -330,7 +340,7 @@ $(document).ready(function(){
 
         else if( $parent.hasClass('add_edge')){
             $source = $this.parent().prevAll().find('.source').val();
-            $target = $this.parent().prev().find('.target').val();
+            $target = $this.parent().prevAll().find('.target').val();
             if(ip_ret.test($source) && ip_ret.test($target)){
                 manage_request['manage_type'] = 'add_edge';
                 manage_request['source'] = $source;
@@ -356,8 +366,12 @@ $(document).ready(function(){
             $('input[name="attr_list"]:checked').each(function(){
                 $key.push($(this).next().text());
             });
-            if($key.length == 0){}
-           else if(ip_ret.test($ip)){
+            if($key.length == 0){
+                manage_request['manage_type'] = 'del_attr';
+                manage_request['ip'] = $ip;
+                manage_request['attr_key'] = "";
+            }
+            else if(ip_ret.test($ip)){
                 manage_request['manage_type'] = 'del_attr';
                 manage_request['ip'] = $ip;
                 manage_request['attr_key'] = $key;
@@ -369,7 +383,9 @@ $(document).ready(function(){
             jQuery.ajaxSettings.traditional = true;
             $.post('/draw/home/', manage_request, function(data){
                 if("error" in data){
-                    alert(data['error']);
+                    errorMsg = data['error'];
+                    alert(errorMsg);
+//                    $prev_li.addClass(".msg onError").text(errorMsg);
                 }
                 else{
                     isfileChanged = true;
@@ -395,9 +411,10 @@ $(document).ready(function(){
     $("#set_center_node_div input.btn.ep_submit").click(function(){
         var $this = $(this);
         var $hint = $this.closest(".pop-body").find("span");
+        var $prev_li =  $this.parent("li").prev("li");
         $hint.find(".msg").remove();
-        var $val = $this.parent().prev().find('.form-control').val();
-
+        var $val = $this.parent().prevAll().find('.form-control').val();
+        console.log($val);
         if($val == ""){
             var errorMsg = "请输入IP";
             $hint.addClass("msg onError").text(errorMsg);
@@ -407,18 +424,27 @@ $(document).ready(function(){
             $hint.addClass("msg onError").text(errorMsg);
         }
         else  if(ip_ret.test($val)){
-            $('.popover-mask').fadeOut(100);
-            $("#set_center_node_div").slideUp(200);
-            var errorMsg = "输入正确";
-            $hint.addClass("msg onSuccess").text(errorMsg);
-//            temp_IMP_node = $val;
-            IMP_node = $val;
-//            IMP_C = "";
-
-            $("#svg_graph").html("");
-            $("#svg_hierarchic").html("");
-            $("#svg_sub_graph").html("");
-            graph_show(django_data);
+            var temp_IMP_C;
+            $.each(django_data['G']['nodes'],function(idx,item){
+                if(item.label == $val){
+                    temp_IMP_C = clustering[idx];
+                }
+            });
+            if(temp_IMP_C == undefined){
+                $("#error_msg").addClass(".msg onError").text("无此节点，请重新输入");
+            }else{
+                $("#error_msg").text("");
+                $('.popover-mask').fadeOut(100);
+                $("#set_center_node_div").slideUp(200);
+                var errorMsg = "输入正确";
+                $hint.addClass("msg onSuccess").text(errorMsg);
+                IMP_node = $val;
+    //            console.log(IMP_node);
+                $("#svg_graph").html("");
+                $("#svg_hierarchic").html("");
+                $("#svg_sub_graph").html("");
+                graph_show(django_data);
+            }
         }
     });
 
@@ -434,5 +460,7 @@ $(document).ready(function(){
                 };
             });
         })
+
+
 
 });

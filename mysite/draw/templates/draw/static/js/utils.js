@@ -60,8 +60,9 @@ function set_IMP_C(imp_node, clustering, graph_nodes){
     });
     console.log(temp_IMP_C);
     if(temp_IMP_C == undefined){
-        alert("无此节点，请重新输入");
+        $("#error_msg").addClass(".msg onError").text("无此节点，请重新输入");
     }else{
+        $("#error_msg").text("");
         IMP_C.push(temp_IMP_C);
     }
 }
