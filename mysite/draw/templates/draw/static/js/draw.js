@@ -362,6 +362,7 @@ function selectableForceDirectedGraph(Graph, svg_id) {
 }
 
 function multi_force(Graph, clustering, svg_id, special_nodes){
+
 //    console.log(IMP_C);
     console.log("__func__: muti_force()");
 
@@ -568,6 +569,7 @@ function multi_force(Graph, clustering, svg_id, special_nodes){
         link.call(updateLink);
 
         anchorLink.call(updateLink);
+
     });
 
 
@@ -687,12 +689,7 @@ function multi_force(Graph, clustering, svg_id, special_nodes){
         brush.select('.background').style('cursor', 'auto')
         svg_graph.call(zoomer);
     }
-//}
-//    Graph = undefined;
-//    console.log("-------------------Graph------------------");
-//    console.log(Graph);
-//    console.log("-------------------graph------------------");
-//    console.log(graph);
+
 }
 
 function show_graph_info(graph){

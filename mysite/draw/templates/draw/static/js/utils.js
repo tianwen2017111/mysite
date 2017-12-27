@@ -25,6 +25,7 @@ function graph_show(django_data){
 	    std_G_parent = parent_add_attr(django_data['G_parent'], clustering, G_parent_label);
 
         multi_force(std_G, clustering, "svg_graph");
+
         selectableForceDirectedGraph(std_G_parent, "svg_hierarchic");
         $("#svg_graph").hide();
         $("#svg_hierarchic").hide();

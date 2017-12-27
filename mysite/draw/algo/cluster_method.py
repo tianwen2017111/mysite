@@ -193,11 +193,24 @@ def clustering_by_ip(G, ip_seg=2):
 
 
 if __name__ == '__main__':
-    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\data.gml'
+    from time import time
+    import datetime
+    file_path = r'G:\study\2017\fifty_seven\ComplexNetwork\data_set\data1000.gml'
     G = import_graph(file_path)
+    start_time = time()
+    d = clustering_by_ip(G)
+    end_time = time()
+    print start_time
+    print end_time
+    print end_time - start_time
+    # start_time = datetime.datetime.now()
+    # d = clustering_by_modularity(G)
+    # end_time = datetime.datetime.now()
+    # print start_time
+    # print end_time
+    # print (end_time - start_time).seconds
 
-    c = clustering_by_ip(G)
-    d = clustering_by_modularity(G)
+    # c = clustering_by_ip(G)
     # print c
     # print d
 
