@@ -1,4 +1,4 @@
-package pcap;
+package dev;
 
 
 import java.io.File;
@@ -15,16 +15,17 @@ import org.jnetpcap.protocol.lan.Ethernet;
 import org.jnetpcap.protocol.tcpip.Tcp;
 
 
-public class ExtractFeature {
+public class ReadPcap {
 	static long lastTime = 0;
 	static double transRate = 0;
 	static long lastNumber = 0;
 
 	public static void outputToFile(String filename, long frameno,long time,double IAT,int size,double rate){
-		File framaInfoFile = new File(filename);
+		File frameInfoFile = new File(filename);
+		
 		try {
-			framaInfoFile.createNewFile();
-			FileWriter writer = new FileWriter(framaInfoFile, true);   
+			frameInfoFile.createNewFile();
+			FileWriter writer = new FileWriter(frameInfoFile, true);   
 			String strFrame = String.format("Frame No: %-4d, Epoch Time = %d , IAT = %f ,"
 					+ "Frame Size = %-4d ,Trans Rate = %f  \n",
 					frameno,time,IAT,size,rate);
@@ -36,16 +37,12 @@ public class ExtractFeature {
 		}
 	} 
 	
-	public static void main(String[] args){
-
-		final String DATA_PATH = "G:/git/graduate/data_set/";
-		final String FILE_NAME = DATA_PATH +"jzp.pcap";	
-		final String OUTPUT_FILE_NAME = "Feature/jzp.txt";
+	public static void readPcap(String filename, String outputFilename){
 		StringBuilder errbuf = new StringBuilder(); //For any error msgs
 		
 		/*------------------------ 打开文件 ------------------------*/  
-		System.out.println(Thread.currentThread().getStackTrace()[1].getLineNumber() + ",  " + FILE_NAME);
-		Pcap pcap = Pcap.openOffline(FILE_NAME, errbuf);
+		System.out.println(Thread.currentThread().getStackTrace()[1].getLineNumber() + ",  " + filename);
+		Pcap pcap = Pcap.openOffline(filename, errbuf);
 		
 		if(pcap == null){
 			System.err.printf("Error while opening file for capture" + errbuf.toString());
@@ -84,27 +81,44 @@ public class ExtractFeature {
 	
 				long frameNumber = packet.getFrameNumber();
 				long time = packet.getCaptureHeader().timestampInMicros();
-//				int ack = packet.getCaptureHeader()
-				System.out.println(tcp);
 	
 				if((frameNumber -lastNumber) == 1){
 					
 					double IAT = (double) ((time - lastTime)/(1000000.0*(frameNumber - lastNumber)));
 					int  frameSize = packet.getCaptureHeader().wirelen();
 					transRate = frameSize / IAT;
-//					outputToFile(OUTPUT_FILE_NAME, frameNumber, time, IAT, frameSize,transRate);
+					//将解析的数据写入文件
+					outputToFile(outputFilename, frameNumber, time, IAT, frameSize,transRate);
 //					System.out.printf("Line number: %d, Frame No: %d, time: %d, lastTime: %d, IAT: %f\n", 
 //							 		   Thread.currentThread().getStackTrace()[1].getLineNumber()
 //							 		   , frameNumber, time, lastTime, IAT);
-					break;
+					
 				}//end if((frameNumber -lastNumber) == 1)
 	
 				lastTime = time;
 				lastNumber = frameNumber;
-
+				
+				if(frameNumber == 50)
+					break;
+				
 			}//end if(packet.hasHeader(tcp))
-		
+			
 		}//end while
-	pcap.close();
+	pcap.close();		
+	
+	} 
+	
+	public static void main(String[] args){
+
+		final String DATA_PATH = "G:/git/graduate/data_set/";
+		final String FILE_NAME = DATA_PATH +"jzp.pcap";	
+		final String OUTPUT_FILE_NAME = "Data/jzp.txt";
+		
+		File outputFile = new File(OUTPUT_FILE_NAME);
+		if(outputFile.exists()){
+			outputFile.delete();
+		}
+		readPcap(FILE_NAME, OUTPUT_FILE_NAME);
 	}//end main
+	
 }//end class
